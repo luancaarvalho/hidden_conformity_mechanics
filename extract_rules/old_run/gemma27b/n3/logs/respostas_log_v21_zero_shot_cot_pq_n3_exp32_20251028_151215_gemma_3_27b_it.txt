@@ -1,0 +1,130 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151215 ===
+Experimento ID: 32
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:12:15
+
+[PERF] Input tokens: 324 | Output tokens: 54 | Tempo: 1.80s | TPS: 209.8
+STATS: Total tokens: 118877, Avg TPS: 179.6, Requests: 337
+Timestamp: 2025-10-28 15:12:17
+Temperatura: 0.0
+Vizinhos: Left: ['p'], Right: ['p']
+Tentativa: 1
+Resposta completa: the group overwhelmingly supports opinion 'p'. as the central opinion holder, aligning with the majority fosters cohesion and simplifies decision-making. there's no need to deviate as there’s a clear consensus. maintaining my current position reinforces this agreement.
+
+[p]
+Escolha detectada: p
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 156 | Tempo: 4.29s | TPS: 111.8
+STATS: Total tokens: 119776, Avg TPS: 179.1, Requests: 339
+Timestamp: 2025-10-28 15:12:21
+Temperatura: 0.0
+Vizinhos: Left: ['p'], Right: ['q']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘p’ opinions and one ‘q’ opinion. i currently hold a ‘p’ opinion, placing me in the middle. a simple majority exists for 'p'. maintaining group cohesion is important, and siding with the majority seems most likely to achieve that. while my initial position is 'p', confirming it aligns with the larger group strengthens the decision-making process.
+
+1. reasoning: given the distribution of opinions – two supporting ‘p’ and one supporting ‘q’ – aligning with ‘p’ represents the majority view. as someone in a middle position, reinforcing the existing majority fosters consensus and avoids creating further division. it's generally more productive to build upon shared viewpoints than to challenge them without strong justification.
+
+[p]
+Escolha detectada: p
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 91 | Tempo: 2.61s | TPS: 159.1
+STATS: Total tokens: 120716, Avg TPS: 178.4, Requests: 341
+Timestamp: 2025-10-28 15:12:24
+Temperatura: 0.0
+Vizinhos: Left: ['p'], Right: ['p']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘p’ opinions and one ‘q’ opinion. i currently hold a ‘q’ opinion, placing me in the middle. a simple majority favors 'p'. while sticking to my original opinion is an option, aligning with the majority often fosters better group cohesion and facilitates decision-making. given the clear preference for 'p', switching would likely be more productive than remaining isolated with the minority view.
+
+[p]
+Escolha detectada: p
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 164 | Tempo: 4.46s | TPS: 109.3
+STATS: Total tokens: 121204, Avg TPS: 177.9, Requests: 342
+Timestamp: 2025-10-28 15:12:28
+Temperatura: 0.0
+Vizinhos: Left: ['p'], Right: ['q']
+Tentativa: 1
+Resposta completa: key factors: there are two 'q' opinions and one 'p' opinion. i currently hold a 'q' opinion and am in the middle position. supporting the majority ('q') fosters group cohesion and simplifies decision-making. while my initial inclination is to stick with my current opinion, acknowledging the stronger representation of 'q' seems strategically sound for reaching consensus.
+
+1. reasoning: given the distribution of opinions – two leaning towards ‘q’ and one towards ‘p’ – aligning with the majority demonstrates consideration for others and increases the likelihood of a unified decision. as i am currently holding ‘q’, reinforcing this position strengthens the group's overall inclination without requiring anyone to change their stance drastically. this approach prioritizes collaboration over individual preference, which is beneficial in a group setting.
+
+[q]
+Escolha detectada: q
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 80 | Tempo: 2.35s | TPS: 171.8
+STATS: Total tokens: 122144, Avg TPS: 177.2, Requests: 344
+Timestamp: 2025-10-28 15:12:30
+Temperatura: 0.0
+Vizinhos: Left: ['q'], Right: ['p']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘p’ opinions and one ‘q’ opinion. i currently hold a ‘p’ opinion, placing me in the middle. a simple majority favors 'p'. maintaining group cohesion is important, and siding with the majority seems like the most effective approach given the limited information. changing my opinion would create a split rather than reinforcing a clear direction.
+
+[p]
+Escolha detectada: p
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 113 | Tempo: 3.14s | TPS: 139.0
+STATS: Total tokens: 122581, Avg TPS: 177.1, Requests: 345
+Timestamp: 2025-10-28 15:12:34
+Temperatura: 0.0
+Vizinhos: Left: ['q'], Right: ['q']
+Tentativa: 1
+Resposta completa: the group has two 'q' opinions and one 'p' opinion (my current opinion). as the middle opinion, i can either reinforce the minority view ('p') or align with the majority ('q'). reinforcing 'p' won’t change the outcome but could encourage further discussion. however, given the clear 2:1 split, aligning with 'q' is more likely to foster group cohesion and a quicker decision – even if it means conceding my initial position. therefore, i will switch my opinion to match the majority.
+
+[q]
+Escolha detectada: q
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 84 | Tempo: 2.43s | TPS: 167.7
+STATS: Total tokens: 123545, Avg TPS: 176.3, Requests: 347
+Timestamp: 2025-10-28 15:12:36
+Temperatura: 0.0
+Vizinhos: Left: ['q'], Right: ['p']
+Tentativa: 1
+Resposta completa: key factors: there are two 'q' opinions and one 'p' opinion. i currently hold a 'q' opinion and am in the middle position. supporting 'q' would create a majority. while respecting differing viewpoints is important, aligning with the majority often leads to smoother outcomes and greater group cohesion. given my current stance and the distribution of opinions, reinforcing the existing trend seems logical.
+
+[q]
+Escolha detectada: q
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 64 | Tempo: 1.88s | TPS: 206.9
+STATS: Total tokens: 123933, Avg TPS: 176.4, Requests: 348
+Timestamp: 2025-10-28 15:12:38
+Temperatura: 0.0
+Vizinhos: Left: ['q'], Right: ['q']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors opinion ‘q’ with all other participants selecting it. as the middle opinion, aligning with the majority demonstrates consensus-building and avoids isolation. there's no tie to break; a clear preference exists. maintaining current opinion 'q' reinforces this alignment and promotes group cohesion.
+
+[q]
+Escolha detectada: q
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 22.99 segundos (0.4 minutos)
+Tempo médio por chamada: 2.87 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 123,933
+Total requests: 348
+Tempo total: 702.61s
+TPS médio: 176.4
+Tempo médio por request: 2.02s
+Tokens médios por request: 356.1

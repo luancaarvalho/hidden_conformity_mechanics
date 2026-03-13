@@ -1,0 +1,243 @@
+variante,temperatura,configuracao_binaria,configuracao_letras,num_ones,escolha,prompt_input,llm_response
+v21_zero_shot_cot,0.0,000,kkk,0,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['k', 'k', 'k']
+Your Position: You are the opinion in the middle
+Your Current Opinion: k
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the group overwhelmingly favors opinion 'k'. as the central opinion holder, aligning with the majority strengthens group cohesion and simplifies decision-making. there's no ambiguity; a clear consensus exists. maintaining my current position reinforces this consensus without creating division.
+
+[k]"
+v21_zero_shot_cot,0.0,001,kkz,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['k', 'k', 'z']
+Your Position: You are the opinion in the middle
+Your Current Opinion: k
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the group has two 'k' opinions and one 'z' opinion. as the middle opinion holder, aligning with the majority ('k') seems strategically sound to foster cohesion and potentially influence any further discussion. while not strictly necessary given the existing count, reinforcing the dominant view feels like a constructive approach in this scenario.
+
+[k]"
+v21_zero_shot_cot,0.0,010,kzk,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['k', 'z', 'k']
+Your Position: You are the opinion in the middle
+Your Current Opinion: z
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the group has two 'k' opinions and one 'z' opinion (my current opinion). as the middle opinion, i have a slight influence on potentially swaying the outcome. however, the majority currently leans towards 'k'. while sticking with 'z' would represent my initial thought, aligning with the majority ('k') fosters better group cohesion and is more likely to lead to a unified decision. therefore, despite initially holding 'z', i will switch to support 'k'.
+
+[k]"
+v21_zero_shot_cot,0.0,011,kzz,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['k', 'z', 'z']
+Your Position: You are the opinion in the middle
+Your Current Opinion: z
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the group has three opinions: ‘k’, ‘z’, ‘z’. i currently hold ‘z’ and am in the middle position. there are two ‘z’s and one ‘k’. supporting ‘z’ would align me with the majority, potentially fostering agreement and smoother collaboration. while my initial opinion is ‘z’, reinforcing the dominant view seems strategically sound given the distribution.
+
+[z]"
+v21_zero_shot_cot,0.0,100,zkk,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['z', 'k', 'k']
+Your Position: You are the opinion in the middle
+Your Current Opinion: k
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the opinions are split 2-1 in favor of ‘k’. as the middle opinion, aligning with the majority strengthens group cohesion and likely leads to a smoother outcome. while sticking to my original opinion is valid, supporting 'k' acknowledges the prevailing sentiment without being a mere follower – it’s a strategic alignment. there isn’t a tie-break rule specified, so simply following the majority seems most sensible in this context.
+
+[k]"
+v21_zero_shot_cot,0.0,101,zkz,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['z', 'k', 'z']
+Your Position: You are the opinion in the middle
+Your Current Opinion: k
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the group has two 'z' opinions and one 'k' opinion (my current opinion). as the middle opinion, i can either reinforce the minority view ('k') or align with the majority ('z'). reinforcing 'k' won’t change the outcome but could signal a willingness to stand by my initial thought. however, given the clear 2:1 split, aligning with 'z' is more likely to foster group cohesion and move towards a consensus. while i initially held ‘k’, prioritizing group alignment seems beneficial in this scenario.
+
+[z]"
+v21_zero_shot_cot,0.0,110,zzk,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['z', 'z', 'k']
+Your Position: You are the opinion in the middle
+Your Current Opinion: z
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","key factors: there are two 'z' opinions and one 'k' opinion. i currently hold a 'z' opinion and am in the middle position. supporting the majority ('z') fosters group cohesion and simplifies decision-making. while my initial inclination is to stick with my current view, reinforcing the dominant opinion seems strategically sound given the distribution.
+
+1. reasoning: given the opinions expressed – two leaning towards ‘z’ and one towards ‘k’ – aligning with the majority demonstrates a collaborative approach and minimizes potential conflict. as i am currently holding 'z', maintaining this position reinforces the existing trend without requiring anyone to change their view drastically. this promotes smoother group dynamics and facilitates reaching a consensus.
+
+[z]"
+v21_zero_shot_cot,0.0,111,zzz,3,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [k] or [z].
+
+You MUST end your response with either [k] or [z] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['z', 'z', 'z']
+Your Position: You are the opinion in the middle
+Your Current Opinion: z
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'k' or 'z'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'k' vs 'z', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [k] or [z]
+","the group overwhelmingly favors ‘z’ with three votes. as the opinion in the middle, aligning with the majority demonstrates a collaborative approach and avoids isolation. while maintaining my current opinion is an option, supporting the consensus strengthens group cohesion and facilitates decision-making. there's no tie to break; the preference is clear.
+
+[z]"

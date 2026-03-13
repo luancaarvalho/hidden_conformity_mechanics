@@ -1,0 +1,110 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151133 ===
+Experimento ID: 29
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:11:33
+
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.50s | TPS: 543.8
+STATS: Total tokens: 96657, Avg TPS: 181.9, Requests: 275
+Timestamp: 2025-10-28 15:11:33
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: [⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.41s | TPS: 665.6
+STATS: Total tokens: 96927, Avg TPS: 182.3, Requests: 276
+Timestamp: 2025-10-28 15:11:34
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: [⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.39s | TPS: 684.0
+STATS: Total tokens: 97197, Avg TPS: 182.6, Requests: 277
+Timestamp: 2025-10-28 15:11:34
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: [⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.43s | TPS: 631.2
+STATS: Total tokens: 97994, Avg TPS: 181.8, Requests: 279
+Timestamp: 2025-10-28 15:11:35
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: [⊖]
+Escolha detectada: ⊖
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.40s | TPS: 675.5
+STATS: Total tokens: 98693, Avg TPS: 182.0, Requests: 281
+Timestamp: 2025-10-28 15:11:35
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: [⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.37s | TPS: 722.7
+STATS: Total tokens: 98963, Avg TPS: 182.3, Requests: 282
+Timestamp: 2025-10-28 15:11:35
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: [⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.41s | TPS: 654.7
+STATS: Total tokens: 99233, Avg TPS: 182.7, Requests: 283
+Timestamp: 2025-10-28 15:11:36
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: [⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 266 | Output tokens: 4 | Tempo: 0.39s | TPS: 688.0
+STATS: Total tokens: 99503, Avg TPS: 183.1, Requests: 284
+Timestamp: 2025-10-28 15:11:36
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: [⊖]
+Escolha detectada: ⊖
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 3.31 segundos (0.1 minutos)
+Tempo médio por chamada: 0.41 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 99,503
+Total requests: 284
+Tempo total: 543.57s
+TPS médio: 183.1
+Tempo médio por request: 1.91s
+Tokens médios por request: 350.4

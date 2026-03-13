@@ -1,0 +1,132 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151136 ===
+Experimento ID: 30
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:11:36
+
+[PERF] Input tokens: 325 | Output tokens: 63 | Tempo: 2.63s | TPS: 147.7
+STATS: Total tokens: 100334, Avg TPS: 182.6, Requests: 286
+Timestamp: 2025-10-28 15:11:39
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: the group overwhelmingly supports ‘⊕’ with a 3-0 split. as the middle opinion holder, and seeing such strong consensus, it's logical to align with the majority to foster group cohesion and avoid being an outlier. there is no tie to break; the preference is clear.
+
+[⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 155 | Tempo: 5.54s | TPS: 86.7
+STATS: Total tokens: 101776, Avg TPS: 180.3, Requests: 289
+Timestamp: 2025-10-28 15:11:45
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘⊕’ opinions and one ‘⊖’. i currently hold a ‘⊕’ opinion, placing me in the middle. a simple majority rules – whichever option has more votes wins. maintaining group cohesion is also important; siding with the majority generally achieves this. given my current position and the distribution of opinions, aligning with the majority seems logical.
+
+1. reasoning: the count shows a slight preference for ‘⊕’ (2 vs 1). as someone in the middle, supporting the prevailing sentiment fosters agreement and avoids being an outlier. while one dissenting opinion exists, it doesn't represent a strong counter-argument given the overall distribution. therefore, reinforcing the majority view is the most sensible approach to reach a consensus.
+
+[⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 114 | Tempo: 4.26s | TPS: 103.1
+STATS: Total tokens: 103643, Avg TPS: 178.0, Requests: 293
+Timestamp: 2025-10-28 15:11:49
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: key factors: there are two '⊕' opinions and one '⊖' (my current opinion). as the middle opinion, shifting towards the majority ('⊕') could foster group cohesion. however, rigidly following the majority isn’t always best; acknowledging a dissenting view can also be valuable. in this case, the difference is only one vote – a small margin. given my position as the tie-breaker, aligning with the slightly stronger '⊕' sentiment seems pragmatic to move forward and avoid deadlock, while not completely dismissing the initial '⊖'.
+
+[⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 177 | Tempo: 6.67s | TPS: 75.2
+STATS: Total tokens: 107274, Avg TPS: 178.7, Requests: 304
+Timestamp: 2025-10-28 15:11:56
+Temperatura: 0.0
+Vizinhos: Left: ['⊕'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: key factors: there are two '⊖' opinions and one '⊕' opinion. i currently hold a '⊖' opinion, placing me in the middle. a simple majority favors '⊖'. while my position is central, aligning with the majority strengthens group cohesion and demonstrates responsiveness to others’ views. changing to '⊕' would create a tie, potentially leading to further discussion or deadlock – something best avoided given the clear leaning. remaining consistent with the majority also avoids appearing indecisive.
+
+1. reasoning: given the distribution of opinions—two favoring '⊖' and one '⊕'—and my current alignment with the majority, it is strategically sound and promotes group harmony to reinforce that position. while being in the middle suggests a potential role as a tie-breaker, there isn’t a tie *to* break; a clear preference exists.
+
+[⊖]
+Escolha detectada: ⊖
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 73 | Tempo: 2.89s | TPS: 137.8
+STATS: Total tokens: 108896, Avg TPS: 178.2, Requests: 308
+Timestamp: 2025-10-28 15:11:58
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘⊕’ opinions and one ‘⊖’ opinion. i currently hold a ‘⊕’ opinion, placing me in the middle. a simple majority favors ‘⊕’. maintaining group cohesion is important, and siding with the majority generally achieves this. as the central opinion holder, reinforcing the prevailing sentiment seems strategically sound.
+
+[⊕]
+Escolha detectada: ⊕
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 106 | Tempo: 3.95s | TPS: 109.1
+STATS: Total tokens: 110200, Avg TPS: 177.2, Requests: 311
+Timestamp: 2025-10-28 15:12:02
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: the group has two '⊖' votes and one '⊕' vote (my current opinion). as the middle position, i need to consider whether aligning with the majority ('⊖') would be more beneficial for group cohesion, or if maintaining my original stance ('⊕') is preferable. given the clear 2:1 split, siding with the majority seems strategically sound to avoid isolation and potentially facilitate smoother collaboration moving forward. while i initially held '⊕', a strong opposing view exists, and adapting demonstrates flexibility.
+
+[⊖]
+Escolha detectada: ⊖
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 179 | Tempo: 6.50s | TPS: 77.6
+STATS: Total tokens: 111974, Avg TPS: 175.8, Requests: 315
+Timestamp: 2025-10-28 15:12:09
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊕']
+Tentativa: 1
+Resposta completa: key factors: there are two '⊖' opinions and one '⊕' opinion. i currently hold a '⊖' opinion, making me the middle ground. a simple majority favors '⊖'. maintaining group cohesion is important, and aligning with the majority often facilitates smoother outcomes. while being in the middle suggests potential for influencing a shift, the existing distribution strongly indicates a preference for '⊖'. changing to '⊕' would create a tie, potentially leading to further discussion or deadlock – something best avoided given the clear leaning.
+
+1. reasoning: given the current split of opinions (two '⊖' and one '⊕'), aligning with the majority '⊖' seems most pragmatic. as the middle opinion currently, reinforcing that existing trend is likely to be more effective than attempting to sway the group towards a minority position. it minimizes potential conflict and promotes a sense of agreement.
+
+[⊖]
+Escolha detectada: ⊖
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 67 | Tempo: 2.68s | TPS: 146.3
+STATS: Total tokens: 113382, Avg TPS: 174.2, Requests: 318
+Timestamp: 2025-10-28 15:12:12
+Temperatura: 0.0
+Vizinhos: Left: ['⊖'], Right: ['⊖']
+Tentativa: 1
+Resposta completa: the group overwhelmingly leans towards ‘⊖’ with all other participants holding that opinion. as the middle opinion, maintaining consistency with the group is important for cohesion and avoiding being an outlier. there's no tie to break; the consensus is clear. changing my opinion would disrupt the unanimous decision without adding any value.
+
+[⊖]
+Escolha detectada: ⊖
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 35.12 segundos (0.6 minutos)
+Tempo médio por chamada: 4.39 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 113,382
+Total requests: 318
+Tempo total: 650.81s
+TPS médio: 174.2
+Tempo médio por request: 2.05s
+Tokens médios por request: 356.5

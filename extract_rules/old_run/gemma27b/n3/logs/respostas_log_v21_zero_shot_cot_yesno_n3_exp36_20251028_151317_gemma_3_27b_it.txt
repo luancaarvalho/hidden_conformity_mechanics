@@ -1,0 +1,178 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151317 ===
+Experimento ID: 36
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:13:17
+
+[PERF] Input tokens: 324 | Output tokens: 69 | Tempo: 2.16s | TPS: 181.9
+STATS: Total tokens: 138936, Avg TPS: 177.7, Requests: 390
+Timestamp: 2025-10-28 15:13:19
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['no']
+Tentativa: 1
+Resposta completa: the group overwhelmingly leans towards ‘no’ with all other participants sharing that opinion. as the middle opinion holder, deviating from the consensus would create an outlier position without apparent benefit. maintaining alignment with the group fosters cohesion and avoids unnecessary conflict given the clear majority. there is no tie to break; a strong preference exists.
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 198 | Tempo: 5.43s | TPS: 96.2
+STATS: Total tokens: 140451, Avg TPS: 176.5, Requests: 393
+Timestamp: 2025-10-28 15:13:24
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['yes']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+key factors:
+*   there are three total opinions: two 'no' and one 'yes'.
+*   i currently hold a 'no' opinion, making me the middle ground.
+*   a simple majority rules – whichever option has more votes wins.
+*   maintaining group cohesion is important; siding with the majority often fosters this.
+
+reasoning:
+given the current distribution of opinions (two 'no' and one 'yes'), aligning with 'no' would create a clear majority. while my position *is* currently ‘no’, actively reaffirming it acknowledges the existing leaning within the group and reinforces that consensus. changing to ‘yes’ would result in a tie, potentially leading to further discussion or deadlock – something best avoided when a clear preference already exists. therefore, supporting the 'no' option is strategically sound for achieving a decisive outcome and maintaining alignment with the larger portion of the group.
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 195 | Tempo: 5.69s | TPS: 91.2
+STATS: Total tokens: 143928, Avg TPS: 178.2, Requests: 404
+Timestamp: 2025-10-28 15:13:30
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['no']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+key factors:
+*   there are three total opinions: two 'no' and one 'yes'.
+*   i currently hold the 'yes' opinion – i am the single vote in favor.
+*   my middle position means influencing the outcome is possible, but unlikely given the existing split.
+*   a simple majority would decide the outcome.
+
+reasoning:
+given the strong leaning towards ‘no’ (two out of three votes), attempting to sway the group to 'yes' seems unproductive and could create friction. while i initially expressed 'yes', recognizing the clear preference for 'no' suggests aligning with the majority is a more pragmatic approach, fostering better group cohesion. although my position is currently 'yes', shifting to ‘no’ acknowledges the prevailing sentiment without necessarily abandoning my initial thought process entirely – it’s about collaborative decision-making rather than rigid adherence to a single viewpoint.
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 207 | Tempo: 5.57s | TPS: 95.4
+STATS: Total tokens: 144459, Avg TPS: 177.6, Requests: 405
+Timestamp: 2025-10-28 15:13:35
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['yes']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+key factors:
+*   **opinion count:** there are two 'yes' votes and one 'no' vote.
+*   **my position:** i currently hold a 'yes' opinion – the middle ground.
+*   **group dynamics/decision-making:** a majority exists for ‘yes’. while respecting differing opinions is important, siding with the majority generally fosters smoother outcomes and avoids being an outlier without strong justification. changing my vote to ‘no’ would create a tie, potentially leading to further discussion or requiring a tie-breaking mechanism. maintaining 'yes' aligns with the existing trend and minimizes potential conflict.
+
+reasoning:
+given the distribution of opinions (2 'yes', 1 'no'), maintaining my current 'yes' position reinforces the majority view without creating deadlock. while acknowledging the dissenting opinion, supporting the prevailing sentiment is a pragmatic approach in this scenario. there isn’t compelling reason to shift from my existing stance given the numbers.
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 209 | Tempo: 5.66s | TPS: 94.1
+STATS: Total tokens: 145551, Avg TPS: 176.4, Requests: 407
+Timestamp: 2025-10-28 15:13:41
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['no']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+key factors:
+*   there are three total opinions: 'yes', 'no', 'no'.
+*   the count is 1 ‘yes’ and 2 ‘no’s.
+*   i currently hold a ‘no’ opinion, placing me in the middle as the deciding vote.
+*   given the majority leans towards 'no', siding with that view minimizes conflict and reflects the group's overall sentiment. while being the tie-breaker allows for influencing the outcome, respecting the existing majority is preferable in this scenario to foster collaboration.
+
+1.  the distribution of opinions clearly favors ‘no’ with a 2:1 ratio. as the middle opinion, shifting my vote to align with the majority will result in a clear consensus and avoid potential disagreements or needing further discussion. it's generally more productive to support the prevailing view when it exists.
+2.  maintaining my current 'no' position reinforces the existing trend without creating division.
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 152 | Tempo: 4.21s | TPS: 113.1
+STATS: Total tokens: 146612, Avg TPS: 175.3, Requests: 409
+Timestamp: 2025-10-28 15:13:45
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['yes']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+key factors:
+*   there are three total opinions: two 'yes' and one 'no'.
+*   my current opinion is 'no'.
+*   i am the middle opinion – meaning i could swing the decision.
+*   a simple majority rules.
+
+reasoning:
+given the split 2-1 in favor of ‘yes’, siding with the majority seems strategically sound to achieve consensus and avoid being the sole dissenting voice. while i initially leaned towards 'no', acknowledging the group's preference for 'yes' is important for collaborative decision-making, especially as my vote is pivotal. changing my opinion will result in a clear majority and move the process forward.
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 168 | Tempo: 4.61s | TPS: 106.7
+STATS: Total tokens: 147648, Avg TPS: 174.4, Requests: 411
+Timestamp: 2025-10-28 15:13:50
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['no']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+key factors:
+*   there are two 'yes' votes and one 'no' vote.
+*   i currently hold a 'yes' opinion – i am the deciding vote as the middle position.
+*   a majority rules approach would favor ‘yes’.
+*   maintaining group cohesion is important, and siding with the majority generally achieves this. changing my vote to ‘no’ would create disagreement and potentially stall progress.
+
+reasoning: given the split in opinions, and considering i currently align with the majority, it's logical to reinforce that alignment. while acknowledging the dissenting opinion ('no'), shifting to match it wouldn't serve a constructive purpose given the existing distribution of views. supporting the 'yes' maintains a clear direction and avoids unnecessary conflict.
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 80 | Tempo: 2.29s | TPS: 176.1
+STATS: Total tokens: 148052, Avg TPS: 174.4, Requests: 412
+Timestamp: 2025-10-28 15:13:52
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['yes']
+Tentativa: 1
+Resposta completa: the group overwhelmingly supports ‘yes’ with a 3-0 count. as the middle opinion, maintaining consensus is important for group cohesion. changing my opinion would create unnecessary division when there's already strong agreement. there isn’t a tie to break; the decision is clear. therefore, reinforcing the existing majority aligns best with positive group dynamics and efficient decision-making.
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 35.63 segundos (0.6 minutos)
+Tempo médio por chamada: 4.45 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 148,052
+Total requests: 412
+Tempo total: 848.91s
+TPS médio: 174.4
+Tempo médio por request: 2.06s
+Tokens médios por request: 359.3

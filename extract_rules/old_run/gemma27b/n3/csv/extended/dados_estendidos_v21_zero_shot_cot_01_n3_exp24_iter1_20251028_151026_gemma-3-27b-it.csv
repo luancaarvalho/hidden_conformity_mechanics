@@ -1,0 +1,254 @@
+variante,temperatura,configuracao_binaria,configuracao_letras,num_ones,escolha,prompt_input,llm_response
+v21_zero_shot_cot_01,0.0,000,000,0,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['0', '0', '0']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 0
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: all three opinions are '0'. i am the central opinion holder currently at '0'. there is no disagreement; a unanimous decision already exists. maintaining group cohesion and avoiding unnecessary deviation from the established consensus is paramount.
+
+reasoning: given that all other participants share my current opinion, reinforcing this consensus is the most logical course of action. changing my vote would introduce conflict where none exists and serve no purpose. supporting the existing majority strengthens the group's unified stance.
+
+[0]"
+v21_zero_shot_cot_01,0.0,001,001,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['0', '0', '1']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 0
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: there are two '0' opinions and one '1' opinion. i currently hold a '0' opinion, placing me in the middle. a simple majority favors '0'. maintaining group cohesion is important, and aligning with the majority often facilitates smoother outcomes. while my initial position is '0', reinforcing the existing trend seems strategically sound given the distribution of opinions.
+
+1. reasoning: given the 2-1 split favoring opinion '0', and considering i already hold that opinion, supporting '0' reinforces the majority view and promotes group alignment without requiring a change in my stance. it’s a stable choice minimizing potential friction.
+[0]"
+v21_zero_shot_cot_01,0.0,010,010,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['0', '1', '0']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 1
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: there are two '0' opinions and one '1' opinion. i currently hold the '1' opinion, making me the middle ground. a simple majority favors '0'. while sticking to my original opinion is an option, aligning with the majority often fosters better group cohesion and facilitates decision-making. in this case, switching to '0' would create a unanimous decision.
+
+reasoning: given the distribution of opinions – two leaning towards '0' and one (myself) at '1’ – it seems strategically beneficial to align with the majority. while my initial opinion is ‘1’, adopting ‘0’ will result in a unified group stance, potentially streamlining any subsequent actions or discussions based on this choice. it prioritizes consensus over individual preference in this scenario.
+
+[0]"
+v21_zero_shot_cot_01,0.0,011,011,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['0', '1', '1']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 1
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: there are two '1' opinions and one '0' opinion. i currently hold a '1' opinion, placing me in the middle. supporting the majority ('1') fosters group cohesion and simplifies decision-making. while my initial position is already '1', acknowledging the distribution reinforces that this is the preferred choice within the group.
+
+1. considering the opinions expressed, there’s a clear leaning towards option ‘1’. as someone positioned in the middle, aligning with the majority strengthens consensus and avoids potential conflict. although not strictly necessary to change my opinion as i already hold '1', reinforcing it demonstrates consideration for the group dynamic.
+[1]"
+v21_zero_shot_cot_01,0.0,100,100,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['1', '0', '0']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 0
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: there are two '0' opinions and one '1' opinion. i currently hold a '0' opinion, placing me in the middle. a simple majority favors '0'. maintaining group cohesion is important, and siding with the majority seems logical given the current distribution of opinions. changing to '1' would create a tie, potentially leading to further discussion or deadlock – something best avoided when a clear leaning already exists.
+
+1. reasoning: given the 2-1 split in favor of '0', and my existing position as a '0' voter, supporting the majority aligns with promoting consensus and avoiding unnecessary conflict. it’s more efficient to reinforce the prevailing sentiment than to attempt to shift it with only one other vote potentially available.
+
+[0]"
+v21_zero_shot_cot_01,0.0,101,101,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['1', '0', '1']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 0
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: there are two '1' opinions and one '0' opinion. i currently hold the '0' opinion, making me the middle ground. a simple majority favors '1'. while sticking to my original opinion is an option, aligning with the majority often fosters better group cohesion and facilitates decision-making. in this case, shifting towards the more popular opinion seems beneficial despite initially holding a different view.
+
+1. i recognize that two out of three participants favor option '1'. as someone in the middle, it's strategically sound to align with the majority for smoother collaboration and consensus. while my initial inclination was '0', acknowledging the group’s preference is important.
+[1]"
+v21_zero_shot_cot_01,0.0,110,110,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['1', '1', '0']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 1
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: there are two '1' opinions and one '0' opinion. i currently hold a '1' opinion, placing me in the middle. a simple majority exists for option '1'. maintaining group cohesion is important, and siding with the majority often facilitates smoother outcomes. while my initial inclination is to stick with my current opinion, reinforcing the majority strengthens consensus.
+
+reasoning: given the distribution of opinions – two supporting '1' and one supporting '0’ – aligning with the majority ('1') seems strategically sound. as the middle opinion currently, shifting towards the dominant view reinforces group agreement without drastically altering the overall outcome. it promotes a sense of unity and shared decision-making.
+
+[1]"
+v21_zero_shot_cot_01,0.0,111,111,3,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [0] or [1].
+
+You MUST end your response with either [0] or [1] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the number.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['1', '1', '1']
+Your Position: You are the opinion in the middle
+Your Current Opinion: 1
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either '0' or '1'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of '0' vs '1', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [0] or [1]
+","key factors: all other participants chose '1'. i am currently at '1', representing the middle opinion. there's a strong consensus towards '1'. maintaining group cohesion and avoiding being an outlier are important considerations given the unanimous support for '1'. changing my opinion would not contribute to diversity of thought, as it already exists within the group.
+
+reasoning: given that all other participants have selected '1', and i currently hold the same opinion, maintaining this position reinforces the existing consensus without creating unnecessary conflict or appearing indecisive. there is no need to deviate from a unified stance when there's complete agreement.
+
+[1]"

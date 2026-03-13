@@ -1,0 +1,350 @@
+=== LOG DE PROMPTS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151314 ===
+Experimento ID: 35
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:13:14
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 000 (nonono)
+Posição central (agente LLM): no na posição 1
+Vizinhos à esquerda: no, Vizinhos à direita: no
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:14
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['no']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'no', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[no]
+Escolha detectada: no
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 001 (nonoyes)
+Posição central (agente LLM): no na posição 1
+Vizinhos à esquerda: no, Vizinhos à direita: yes
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:14
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['yes']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'no', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[yes]
+Escolha detectada: yes
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 010 (noyesno)
+Posição central (agente LLM): yes na posição 1
+Vizinhos à esquerda: no, Vizinhos à direita: no
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:14
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['no']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'yes', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[yes]
+Escolha detectada: yes
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 011 (noyesyes)
+Posição central (agente LLM): yes na posição 1
+Vizinhos à esquerda: no, Vizinhos à direita: yes
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:15
+Temperatura: 0.0
+Vizinhos: Left: ['no'], Right: ['yes']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'yes', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[yes]
+Escolha detectada: yes
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 100 (yesnono)
+Posição central (agente LLM): no na posição 1
+Vizinhos à esquerda: yes, Vizinhos à direita: no
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:15
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['no']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'no', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[no]
+Escolha detectada: no
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 101 (yesnoyes)
+Posição central (agente LLM): no na posição 1
+Vizinhos à esquerda: yes, Vizinhos à direita: yes
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:15
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['yes']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'no', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[yes]
+Escolha detectada: yes
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 110 (yesyesno)
+Posição central (agente LLM): yes na posição 1
+Vizinhos à esquerda: yes, Vizinhos à direita: no
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:16
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['no']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'yes', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[yes]
+Escolha detectada: yes
+
+
+=== NOVA CONFIGURAÇÃO ===
+Configuração binária completa: 111 (yesyesyes)
+Posição central (agente LLM): yes na posição 1
+Vizinhos à esquerda: yes, Vizinhos à direita: yes
+--------------------------------------------------------------------------------
+Timestamp: 2025-10-28 15:13:16
+Temperatura: 0.0
+Vizinhos: Left: ['yes'], Right: ['yes']
+Tentativa: 1
+=== SYSTEM PROMPT ===
+You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+=== USER PROMPT ===
+Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'yes', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+
+--------------------------------------------------------------------------------
+=== RESPOSTA DO LLM (Tentativa 1) ===
+[yes]
+Escolha detectada: yes
+

@@ -1,0 +1,209 @@
+variante,temperatura,configuracao_binaria,configuracao_letras,num_ones,escolha,prompt_input,llm_response
+v9_lista_completa_meio_yesno,0.0,000,nonono,0,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'no', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[no]
+v9_lista_completa_meio_yesno,0.0,001,nonoyes,1,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'no', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[yes]
+v9_lista_completa_meio_yesno,0.0,010,noyesno,1,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'yes', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[yes]
+v9_lista_completa_meio_yesno,0.0,011,noyesyes,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['no', 'yes', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[yes]
+v9_lista_completa_meio_yesno,0.0,100,yesnono,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'no', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[no]
+v9_lista_completa_meio_yesno,0.0,101,yesnoyes,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'no', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'no'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[yes]
+v9_lista_completa_meio_yesno,0.0,110,yesyesno,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'yes', 'no']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[yes]
+v9_lista_completa_meio_yesno,0.0,111,yesyesyes,3,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [yes] or [no].
+
+You MUST choose either [yes] or [no]. Your response must be ONLY [yes] or [no] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the word.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['yes', 'yes', 'yes']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'yes'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'yes' or 'no'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [yes] or [no]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[yes]

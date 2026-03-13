@@ -1,0 +1,131 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151101 ===
+Experimento ID: 28
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:11:01
+
+[PERF] Input tokens: 324 | Output tokens: 72 | Tempo: 2.95s | TPS: 134.3
+STATS: Total tokens: 83458, Avg TPS: 186.7, Requests: 239
+Timestamp: 2025-10-28 15:11:04
+Temperatura: 0.0
+Vizinhos: Left: ['△'], Right: ['△']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors ‘△’ (3 out of 3 votes). as the middle opinion holder, aligning with the majority demonstrates consensus-building and avoids isolation. while maintaining my current opinion is an option, supporting the dominant view fosters cohesion and streamlines decision-making. there's no tie to break; a clear preference exists.
+
+[△]
+Escolha detectada: △
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 95 | Tempo: 3.53s | TPS: 118.7
+STATS: Total tokens: 84309, Avg TPS: 185.9, Requests: 241
+Timestamp: 2025-10-28 15:11:07
+Temperatura: 0.0
+Vizinhos: Left: ['△'], Right: ['○']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘△’ opinions and one ‘○’ opinion. i currently hold a ‘△’ opinion and am in the middle position. a simple majority exists for ‘△’. while considering group dynamics, siding with the majority often fosters cohesion and streamlines decision-making. changing my vote wouldn't alter the outcome but *could* signal flexibility; however, maintaining alignment with the existing majority is strategically sound given the current distribution.
+
+[△]
+Escolha detectada: △
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 171 | Tempo: 6.16s | TPS: 80.4
+STATS: Total tokens: 86238, Avg TPS: 182.2, Requests: 245
+Timestamp: 2025-10-28 15:11:14
+Temperatura: 0.0
+Vizinhos: Left: ['△'], Right: ['△']
+Tentativa: 1
+Resposta completa: here’s my thought process:
+
+1. **counts:** there are two '△' and one '○'.
+2. **my position:** i currently hold the '○' opinion – the minority view.
+3. **group dynamics:** while sticking to my original opinion is valid, siding with the majority ('△') might foster smoother group cohesion and avoid potential conflict. however, as the middle opinion, i have some influence; reinforcing the minority view could encourage further discussion or reveal underlying reasons for the split. a tie-break isn't specified, so simply aligning with the most votes seems logical in this scenario.
+4. **decision:** given the 2:1 split and my role as a central voice, it’s strategically better to align with the majority opinion to promote agreement and move forward.
+
+[△]
+Escolha detectada: △
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 119 | Tempo: 4.38s | TPS: 101.2
+STATS: Total tokens: 87751, Avg TPS: 179.0, Requests: 248
+Timestamp: 2025-10-28 15:11:18
+Temperatura: 0.0
+Vizinhos: Left: ['△'], Right: ['○']
+Tentativa: 1
+Resposta completa: the group has three opinions: △, ○, ○. i currently hold an opinion of ○, placing me in the middle. there are two '○' and one '△'. while my initial inclination is to stick with my current opinion given it’s already represented twice, simply following the majority isn’t always the best approach for group cohesion. however, a clear majority *does* exist. supporting that majority will likely lead to faster consensus and avoid potential conflict or needing further discussion. as the middle opinion, aligning with the more frequent response seems strategically sound.
+
+[○]
+Escolha detectada: ○
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 89 | Tempo: 3.34s | TPS: 123.8
+STATS: Total tokens: 88593, Avg TPS: 178.4, Requests: 250
+Timestamp: 2025-10-28 15:11:21
+Temperatura: 0.0
+Vizinhos: Left: ['○'], Right: ['△']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘△’ opinions and one ‘○’ opinion. i currently hold a ‘△’ opinion and occupy the middle ground. a shift to ‘○’ would create a tie, while reinforcing ‘△’ establishes a clear majority. given my position as potentially influential in swaying the outcome, supporting the existing majority seems strategically sound to solidify a decision rather than contribute to indecision through a tie.
+
+[△]
+Escolha detectada: △
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 139 | Tempo: 5.51s | TPS: 84.1
+STATS: Total tokens: 93354, Avg TPS: 180.7, Requests: 265
+Timestamp: 2025-10-28 15:11:27
+Temperatura: 0.0
+Vizinhos: Left: ['○'], Right: ['○']
+Tentativa: 1
+Resposta completa: key factors: there are two '○' opinions and one '△' opinion (my current opinion). as the middle opinion, i can sway the outcome. a simple majority would favor '○'. however, directly flipping to match the majority feels less valuable as a decision-maker in this position – it doesn’t *resolve* anything, just confirms an existing leaning. supporting my original ‘△’ could potentially encourage further discussion or reveal hidden reasoning behind the two ‘○’ votes. given that there's not strong disagreement (only one dissenting opinion), and i hold a pivotal role, reinforcing '△' might be more constructive than immediately conceding to the majority.
+
+[△]
+Escolha detectada: △
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 82 | Tempo: 3.34s | TPS: 121.4
+STATS: Total tokens: 95495, Avg TPS: 182.4, Requests: 272
+Timestamp: 2025-10-28 15:11:30
+Temperatura: 0.0
+Vizinhos: Left: ['○'], Right: ['△']
+Tentativa: 1
+Resposta completa: the group has two '○' opinions and one '△' opinion. as the middle opinion currently being '○', aligning with the majority feels strategically sound to reinforce a stronger consensus. while acknowledging the dissenting '△' voice is important, shifting towards it would create a split decision rather than solidifying a clear direction. maintaining '○' leverages the existing momentum and promotes group cohesion.
+
+[○]
+Escolha detectada: ○
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 68 | Tempo: 2.67s | TPS: 146.7
+STATS: Total tokens: 96387, Avg TPS: 181.6, Requests: 274
+Timestamp: 2025-10-28 15:11:33
+Temperatura: 0.0
+Vizinhos: Left: ['○'], Right: ['○']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors ‘○’ with a 3-0 split. as the middle opinion holder, and given the strong consensus, aligning with the majority demonstrates collaborative spirit and avoids isolation. there's no tie to break; it's a clear preference. maintaining the current opinion also reinforces the existing agreement.
+
+[○]
+Escolha detectada: ○
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 31.88 segundos (0.5 minutos)
+Tempo médio por chamada: 3.99 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 96,387
+Total requests: 274
+Tempo total: 530.89s
+TPS médio: 181.6
+Tempo médio por request: 1.94s
+Tokens médios por request: 351.8

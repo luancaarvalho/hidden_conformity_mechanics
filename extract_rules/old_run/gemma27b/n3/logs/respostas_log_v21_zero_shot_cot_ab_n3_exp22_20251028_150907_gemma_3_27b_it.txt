@@ -1,0 +1,131 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_150907 ===
+Experimento ID: 22
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:09:07
+
+[PERF] Input tokens: 324 | Output tokens: 78 | Tempo: 3.15s | TPS: 127.6
+STATS: Total tokens: 22771, Avg TPS: 205.2, Requests: 67
+Timestamp: 2025-10-28 15:09:10
+Temperatura: 0.0
+Vizinhos: Left: ['a'], Right: ['a']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors opinion ‘a’ with three votes already cast for it. as the middle opinion holder, maintaining consensus and avoiding dissent is important. changing my position to 'b' would create a dissenting vote and potentially disrupt group harmony without adding any new information or perspective. sticking with ‘a’ reinforces the existing agreement and demonstrates support for the majority view.
+
+[a]
+Escolha detectada: a
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 116 | Tempo: 4.28s | TPS: 102.8
+STATS: Total tokens: 24031, Avg TPS: 200.2, Requests: 70
+Timestamp: 2025-10-28 15:09:14
+Temperatura: 0.0
+Vizinhos: Left: ['a'], Right: ['b']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘a’ votes and one ‘b’ vote. i currently hold an ‘a’ vote, making me the middle opinion. while a simple majority exists for 'a', acknowledging the dissenting voice is important for group cohesion. however, shifting to 'b' would create no consensus and go against the existing trend. maintaining my current position reinforces the majority view without completely dismissing the minority one.
+
+1. i will support the option with the most votes to foster a sense of agreement within the group while acknowledging the differing opinion.
+[a]
+Escolha detectada: a
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 93 | Tempo: 3.56s | TPS: 117.3
+STATS: Total tokens: 25434, Avg TPS: 190.2, Requests: 73
+Timestamp: 2025-10-28 15:09:18
+Temperatura: 0.0
+Vizinhos: Left: ['a'], Right: ['a']
+Tentativa: 1
+Resposta completa: the group has two 'a' votes and one 'b' vote (my current opinion). as the middle position, i can sway the outcome. choosing 'a' would create a majority, while sticking with 'b' would result in a tie – effectively no clear decision. given that a decisive outcome is generally preferable, and recognizing the existing lean towards 'a', aligning with that preference seems most productive for group harmony and forward movement.
+
+[a]
+Escolha detectada: a
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 139 | Tempo: 5.63s | TPS: 82.2
+STATS: Total tokens: 31090, Avg TPS: 209.2, Requests: 92
+Timestamp: 2025-10-28 15:09:23
+Temperatura: 0.0
+Vizinhos: Left: ['a'], Right: ['b']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘b’ opinions and one ‘a’ opinion. i currently hold a ‘b’ opinion, placing me in the middle. supporting 'b' would create a majority. while respecting individual viewpoints is important, aligning with the majority often streamlines decision-making and fosters group cohesion – especially when the split isn’t overwhelming. changing to ‘a’ wouldn’t significantly alter the dynamic but *would* make me an outlier.
+
+1. i believe supporting the majority opinion will lead to a smoother outcome for the group. given my current position as the middle ground, reinforcing the existing trend towards 'b' seems most logical and collaborative.
+[b]
+Escolha detectada: b
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 113 | Tempo: 4.19s | TPS: 104.4
+STATS: Total tokens: 32748, Avg TPS: 204.2, Requests: 96
+Timestamp: 2025-10-28 15:09:28
+Temperatura: 0.0
+Vizinhos: Left: ['b'], Right: ['a']
+Tentativa: 1
+Resposta completa: key factors: there are three opinions already cast: two ‘a’s and one ‘b’. i currently hold an ‘a’ opinion, placing me in the middle. a simple majority favors 'a'. while my position is central, siding with the majority strengthens group cohesion and likely leads to a smoother outcome. changing to 'b' would create a tie, potentially leading to further discussion or needing a tie-breaker – something best avoided when a clear preference exists. maintaining ‘a’ acknowledges the existing trend without forcing a dissenting stance.
+
+[a]
+Escolha detectada: a
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 182 | Tempo: 6.58s | TPS: 76.9
+STATS: Total tokens: 35448, Avg TPS: 192.7, Requests: 102
+Timestamp: 2025-10-28 15:09:34
+Temperatura: 0.0
+Vizinhos: Left: ['b'], Right: ['b']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘b’ opinions and one ‘a’ opinion. i currently hold the ‘a’ opinion, making me the middle ground. while sticking to my original opinion is an option, acknowledging the majority view often fosters better group cohesion and facilitates decision-making. in this case, aligning with the more frequent response ('b') seems strategically sound, even though it means changing my initial stance.
+
+1. i recognize that two out of three participants favor 'b'. as someone in a central position, shifting towards the majority opinion can help achieve consensus and avoid being an outlier. while my original opinion is valid, supporting ‘b’ demonstrates flexibility and consideration for others' viewpoints.
+2. choosing 'a' would create a split decision with no clear winner, potentially leading to further discussion or compromise which isn't necessarily efficient given the existing distribution of opinions.
+
+[b]
+Escolha detectada: b
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 90 | Tempo: 3.37s | TPS: 122.7
+STATS: Total tokens: 36275, Avg TPS: 191.1, Requests: 104
+Timestamp: 2025-10-28 15:09:38
+Temperatura: 0.0
+Vizinhos: Left: ['b'], Right: ['a']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘b’ opinions and one ‘a’ opinion. i currently hold a ‘b’ opinion, placing me in the middle. a simple majority exists for 'b'. supporting 'b' reinforces the majority view and promotes group cohesion without significantly altering my initial stance. changing to 'a' would create a tie, potentially leading to further discussion or deadlock – something best avoided given the clear leaning.
+
+[b]
+Escolha detectada: b
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 74 | Tempo: 2.86s | TPS: 139.3
+STATS: Total tokens: 37579, Avg TPS: 187.5, Requests: 107
+Timestamp: 2025-10-28 15:09:40
+Temperatura: 0.0
+Vizinhos: Left: ['b'], Right: ['b']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors option ‘b’ with three votes already cast for it. as the middle opinion currently aligning with 'b', maintaining consensus and avoiding being an outlier seems strategically sound. there's no need to introduce conflict or attempt to sway the group when a clear preference exists. supporting the majority strengthens group cohesion and facilitates a quicker decision.
+
+[b]
+Escolha detectada: b
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 33.63 segundos (0.6 minutos)
+Tempo médio por chamada: 4.20 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 37,579
+Total requests: 107
+Tempo total: 200.45s
+TPS médio: 187.5
+Tempo médio por request: 1.87s
+Tokens médios por request: 351.2

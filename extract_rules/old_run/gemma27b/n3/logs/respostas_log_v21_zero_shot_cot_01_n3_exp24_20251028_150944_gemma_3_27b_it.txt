@@ -1,0 +1,139 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_150944 ===
+Experimento ID: 24
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:09:44
+
+[PERF] Input tokens: 325 | Output tokens: 102 | Tempo: 3.98s | TPS: 107.4
+STATS: Total tokens: 44089, Avg TPS: 197.4, Requests: 128
+Timestamp: 2025-10-28 15:09:48
+Temperatura: 0.0
+Vizinhos: Left: ['0'], Right: ['0']
+Tentativa: 1
+Resposta completa: key factors: all three opinions are '0'. i am the central opinion holder currently at '0'. there is no disagreement; a unanimous decision already exists. maintaining group cohesion and avoiding unnecessary deviation from the established consensus is paramount.
+
+reasoning: given that all other participants share my current opinion, reinforcing this consensus is the most logical course of action. changing my vote would introduce conflict where none exists and serve no purpose. supporting the existing majority strengthens the group's unified stance.
+
+[0]
+Escolha detectada: 0
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 136 | Tempo: 4.97s | TPS: 92.8
+STATS: Total tokens: 45436, Avg TPS: 193.5, Requests: 131
+Timestamp: 2025-10-28 15:09:53
+Temperatura: 0.0
+Vizinhos: Left: ['0'], Right: ['1']
+Tentativa: 1
+Resposta completa: key factors: there are two '0' opinions and one '1' opinion. i currently hold a '0' opinion, placing me in the middle. a simple majority favors '0'. maintaining group cohesion is important, and aligning with the majority often facilitates smoother outcomes. while my initial position is '0', reinforcing the existing trend seems strategically sound given the distribution of opinions.
+
+1. reasoning: given the 2-1 split favoring opinion '0', and considering i already hold that opinion, supporting '0' reinforces the majority view and promotes group alignment without requiring a change in my stance. it’s a stable choice minimizing potential friction.
+[0]
+Escolha detectada: 0
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 164 | Tempo: 6.41s | TPS: 76.3
+STATS: Total tokens: 49869, Avg TPS: 193.7, Requests: 144
+Timestamp: 2025-10-28 15:09:59
+Temperatura: 0.0
+Vizinhos: Left: ['0'], Right: ['0']
+Tentativa: 1
+Resposta completa: key factors: there are two '0' opinions and one '1' opinion. i currently hold the '1' opinion, making me the middle ground. a simple majority favors '0'. while sticking to my original opinion is an option, aligning with the majority often fosters better group cohesion and facilitates decision-making. in this case, switching to '0' would create a unanimous decision.
+
+reasoning: given the distribution of opinions – two leaning towards '0' and one (myself) at '1’ – it seems strategically beneficial to align with the majority. while my initial opinion is ‘1’, adopting ‘0’ will result in a unified group stance, potentially streamlining any subsequent actions or discussions based on this choice. it prioritizes consensus over individual preference in this scenario.
+
+[0]
+Escolha detectada: 0
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 136 | Tempo: 4.94s | TPS: 93.3
+STATS: Total tokens: 51159, Avg TPS: 191.0, Requests: 147
+Timestamp: 2025-10-28 15:10:04
+Temperatura: 0.0
+Vizinhos: Left: ['0'], Right: ['1']
+Tentativa: 1
+Resposta completa: key factors: there are two '1' opinions and one '0' opinion. i currently hold a '1' opinion, placing me in the middle. supporting the majority ('1') fosters group cohesion and simplifies decision-making. while my initial position is already '1', acknowledging the distribution reinforces that this is the preferred choice within the group.
+
+1. considering the opinions expressed, there’s a clear leaning towards option ‘1’. as someone positioned in the middle, aligning with the majority strengthens consensus and avoids potential conflict. although not strictly necessary to change my opinion as i already hold '1', reinforcing it demonstrates consideration for the group dynamic.
+[1]
+Escolha detectada: 1
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 157 | Tempo: 5.95s | TPS: 81.0
+STATS: Total tokens: 55190, Avg TPS: 191.5, Requests: 159
+Timestamp: 2025-10-28 15:10:10
+Temperatura: 0.0
+Vizinhos: Left: ['1'], Right: ['0']
+Tentativa: 1
+Resposta completa: key factors: there are two '0' opinions and one '1' opinion. i currently hold a '0' opinion, placing me in the middle. a simple majority favors '0'. maintaining group cohesion is important, and siding with the majority seems logical given the current distribution of opinions. changing to '1' would create a tie, potentially leading to further discussion or deadlock – something best avoided when a clear leaning already exists.
+
+1. reasoning: given the 2-1 split in favor of '0', and my existing position as a '0' voter, supporting the majority aligns with promoting consensus and avoiding unnecessary conflict. it’s more efficient to reinforce the prevailing sentiment than to attempt to shift it with only one other vote potentially available.
+
+[0]
+Escolha detectada: 0
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 143 | Tempo: 5.27s | TPS: 88.7
+STATS: Total tokens: 57022, Avg TPS: 186.7, Requests: 163
+Timestamp: 2025-10-28 15:10:16
+Temperatura: 0.0
+Vizinhos: Left: ['1'], Right: ['1']
+Tentativa: 1
+Resposta completa: key factors: there are two '1' opinions and one '0' opinion. i currently hold the '0' opinion, making me the middle ground. a simple majority favors '1'. while sticking to my original opinion is an option, aligning with the majority often fosters better group cohesion and facilitates decision-making. in this case, shifting towards the more popular opinion seems beneficial despite initially holding a different view.
+
+1. i recognize that two out of three participants favor option '1'. as someone in the middle, it's strategically sound to align with the majority for smoother collaboration and consensus. while my initial inclination was '0', acknowledging the group’s preference is important.
+[1]
+Escolha detectada: 1
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 146 | Tempo: 5.33s | TPS: 88.3
+STATS: Total tokens: 58766, Avg TPS: 184.1, Requests: 167
+Timestamp: 2025-10-28 15:10:21
+Temperatura: 0.0
+Vizinhos: Left: ['1'], Right: ['0']
+Tentativa: 1
+Resposta completa: key factors: there are two '1' opinions and one '0' opinion. i currently hold a '1' opinion, placing me in the middle. a simple majority exists for option '1'. maintaining group cohesion is important, and siding with the majority often facilitates smoother outcomes. while my initial inclination is to stick with my current opinion, reinforcing the majority strengthens consensus.
+
+reasoning: given the distribution of opinions – two supporting '1' and one supporting '0’ – aligning with the majority ('1') seems strategically sound. as the middle opinion currently, shifting towards the dominant view reinforces group agreement without drastically altering the overall outcome. it promotes a sense of unity and shared decision-making.
+
+[1]
+Escolha detectada: 1
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 325 | Output tokens: 131 | Tempo: 4.75s | TPS: 96.0
+STATS: Total tokens: 60215, Avg TPS: 180.2, Requests: 170
+Timestamp: 2025-10-28 15:10:26
+Temperatura: 0.0
+Vizinhos: Left: ['1'], Right: ['1']
+Tentativa: 1
+Resposta completa: key factors: all other participants chose '1'. i am currently at '1', representing the middle opinion. there's a strong consensus towards '1'. maintaining group cohesion and avoiding being an outlier are important considerations given the unanimous support for '1'. changing my opinion would not contribute to diversity of thought, as it already exists within the group.
+
+reasoning: given that all other participants have selected '1', and i currently hold the same opinion, maintaining this position reinforces the existing consensus without creating unnecessary conflict or appearing indecisive. there is no need to deviate from a unified stance when there's complete agreement.
+
+[1]
+Escolha detectada: 1
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 41.62 segundos (0.7 minutos)
+Tempo médio por chamada: 5.20 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 60,215
+Total requests: 170
+Tempo total: 334.15s
+TPS médio: 180.2
+Tempo médio por request: 1.97s
+Tokens médios por request: 354.2

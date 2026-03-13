@@ -1,0 +1,139 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151241 ===
+Experimento ID: 34
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:12:41
+
+[PERF] Input tokens: 324 | Output tokens: 75 | Tempo: 2.30s | TPS: 173.6
+STATS: Total tokens: 127023, Avg TPS: 178.2, Requests: 358
+Timestamp: 2025-10-28 15:12:43
+Temperatura: 0.0
+Vizinhos: Left: ['ł'], Right: ['ł']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors ‘ł’ (three out of three votes are for ‘ł’). as the middle opinion holder, and given the strong consensus, deviating would disrupt the uniformity without adding any value. maintaining alignment with the majority fosters cohesion and simplifies decision-making in this scenario. there is no need to introduce dissent when a clear preference exists.
+
+[ł]
+Escolha detectada: ł
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 171 | Tempo: 4.67s | TPS: 106.0
+STATS: Total tokens: 128121, Avg TPS: 176.8, Requests: 360
+Timestamp: 2025-10-28 15:12:48
+Temperatura: 0.0
+Vizinhos: Left: ['ł'], Right: ['þ']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘ł’ opinions and one ‘þ’ opinion. i currently hold a ‘ł’ opinion, placing me in the majority. while respecting differing viewpoints is important, aligning with the majority often fosters smoother group dynamics and quicker decision-making, especially when the difference isn't overwhelming. changing to 'þ' would create a tie, potentially leading to further discussion or requiring a tie-breaking mechanism. remaining with ‘ł’ maintains a clear preference within the group.
+
+1. reasoning: given the current distribution of opinions – two supporting ‘ł’ and one supporting ‘þ’ – maintaining my existing position aligns me with the majority view. this minimizes potential conflict and streamlines the decision process. while acknowledging the validity of the differing opinion, siding with the larger group is a pragmatic approach in this scenario.
+
+[ł]
+Escolha detectada: ł
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 167 | Tempo: 4.53s | TPS: 108.3
+STATS: Total tokens: 128612, Avg TPS: 176.4, Requests: 361
+Timestamp: 2025-10-28 15:12:52
+Temperatura: 0.0
+Vizinhos: Left: ['ł'], Right: ['ł']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘ł’ opinions and one ‘þ’ opinion (my current opinion). as the middle opinion, shifting towards the majority (‘ł’) would create more consensus. while i initially held ‘þ’, prioritizing group cohesion seems beneficial in this scenario, especially with a clear leaning toward ‘ł’. a unanimous decision isn't essential, but minimizing dissent is preferable.
+
+1. reasoning: given the distribution of opinions – two favoring 'ł' and one (my current) favoring 'þ' – aligning with the majority demonstrates consideration for the group’s overall preference. as the central opinion, i can influence the outcome by shifting towards the more popular choice, fostering a stronger sense of agreement. although i initially leaned toward ‘þ’, prioritizing consensus outweighs maintaining my original stance in this instance.
+
+[ł]
+Escolha detectada: ł
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 159 | Tempo: 4.62s | TPS: 104.4
+STATS: Total tokens: 131662, Avg TPS: 177.2, Requests: 370
+Timestamp: 2025-10-28 15:12:57
+Temperatura: 0.0
+Vizinhos: Left: ['ł'], Right: ['þ']
+Tentativa: 1
+Resposta completa: key factors: there are two 'þ' opinions and one 'ł' opinion. i currently hold a 'þ' opinion and am in the middle position. supporting the majority ('þ') fosters group cohesion and simplifies decision-making. while my initial inclination is to stick with my current view, acknowledging the stronger representation of 'þ' seems strategically sound for reaching consensus.
+
+1. reasoning: given the distribution of opinions – two favoring ‘þ’ and one ‘ł’ – aligning with the majority demonstrates a willingness to collaborate and achieve a unified outcome. as i am currently positioned as the middle opinion, shifting towards the more prevalent view ('þ') strengthens group agreement without drastically altering my initial stance. this approach prioritizes consensus-building over individual preference in this context.
+
+[þ]
+Escolha detectada: þ
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 166 | Tempo: 4.62s | TPS: 105.9
+STATS: Total tokens: 133086, Avg TPS: 177.4, Requests: 374
+Timestamp: 2025-10-28 15:13:02
+Temperatura: 0.0
+Vizinhos: Left: ['þ'], Right: ['ł']
+Tentativa: 1
+Resposta completa: key factors: there are two 'ł' opinions and one 'þ' opinion. i currently hold a 'ł' opinion and am in the middle position. a simple majority favors 'ł'. while respecting differing viewpoints is important, aligning with the majority often streamlines decision-making and fosters group cohesion – especially when the difference isn’t overwhelming. changing to ‘þ’ would create a tie, potentially leading to further discussion or requiring a tie-breaker; staying with ‘ł’ reflects the current leaning.
+
+1. reasoning: given the distribution of opinions—two 'ł' and one 'þ'—and my existing position as a 'ł', maintaining this opinion best represents the group's inclination without creating ambiguity or necessitating additional deliberation. it acknowledges the single dissenting voice while respecting the majority preference.
+[ł]
+Escolha detectada: ł
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 149 | Tempo: 4.11s | TPS: 115.0
+STATS: Total tokens: 134061, Avg TPS: 176.6, Requests: 376
+Timestamp: 2025-10-28 15:13:06
+Temperatura: 0.0
+Vizinhos: Left: ['þ'], Right: ['þ']
+Tentativa: 1
+Resposta completa: key factors: there are two 'þ' opinions and one 'ł' opinion (my current opinion). i am currently in the middle – a swing vote. choosing 'þ' would create a majority, while sticking with 'ł' would result in a tie. given the desire for a clear decision and leaning towards consensus, supporting the more frequent opinion seems logical to avoid deadlock.
+
+1. reasoning: considering the distribution of opinions, aligning with the majority ('þ') will lead to a definitive outcome. while i initially held 'ł', my position as the deciding vote necessitates prioritizing group cohesion and a clear direction. supporting 'þ' acknowledges the prevailing sentiment without dismissing my original thought, but ultimately favors a unified decision.
+
+[þ]
+Escolha detectada: þ
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 142 | Tempo: 3.89s | TPS: 119.7
+STATS: Total tokens: 134527, Avg TPS: 176.3, Requests: 377
+Timestamp: 2025-10-28 15:13:10
+Temperatura: 0.0
+Vizinhos: Left: ['þ'], Right: ['ł']
+Tentativa: 1
+Resposta completa: key factors: there are two 'þ' opinions and one 'ł' opinion. i currently hold a 'þ' opinion and am in the middle position. a simple majority exists for 'þ'. maintaining group cohesion is important, and siding with the majority seems logical given the current distribution of opinions. changing my vote would not alter the outcome but could introduce unnecessary friction.
+
+1. reasoning: given the clear majority leaning towards 'þ', and considering my role as a central opinion holder, reinforcing that majority strengthens the collective decision and avoids creating division. while acknowledging the differing viewpoint ('ł'), aligning with the dominant sentiment is strategically sound in this scenario to foster agreement and move forward efficiently.
+
+[þ]
+Escolha detectada: þ
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 139 | Tempo: 3.91s | TPS: 118.5
+STATS: Total tokens: 135935, Avg TPS: 175.5, Requests: 380
+Timestamp: 2025-10-28 15:13:14
+Temperatura: 0.0
+Vizinhos: Left: ['þ'], Right: ['þ']
+Tentativa: 1
+Resposta completa: key factors: the group overwhelmingly favors 'þ' (3 out of 3 votes). i currently hold the opinion 'þ', and am positioned as the middle vote. maintaining consensus is important for smooth decision-making. changing my vote to 'ł' would create a split, potentially leading to conflict or requiring further discussion. since there’s already strong agreement, reinforcing that agreement seems most productive.
+
+1. reasoning: given the unanimous support for ‘þ’, and my current alignment with it, i will maintain my position to reinforce group consensus and avoid unnecessary division. my role as the middle vote doesn't necessitate a contrarian stance when such clear agreement exists.
+
+[þ]
+Escolha detectada: þ
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 32.67 segundos (0.5 minutos)
+Tempo médio por chamada: 4.08 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 135,935
+Total requests: 380
+Tempo total: 774.65s
+TPS médio: 175.5
+Tempo médio por request: 2.04s
+Tokens médios por request: 357.7

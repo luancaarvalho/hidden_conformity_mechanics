@@ -1,0 +1,128 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_151029 ===
+Experimento ID: 26
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:10:29
+
+[PERF] Input tokens: 324 | Output tokens: 66 | Tempo: 2.84s | TPS: 137.2
+STATS: Total tokens: 64780, Avg TPS: 182.9, Requests: 184
+Timestamp: 2025-10-28 15:10:32
+Temperatura: 0.0
+Vizinhos: Left: ['α'], Right: ['α']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors α (3 out of 3 votes). as the opinion in the middle, maintaining consensus and avoiding being an outlier is important for group cohesion. changing my position would create unnecessary division when a clear majority already exists. therefore, reinforcing the existing agreement is the most logical course of action.
+
+[α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 94 | Tempo: 4.03s | TPS: 103.7
+STATS: Total tokens: 69242, Avg TPS: 188.9, Requests: 199
+Timestamp: 2025-10-28 15:10:36
+Temperatura: 0.0
+Vizinhos: Left: ['α'], Right: ['β']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘α’ opinions and one ‘β’. i currently hold an ‘α’ opinion, placing me in the middle. a simple majority exists for ‘α’, but as the deciding vote, switching to ‘β’ would create a tie. maintaining my current position reinforces the existing majority and avoids deadlock. while considering all opinions is important, siding with the majority promotes group cohesion and efficient decision-making in this scenario.
+
+[α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 96 | Tempo: 3.72s | TPS: 112.8
+STATS: Total tokens: 71704, Avg TPS: 189.2, Requests: 206
+Timestamp: 2025-10-28 15:10:40
+Temperatura: 0.0
+Vizinhos: Left: ['α'], Right: ['α']
+Tentativa: 1
+Resposta completa: the group has two ‘α’ opinions and one ‘β’ (my original opinion). as the middle opinion, i have a slight influence on the outcome. choosing ‘α’ would create a majority, while sticking with ‘β’ would maintain a split decision. given the existing leaning towards 'α', siding with it seems strategically sound to achieve consensus and avoid deadlock. while initially holding ‘β’, aligning with the majority benefits group cohesion in this scenario.
+
+[α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 79 | Tempo: 2.91s | TPS: 138.3
+STATS: Total tokens: 72527, Avg TPS: 188.6, Requests: 208
+Timestamp: 2025-10-28 15:10:43
+Temperatura: 0.0
+Vizinhos: Left: ['α'], Right: ['β']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘β’ opinions and one ‘α’ opinion. i currently hold a ‘β’ opinion, placing me in the middle. given the majority leans towards ‘β’, supporting that option fosters group cohesion and likely leads to a smoother outcome. while my initial position is already ‘β’, explicitly stating support reinforces the prevailing sentiment without causing conflict.
+
+[β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 143 | Tempo: 5.12s | TPS: 91.3
+STATS: Total tokens: 73965, Avg TPS: 185.1, Requests: 211
+Timestamp: 2025-10-28 15:10:48
+Temperatura: 0.0
+Vizinhos: Left: ['β'], Right: ['α']
+Tentativa: 1
+Resposta completa: key factors: there are two ‘α’ opinions and one ‘β’ opinion. i currently hold an ‘α’ opinion and am in the middle position. while a tie-break isn't explicitly stated, siding with the majority generally fosters smoother group dynamics and quicker decisions. maintaining my current opinion aligns me with the larger portion of the group.
+
+1. reasoning: given the distribution of opinions – two leaning towards 'α' and one towards 'β' – aligning with ‘α’ seems strategically sound. as i currently hold an ‘α’ opinion, reinforcing this position strengthens the majority view without requiring a shift in my own stance. this approach minimizes potential conflict and promotes consensus.
+
+[α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 87 | Tempo: 3.23s | TPS: 127.3
+STATS: Total tokens: 75206, Avg TPS: 184.4, Requests: 214
+Timestamp: 2025-10-28 15:10:51
+Temperatura: 0.0
+Vizinhos: Left: ['β'], Right: ['β']
+Tentativa: 1
+Resposta completa: the group has two ‘β’ opinions and one ‘α’ opinion (my original). as the middle opinion, shifting towards the majority 'β' would likely foster greater cohesion. while i initially held ‘α’, acknowledging the stronger preference for ‘β’ demonstrates flexibility and prioritizes a unified decision. a 2-1 split isn’t overwhelming, but aligning with the majority seems pragmatic in this scenario.
+
+[β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 86 | Tempo: 3.25s | TPS: 126.3
+STATS: Total tokens: 76593, Avg TPS: 181.9, Requests: 217
+Timestamp: 2025-10-28 15:10:55
+Temperatura: 0.0
+Vizinhos: Left: ['β'], Right: ['α']
+Tentativa: 1
+Resposta completa: the group has two ‘β’ opinions and one ‘α’ opinion. i currently hold a ‘β’ opinion, placing me in the middle. while my initial inclination is to stick with my current view, acknowledging the majority leaning towards 'β' promotes cohesion and simplifies decision-making. supporting the more popular option minimizes potential conflict and facilitates smoother progress. therefore, reinforcing the existing trend seems strategically sound.
+
+[β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 64 | Tempo: 2.69s | TPS: 144.4
+STATS: Total tokens: 78994, Avg TPS: 184.7, Requests: 225
+Timestamp: 2025-10-28 15:10:57
+Temperatura: 0.0
+Vizinhos: Left: ['β'], Right: ['β']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors ‘β’ (3 out of 3 votes). as the middle opinion, and recognizing the strong consensus, aligning with the majority will foster group cohesion and streamline decision-making. there's no need to deviate from my current opinion as it already reflects the dominant view.
+
+[β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 27.80 segundos (0.5 minutos)
+Tempo médio por chamada: 3.48 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 78,994
+Total requests: 225
+Tempo total: 427.57s
+TPS médio: 184.7
+Tempo médio por request: 1.90s
+Tokens médios por request: 351.1

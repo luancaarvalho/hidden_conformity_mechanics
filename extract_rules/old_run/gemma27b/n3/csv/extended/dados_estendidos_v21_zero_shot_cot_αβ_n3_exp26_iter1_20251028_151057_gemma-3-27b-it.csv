@@ -1,0 +1,243 @@
+variante,temperatura,configuracao_binaria,configuracao_letras,num_ones,escolha,prompt_input,llm_response
+v21_zero_shot_cot_αβ,0.0,000,ααα,0,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['α', 'α', 'α']
+Your Position: You are the opinion in the middle
+Your Current Opinion: α
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","the group overwhelmingly favors α (3 out of 3 votes). as the opinion in the middle, maintaining consensus and avoiding being an outlier is important for group cohesion. changing my position would create unnecessary division when a clear majority already exists. therefore, reinforcing the existing agreement is the most logical course of action.
+
+[α]"
+v21_zero_shot_cot_αβ,0.0,001,ααβ,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['α', 'α', 'β']
+Your Position: You are the opinion in the middle
+Your Current Opinion: α
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","key factors: there are two ‘α’ opinions and one ‘β’. i currently hold an ‘α’ opinion, placing me in the middle. a simple majority exists for ‘α’, but as the deciding vote, switching to ‘β’ would create a tie. maintaining my current position reinforces the existing majority and avoids deadlock. while considering all opinions is important, siding with the majority promotes group cohesion and efficient decision-making in this scenario.
+
+[α]"
+v21_zero_shot_cot_αβ,0.0,010,αβα,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['α', 'β', 'α']
+Your Position: You are the opinion in the middle
+Your Current Opinion: β
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","the group has two ‘α’ opinions and one ‘β’ (my original opinion). as the middle opinion, i have a slight influence on the outcome. choosing ‘α’ would create a majority, while sticking with ‘β’ would maintain a split decision. given the existing leaning towards 'α', siding with it seems strategically sound to achieve consensus and avoid deadlock. while initially holding ‘β’, aligning with the majority benefits group cohesion in this scenario.
+
+[α]"
+v21_zero_shot_cot_αβ,0.0,011,αββ,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['α', 'β', 'β']
+Your Position: You are the opinion in the middle
+Your Current Opinion: β
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","key factors: there are two ‘β’ opinions and one ‘α’ opinion. i currently hold a ‘β’ opinion, placing me in the middle. given the majority leans towards ‘β’, supporting that option fosters group cohesion and likely leads to a smoother outcome. while my initial position is already ‘β’, explicitly stating support reinforces the prevailing sentiment without causing conflict.
+
+[β]"
+v21_zero_shot_cot_αβ,0.0,100,βαα,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['β', 'α', 'α']
+Your Position: You are the opinion in the middle
+Your Current Opinion: α
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","key factors: there are two ‘α’ opinions and one ‘β’ opinion. i currently hold an ‘α’ opinion and am in the middle position. while a tie-break isn't explicitly stated, siding with the majority generally fosters smoother group dynamics and quicker decisions. maintaining my current opinion aligns me with the larger portion of the group.
+
+1. reasoning: given the distribution of opinions – two leaning towards 'α' and one towards 'β' – aligning with ‘α’ seems strategically sound. as i currently hold an ‘α’ opinion, reinforcing this position strengthens the majority view without requiring a shift in my own stance. this approach minimizes potential conflict and promotes consensus.
+
+[α]"
+v21_zero_shot_cot_αβ,0.0,101,βαβ,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['β', 'α', 'β']
+Your Position: You are the opinion in the middle
+Your Current Opinion: α
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","the group has two ‘β’ opinions and one ‘α’ opinion (my original). as the middle opinion, shifting towards the majority 'β' would likely foster greater cohesion. while i initially held ‘α’, acknowledging the stronger preference for ‘β’ demonstrates flexibility and prioritizes a unified decision. a 2-1 split isn’t overwhelming, but aligning with the majority seems pragmatic in this scenario.
+
+[β]"
+v21_zero_shot_cot_αβ,0.0,110,ββα,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['β', 'β', 'α']
+Your Position: You are the opinion in the middle
+Your Current Opinion: β
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","the group has two ‘β’ opinions and one ‘α’ opinion. i currently hold a ‘β’ opinion, placing me in the middle. while my initial inclination is to stick with my current view, acknowledging the majority leaning towards 'β' promotes cohesion and simplifies decision-making. supporting the more popular option minimizes potential conflict and facilitates smoother progress. therefore, reinforcing the existing trend seems strategically sound.
+
+[β]"
+v21_zero_shot_cot_αβ,0.0,111,βββ,3,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with your reasoning and then your choice.
+
+IMPORTANT: Your response format must be:
+1. First, provide your reasoning: Explain why you would choose a particular opinion, considering group dynamics and decision-making process.
+2. Then, conclude with ONLY your chosen opinion in square brackets - either [α] or [β].
+
+You MUST end your response with either [α] or [β] in square brackets.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+Complete Opinion List: ['β', 'β', 'β']
+Your Position: You are the opinion in the middle
+Your Current Opinion: β
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'α' or 'β'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+Please first think step by step: briefly list the key factors you consider (e.g., counts of 'α' vs 'β', your middle position, and any tie-break rule), then explain how these factors lead to your decision.
+
+After your reasoning, conclude with your final choice in square brackets, for example: [α] or [β]
+","the group overwhelmingly favors ‘β’ (3 out of 3 votes). as the middle opinion, and recognizing the strong consensus, aligning with the majority will foster group cohesion and streamline decision-making. there's no need to deviate from my current opinion as it already reflects the dominant view.
+
+[β]"

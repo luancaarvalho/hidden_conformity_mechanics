@@ -1,0 +1,9 @@
+variante,temperatura,configuracao_binaria,configuracao_letras,num_ones,escolha
+v21_zero_shot_cot_αβ,0.0,000,ααα,0,0
+v21_zero_shot_cot_αβ,0.0,001,ααβ,1,0
+v21_zero_shot_cot_αβ,0.0,010,αβα,1,0
+v21_zero_shot_cot_αβ,0.0,011,αββ,2,1
+v21_zero_shot_cot_αβ,0.0,100,βαα,1,0
+v21_zero_shot_cot_αβ,0.0,101,βαβ,2,1
+v21_zero_shot_cot_αβ,0.0,110,ββα,2,1
+v21_zero_shot_cot_αβ,0.0,111,βββ,3,1

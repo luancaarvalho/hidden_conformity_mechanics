@@ -1,0 +1,1942 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251127_153856 ===
+Experimento ID: 17
+Modelo: qwen3-4b
+Número de vizinhos: 7
+Data e hora: 2025-11-27 15:38:56
+
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 686.3
+STATS: Total tokens: 978129, Avg TPS: 122.5, Requests: 2692
+Timestamp: 2025-11-27 15:38:56
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 728.2
+STATS: Total tokens: 978872, Avg TPS: 122.5, Requests: 2694
+Timestamp: 2025-11-27 15:38:57
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 689.2
+STATS: Total tokens: 979160, Avg TPS: 122.5, Requests: 2695
+Timestamp: 2025-11-27 15:38:57
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 710.4
+STATS: Total tokens: 979448, Avg TPS: 122.5, Requests: 2696
+Timestamp: 2025-11-27 15:38:57
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 701.3
+STATS: Total tokens: 979736, Avg TPS: 122.6, Requests: 2697
+Timestamp: 2025-11-27 15:38:58
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 723.8
+STATS: Total tokens: 980024, Avg TPS: 122.6, Requests: 2698
+Timestamp: 2025-11-27 15:38:58
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 732.2
+STATS: Total tokens: 980312, Avg TPS: 122.6, Requests: 2699
+Timestamp: 2025-11-27 15:38:59
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 730.5
+STATS: Total tokens: 980600, Avg TPS: 122.6, Requests: 2700
+Timestamp: 2025-11-27 15:38:59
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 721.0
+STATS: Total tokens: 980888, Avg TPS: 122.7, Requests: 2701
+Timestamp: 2025-11-27 15:38:59
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 740.6
+STATS: Total tokens: 981176, Avg TPS: 122.7, Requests: 2702
+Timestamp: 2025-11-27 15:39:00
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 722.6
+STATS: Total tokens: 981464, Avg TPS: 122.7, Requests: 2703
+Timestamp: 2025-11-27 15:39:00
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 761.2
+STATS: Total tokens: 981752, Avg TPS: 122.8, Requests: 2704
+Timestamp: 2025-11-27 15:39:01
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 739.8
+STATS: Total tokens: 982040, Avg TPS: 122.8, Requests: 2705
+Timestamp: 2025-11-27 15:39:01
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 711.0
+STATS: Total tokens: 982328, Avg TPS: 122.8, Requests: 2706
+Timestamp: 2025-11-27 15:39:01
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.45s | TPS: 638.0
+STATS: Total tokens: 983056, Avg TPS: 122.8, Requests: 2708
+Timestamp: 2025-11-27 15:39:02
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 683.5
+STATS: Total tokens: 983344, Avg TPS: 122.9, Requests: 2709
+Timestamp: 2025-11-27 15:39:02
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 736.2
+STATS: Total tokens: 983632, Avg TPS: 122.9, Requests: 2710
+Timestamp: 2025-11-27 15:39:03
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 718.6
+STATS: Total tokens: 983920, Avg TPS: 122.9, Requests: 2711
+Timestamp: 2025-11-27 15:39:03
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 757.0
+STATS: Total tokens: 984659, Avg TPS: 122.9, Requests: 2713
+Timestamp: 2025-11-27 15:39:03
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.45s | TPS: 634.9
+STATS: Total tokens: 984947, Avg TPS: 122.9, Requests: 2714
+Timestamp: 2025-11-27 15:39:04
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 700.3
+STATS: Total tokens: 985235, Avg TPS: 122.9, Requests: 2715
+Timestamp: 2025-11-27 15:39:04
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 725.0
+STATS: Total tokens: 985523, Avg TPS: 123.0, Requests: 2716
+Timestamp: 2025-11-27 15:39:05
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 733.5
+STATS: Total tokens: 985811, Avg TPS: 123.0, Requests: 2717
+Timestamp: 2025-11-27 15:39:05
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 728.0
+STATS: Total tokens: 986099, Avg TPS: 123.0, Requests: 2718
+Timestamp: 2025-11-27 15:39:06
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.44s | TPS: 659.5
+STATS: Total tokens: 986387, Avg TPS: 123.0, Requests: 2719
+Timestamp: 2025-11-27 15:39:06
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 738.4
+STATS: Total tokens: 987106, Avg TPS: 123.1, Requests: 2721
+Timestamp: 2025-11-27 15:39:06
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 704.6
+STATS: Total tokens: 987394, Avg TPS: 123.1, Requests: 2722
+Timestamp: 2025-11-27 15:39:07
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.46s | TPS: 625.8
+STATS: Total tokens: 987682, Avg TPS: 123.1, Requests: 2723
+Timestamp: 2025-11-27 15:39:07
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.46s | TPS: 624.8
+STATS: Total tokens: 987970, Avg TPS: 123.2, Requests: 2724
+Timestamp: 2025-11-27 15:39:08
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 766.6
+STATS: Total tokens: 988258, Avg TPS: 123.2, Requests: 2725
+Timestamp: 2025-11-27 15:39:08
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 695.6
+STATS: Total tokens: 988546, Avg TPS: 123.2, Requests: 2726
+Timestamp: 2025-11-27 15:39:08
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 680.1
+STATS: Total tokens: 988834, Avg TPS: 123.2, Requests: 2727
+Timestamp: 2025-11-27 15:39:09
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'yes', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.44s | TPS: 658.8
+STATS: Total tokens: 989513, Avg TPS: 123.3, Requests: 2729
+Timestamp: 2025-11-27 15:39:09
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 682.5
+STATS: Total tokens: 989801, Avg TPS: 123.3, Requests: 2730
+Timestamp: 2025-11-27 15:39:10
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 682.8
+STATS: Total tokens: 990089, Avg TPS: 123.3, Requests: 2731
+Timestamp: 2025-11-27 15:39:10
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 728.8
+STATS: Total tokens: 990377, Avg TPS: 123.4, Requests: 2732
+Timestamp: 2025-11-27 15:39:11
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 706.0
+STATS: Total tokens: 990665, Avg TPS: 123.4, Requests: 2733
+Timestamp: 2025-11-27 15:39:11
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 695.6
+STATS: Total tokens: 990953, Avg TPS: 123.4, Requests: 2734
+Timestamp: 2025-11-27 15:39:11
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 665.2
+STATS: Total tokens: 991241, Avg TPS: 123.4, Requests: 2735
+Timestamp: 2025-11-27 15:39:12
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 762.7
+STATS: Total tokens: 991529, Avg TPS: 123.5, Requests: 2736
+Timestamp: 2025-11-27 15:39:12
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 759.6
+STATS: Total tokens: 992215, Avg TPS: 123.5, Requests: 2738
+Timestamp: 2025-11-27 15:39:13
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 732.6
+STATS: Total tokens: 992503, Avg TPS: 123.5, Requests: 2739
+Timestamp: 2025-11-27 15:39:13
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.44s | TPS: 658.4
+STATS: Total tokens: 992791, Avg TPS: 123.6, Requests: 2740
+Timestamp: 2025-11-27 15:39:13
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 773.9
+STATS: Total tokens: 993079, Avg TPS: 123.6, Requests: 2741
+Timestamp: 2025-11-27 15:39:14
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 704.4
+STATS: Total tokens: 993367, Avg TPS: 123.6, Requests: 2742
+Timestamp: 2025-11-27 15:39:14
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.36s | TPS: 797.3
+STATS: Total tokens: 994134, Avg TPS: 123.5, Requests: 2744
+Timestamp: 2025-11-27 15:39:15
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.46s | TPS: 620.6
+STATS: Total tokens: 994422, Avg TPS: 123.6, Requests: 2745
+Timestamp: 2025-11-27 15:39:15
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 778.6
+STATS: Total tokens: 994710, Avg TPS: 123.6, Requests: 2746
+Timestamp: 2025-11-27 15:39:15
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 671.1
+STATS: Total tokens: 994998, Avg TPS: 123.6, Requests: 2747
+Timestamp: 2025-11-27 15:39:16
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 710.5
+STATS: Total tokens: 995286, Avg TPS: 123.7, Requests: 2748
+Timestamp: 2025-11-27 15:39:16
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 683.8
+STATS: Total tokens: 995574, Avg TPS: 123.7, Requests: 2749
+Timestamp: 2025-11-27 15:39:17
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 720.2
+STATS: Total tokens: 996290, Avg TPS: 123.7, Requests: 2751
+Timestamp: 2025-11-27 15:39:17
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 709.6
+STATS: Total tokens: 996578, Avg TPS: 123.7, Requests: 2752
+Timestamp: 2025-11-27 15:39:18
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 707.3
+STATS: Total tokens: 996866, Avg TPS: 123.8, Requests: 2753
+Timestamp: 2025-11-27 15:39:18
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 675.1
+STATS: Total tokens: 997154, Avg TPS: 123.8, Requests: 2754
+Timestamp: 2025-11-27 15:39:18
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.36s | TPS: 795.3
+STATS: Total tokens: 997442, Avg TPS: 123.8, Requests: 2755
+Timestamp: 2025-11-27 15:39:19
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 698.7
+STATS: Total tokens: 997730, Avg TPS: 123.9, Requests: 2756
+Timestamp: 2025-11-27 15:39:19
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 714.5
+STATS: Total tokens: 998018, Avg TPS: 123.9, Requests: 2757
+Timestamp: 2025-11-27 15:39:20
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 698.5
+STATS: Total tokens: 998306, Avg TPS: 123.9, Requests: 2758
+Timestamp: 2025-11-27 15:39:20
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 726.1
+STATS: Total tokens: 998594, Avg TPS: 123.9, Requests: 2759
+Timestamp: 2025-11-27 15:39:20
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 707.9
+STATS: Total tokens: 998882, Avg TPS: 124.0, Requests: 2760
+Timestamp: 2025-11-27 15:39:21
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 728.2
+STATS: Total tokens: 999590, Avg TPS: 124.0, Requests: 2762
+Timestamp: 2025-11-27 15:39:21
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 785.3
+STATS: Total tokens: 999878, Avg TPS: 124.0, Requests: 2763
+Timestamp: 2025-11-27 15:39:22
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 703.3
+STATS: Total tokens: 1000166, Avg TPS: 124.1, Requests: 2764
+Timestamp: 2025-11-27 15:39:22
+Temperatura: 0.0
+Vizinhos: Left: ['yes', 'no', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 689.5
+STATS: Total tokens: 1000887, Avg TPS: 124.0, Requests: 2766
+Timestamp: 2025-11-27 15:39:22
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.48s | TPS: 601.9
+STATS: Total tokens: 1001175, Avg TPS: 124.0, Requests: 2767
+Timestamp: 2025-11-27 15:39:23
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 674.2
+STATS: Total tokens: 1001463, Avg TPS: 124.1, Requests: 2768
+Timestamp: 2025-11-27 15:39:23
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 759.5
+STATS: Total tokens: 1001751, Avg TPS: 124.1, Requests: 2769
+Timestamp: 2025-11-27 15:39:24
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 726.0
+STATS: Total tokens: 1002039, Avg TPS: 124.1, Requests: 2770
+Timestamp: 2025-11-27 15:39:24
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.44s | TPS: 652.7
+STATS: Total tokens: 1002327, Avg TPS: 124.2, Requests: 2771
+Timestamp: 2025-11-27 15:39:24
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.53s | TPS: 546.7
+STATS: Total tokens: 1002615, Avg TPS: 124.2, Requests: 2772
+Timestamp: 2025-11-27 15:39:25
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 693.3
+STATS: Total tokens: 1002903, Avg TPS: 124.2, Requests: 2773
+Timestamp: 2025-11-27 15:39:25
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 662.5
+STATS: Total tokens: 1003191, Avg TPS: 124.2, Requests: 2774
+Timestamp: 2025-11-27 15:39:26
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 773.6
+STATS: Total tokens: 1003479, Avg TPS: 124.3, Requests: 2775
+Timestamp: 2025-11-27 15:39:26
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.36s | TPS: 802.1
+STATS: Total tokens: 1004214, Avg TPS: 124.3, Requests: 2777
+Timestamp: 2025-11-27 15:39:27
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.44s | TPS: 656.4
+STATS: Total tokens: 1004502, Avg TPS: 124.3, Requests: 2778
+Timestamp: 2025-11-27 15:39:27
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 680.5
+STATS: Total tokens: 1004790, Avg TPS: 124.3, Requests: 2779
+Timestamp: 2025-11-27 15:39:27
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 705.1
+STATS: Total tokens: 1005078, Avg TPS: 124.4, Requests: 2780
+Timestamp: 2025-11-27 15:39:28
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 698.0
+STATS: Total tokens: 1005366, Avg TPS: 124.4, Requests: 2781
+Timestamp: 2025-11-27 15:39:28
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 689.9
+STATS: Total tokens: 1005654, Avg TPS: 124.4, Requests: 2782
+Timestamp: 2025-11-27 15:39:29
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.44s | TPS: 653.9
+STATS: Total tokens: 1005942, Avg TPS: 124.5, Requests: 2783
+Timestamp: 2025-11-27 15:39:29
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.46s | TPS: 623.4
+STATS: Total tokens: 1006230, Avg TPS: 124.5, Requests: 2784
+Timestamp: 2025-11-27 15:39:30
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 734.8
+STATS: Total tokens: 1006518, Avg TPS: 124.5, Requests: 2785
+Timestamp: 2025-11-27 15:39:30
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 720.8
+STATS: Total tokens: 1006806, Avg TPS: 124.5, Requests: 2786
+Timestamp: 2025-11-27 15:39:30
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 684.6
+STATS: Total tokens: 1007094, Avg TPS: 124.6, Requests: 2787
+Timestamp: 2025-11-27 15:39:31
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 775.8
+STATS: Total tokens: 1007382, Avg TPS: 124.6, Requests: 2788
+Timestamp: 2025-11-27 15:39:31
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 710.2
+STATS: Total tokens: 1008110, Avg TPS: 124.6, Requests: 2790
+Timestamp: 2025-11-27 15:39:32
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 665.1
+STATS: Total tokens: 1008398, Avg TPS: 124.6, Requests: 2791
+Timestamp: 2025-11-27 15:39:32
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 702.9
+STATS: Total tokens: 1008686, Avg TPS: 124.7, Requests: 2792
+Timestamp: 2025-11-27 15:39:32
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 738.3
+STATS: Total tokens: 1008974, Avg TPS: 124.7, Requests: 2793
+Timestamp: 2025-11-27 15:39:33
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 745.7
+STATS: Total tokens: 1009742, Avg TPS: 124.6, Requests: 2795
+Timestamp: 2025-11-27 15:39:33
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 700.2
+STATS: Total tokens: 1010030, Avg TPS: 124.6, Requests: 2796
+Timestamp: 2025-11-27 15:39:34
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 763.0
+STATS: Total tokens: 1010318, Avg TPS: 124.7, Requests: 2797
+Timestamp: 2025-11-27 15:39:34
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 712.8
+STATS: Total tokens: 1010606, Avg TPS: 124.7, Requests: 2798
+Timestamp: 2025-11-27 15:39:34
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 716.6
+STATS: Total tokens: 1010894, Avg TPS: 124.7, Requests: 2799
+Timestamp: 2025-11-27 15:39:35
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 781.0
+STATS: Total tokens: 1011182, Avg TPS: 124.8, Requests: 2800
+Timestamp: 2025-11-27 15:39:35
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'yes', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 727.4
+STATS: Total tokens: 1011470, Avg TPS: 124.8, Requests: 2801
+Timestamp: 2025-11-27 15:39:36
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 736.6
+STATS: Total tokens: 1012181, Avg TPS: 124.8, Requests: 2803
+Timestamp: 2025-11-27 15:39:36
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 738.1
+STATS: Total tokens: 1012469, Avg TPS: 124.8, Requests: 2804
+Timestamp: 2025-11-27 15:39:36
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 727.9
+STATS: Total tokens: 1012757, Avg TPS: 124.9, Requests: 2805
+Timestamp: 2025-11-27 15:39:37
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 730.3
+STATS: Total tokens: 1013045, Avg TPS: 124.9, Requests: 2806
+Timestamp: 2025-11-27 15:39:37
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 684.1
+STATS: Total tokens: 1013333, Avg TPS: 124.9, Requests: 2807
+Timestamp: 2025-11-27 15:39:38
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 745.5
+STATS: Total tokens: 1013621, Avg TPS: 125.0, Requests: 2808
+Timestamp: 2025-11-27 15:39:38
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 721.3
+STATS: Total tokens: 1013909, Avg TPS: 125.0, Requests: 2809
+Timestamp: 2025-11-27 15:39:38
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 664.5
+STATS: Total tokens: 1014197, Avg TPS: 125.0, Requests: 2810
+Timestamp: 2025-11-27 15:39:39
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 749.3
+STATS: Total tokens: 1014485, Avg TPS: 125.0, Requests: 2811
+Timestamp: 2025-11-27 15:39:39
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 782.9
+STATS: Total tokens: 1014773, Avg TPS: 125.1, Requests: 2812
+Timestamp: 2025-11-27 15:39:40
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 716.9
+STATS: Total tokens: 1015061, Avg TPS: 125.1, Requests: 2813
+Timestamp: 2025-11-27 15:39:40
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.51s | TPS: 559.7
+STATS: Total tokens: 1015349, Avg TPS: 125.1, Requests: 2814
+Timestamp: 2025-11-27 15:39:40
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.45s | TPS: 647.2
+STATS: Total tokens: 1015637, Avg TPS: 125.2, Requests: 2815
+Timestamp: 2025-11-27 15:39:41
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.43s | TPS: 675.0
+STATS: Total tokens: 1016364, Avg TPS: 125.2, Requests: 2817
+Timestamp: 2025-11-27 15:39:41
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 707.9
+STATS: Total tokens: 1016652, Avg TPS: 125.2, Requests: 2818
+Timestamp: 2025-11-27 15:39:42
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'yes'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 682.0
+STATS: Total tokens: 1016940, Avg TPS: 125.2, Requests: 2819
+Timestamp: 2025-11-27 15:39:42
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 764.7
+STATS: Total tokens: 1017228, Avg TPS: 125.2, Requests: 2820
+Timestamp: 2025-11-27 15:39:43
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 724.1
+STATS: Total tokens: 1017516, Avg TPS: 125.3, Requests: 2821
+Timestamp: 2025-11-27 15:39:43
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 735.2
+STATS: Total tokens: 1017804, Avg TPS: 125.3, Requests: 2822
+Timestamp: 2025-11-27 15:39:43
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 724.6
+STATS: Total tokens: 1018092, Avg TPS: 125.3, Requests: 2823
+Timestamp: 2025-11-27 15:39:44
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 714.0
+STATS: Total tokens: 1018380, Avg TPS: 125.4, Requests: 2824
+Timestamp: 2025-11-27 15:39:44
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 728.1
+STATS: Total tokens: 1018668, Avg TPS: 125.4, Requests: 2825
+Timestamp: 2025-11-27 15:39:45
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.37s | TPS: 772.9
+STATS: Total tokens: 1019859, Avg TPS: 125.3, Requests: 2828
+Timestamp: 2025-11-27 15:39:45
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.45s | TPS: 639.7
+STATS: Total tokens: 1020147, Avg TPS: 125.3, Requests: 2829
+Timestamp: 2025-11-27 15:39:45
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[yes]
+Escolha detectada: yes
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.38s | TPS: 752.9
+STATS: Total tokens: 1020435, Avg TPS: 125.4, Requests: 2830
+Timestamp: 2025-11-27 15:39:46
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 718.7
+STATS: Total tokens: 1020723, Avg TPS: 125.4, Requests: 2831
+Timestamp: 2025-11-27 15:39:46
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.42s | TPS: 677.8
+STATS: Total tokens: 1021011, Avg TPS: 125.4, Requests: 2832
+Timestamp: 2025-11-27 15:39:47
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['yes', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.41s | TPS: 708.9
+STATS: Total tokens: 1021299, Avg TPS: 125.4, Requests: 2833
+Timestamp: 2025-11-27 15:39:47
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'yes', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 744.9
+STATS: Total tokens: 1021587, Avg TPS: 125.5, Requests: 2834
+Timestamp: 2025-11-27 15:39:47
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'yes', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.40s | TPS: 721.2
+STATS: Total tokens: 1021875, Avg TPS: 125.5, Requests: 2835
+Timestamp: 2025-11-27 15:39:48
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'no', 'yes']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 280 | Output tokens: 8 | Tempo: 0.39s | TPS: 740.8
+STATS: Total tokens: 1022163, Avg TPS: 125.5, Requests: 2836
+Timestamp: 2025-11-27 15:39:48
+Temperatura: 0.0
+Vizinhos: Left: ['no', 'no', 'no'], Right: ['no', 'no', 'no']
+Tentativa: 1
+Resposta completa: <think>
+
+</think>
+
+[no]
+Escolha detectada: no
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 128
+Total de iterações: 1
+Total de chamadas: 128
+Tempo total: 52.35 segundos (0.9 minutos)
+Tempo médio por chamada: 0.41 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 1,022,163
+Total requests: 2,836
+Tempo total: 8142.72s
+TPS médio: 125.5
+Tempo médio por request: 2.87s
+Tokens médios por request: 360.4

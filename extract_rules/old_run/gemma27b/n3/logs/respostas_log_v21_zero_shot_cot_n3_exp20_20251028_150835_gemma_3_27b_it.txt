@@ -1,0 +1,128 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251028_150835 ===
+Experimento ID: 20
+Modelo: gemma-3-27b-it
+Número de vizinhos: 3
+Data e hora: 2025-10-28 15:08:35
+
+[PERF] Input tokens: 324 | Output tokens: 54 | Tempo: 2.34s | TPS: 161.7
+STATS: Total tokens: 7770, Avg TPS: 487.7, Requests: 27
+Timestamp: 2025-10-28 15:08:38
+Temperatura: 0.0
+Vizinhos: Left: ['k'], Right: ['k']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors opinion 'k'. as the central opinion holder, aligning with the majority strengthens group cohesion and simplifies decision-making. there's no ambiguity; a clear consensus exists. maintaining my current position reinforces this consensus without creating division.
+
+[k]
+Escolha detectada: k
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 68 | Tempo: 2.63s | TPS: 149.1
+STATS: Total tokens: 8606, Avg TPS: 395.7, Requests: 29
+Timestamp: 2025-10-28 15:08:40
+Temperatura: 0.0
+Vizinhos: Left: ['k'], Right: ['z']
+Tentativa: 1
+Resposta completa: the group has two 'k' opinions and one 'z' opinion. as the middle opinion holder, aligning with the majority ('k') seems strategically sound to foster cohesion and potentially influence any further discussion. while not strictly necessary given the existing count, reinforcing the dominant view feels like a constructive approach in this scenario.
+
+[k]
+Escolha detectada: k
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 100 | Tempo: 3.66s | TPS: 115.7
+STATS: Total tokens: 9471, Avg TPS: 331.9, Requests: 31
+Timestamp: 2025-10-28 15:08:44
+Temperatura: 0.0
+Vizinhos: Left: ['k'], Right: ['k']
+Tentativa: 1
+Resposta completa: the group has two 'k' opinions and one 'z' opinion (my current opinion). as the middle opinion, i have a slight influence on potentially swaying the outcome. however, the majority currently leans towards 'k'. while sticking with 'z' would represent my initial thought, aligning with the majority ('k') fosters better group cohesion and is more likely to lead to a unified decision. therefore, despite initially holding 'z', i will switch to support 'k'.
+
+[k]
+Escolha detectada: k
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 82 | Tempo: 3.19s | TPS: 127.1
+STATS: Total tokens: 10916, Avg TPS: 254.3, Requests: 34
+Timestamp: 2025-10-28 15:08:47
+Temperatura: 0.0
+Vizinhos: Left: ['k'], Right: ['z']
+Tentativa: 1
+Resposta completa: the group has three opinions: ‘k’, ‘z’, ‘z’. i currently hold ‘z’ and am in the middle position. there are two ‘z’s and one ‘k’. supporting ‘z’ would align me with the majority, potentially fostering agreement and smoother collaboration. while my initial opinion is ‘z’, reinforcing the dominant view seems strategically sound given the distribution.
+
+[z]
+Escolha detectada: z
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 92 | Tempo: 3.46s | TPS: 120.3
+STATS: Total tokens: 11742, Avg TPS: 240.3, Requests: 36
+Timestamp: 2025-10-28 15:08:51
+Temperatura: 0.0
+Vizinhos: Left: ['z'], Right: ['k']
+Tentativa: 1
+Resposta completa: the opinions are split 2-1 in favor of ‘k’. as the middle opinion, aligning with the majority strengthens group cohesion and likely leads to a smoother outcome. while sticking to my original opinion is valid, supporting 'k' acknowledges the prevailing sentiment without being a mere follower – it’s a strategic alignment. there isn’t a tie-break rule specified, so simply following the majority seems most sensible in this context.
+
+[k]
+Escolha detectada: k
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 115 | Tempo: 4.20s | TPS: 104.6
+STATS: Total tokens: 13610, Avg TPS: 205.0, Requests: 40
+Timestamp: 2025-10-28 15:08:55
+Temperatura: 0.0
+Vizinhos: Left: ['z'], Right: ['z']
+Tentativa: 1
+Resposta completa: the group has two 'z' opinions and one 'k' opinion (my current opinion). as the middle opinion, i can either reinforce the minority view ('k') or align with the majority ('z'). reinforcing 'k' won’t change the outcome but could signal a willingness to stand by my initial thought. however, given the clear 2:1 split, aligning with 'z' is more likely to foster group cohesion and move towards a consensus. while i initially held ‘k’, prioritizing group alignment seems beneficial in this scenario.
+
+[z]
+Escolha detectada: z
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 146 | Tempo: 5.52s | TPS: 85.1
+STATS: Total tokens: 17106, Avg TPS: 214.5, Requests: 51
+Timestamp: 2025-10-28 15:09:01
+Temperatura: 0.0
+Vizinhos: Left: ['z'], Right: ['k']
+Tentativa: 1
+Resposta completa: key factors: there are two 'z' opinions and one 'k' opinion. i currently hold a 'z' opinion and am in the middle position. supporting the majority ('z') fosters group cohesion and simplifies decision-making. while my initial inclination is to stick with my current view, reinforcing the dominant opinion seems strategically sound given the distribution.
+
+1. reasoning: given the opinions expressed – two leaning towards ‘z’ and one towards ‘k’ – aligning with the majority demonstrates a collaborative approach and minimizes potential conflict. as i am currently holding 'z', maintaining this position reinforces the existing trend without requiring anyone to change their view drastically. this promotes smoother group dynamics and facilitates reaching a consensus.
+
+[z]
+Escolha detectada: z
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 324 | Output tokens: 69 | Tempo: 2.68s | TPS: 146.6
+STATS: Total tokens: 18416, Avg TPS: 202.5, Requests: 54
+Timestamp: 2025-10-28 15:09:03
+Temperatura: 0.0
+Vizinhos: Left: ['z'], Right: ['z']
+Tentativa: 1
+Resposta completa: the group overwhelmingly favors ‘z’ with three votes. as the opinion in the middle, aligning with the majority demonstrates a collaborative approach and avoids isolation. while maintaining my current opinion is an option, supporting the consensus strengthens group cohesion and facilitates decision-making. there's no tie to break; the preference is clear.
+
+[z]
+Escolha detectada: z
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 8
+Total de iterações: 1
+Total de chamadas: 8
+Tempo total: 27.69 segundos (0.5 minutos)
+Tempo médio por chamada: 3.46 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 18,416
+Total requests: 54
+Tempo total: 90.93s
+TPS médio: 202.5
+Tempo médio por request: 1.68s
+Tokens médios por request: 341.0

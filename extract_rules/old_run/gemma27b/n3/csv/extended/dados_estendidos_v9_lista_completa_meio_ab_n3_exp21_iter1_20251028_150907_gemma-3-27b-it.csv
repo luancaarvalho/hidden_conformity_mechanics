@@ -1,0 +1,209 @@
+variante,temperatura,configuracao_binaria,configuracao_letras,num_ones,escolha,prompt_input,llm_response
+v9_lista_completa_meio_ab,0.0,000,aaa,0,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['a', 'a', 'a']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'a'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[a]
+v9_lista_completa_meio_ab,0.0,001,aab,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['a', 'a', 'b']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'a'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[a]
+v9_lista_completa_meio_ab,0.0,010,aba,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['a', 'b', 'a']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'b'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[a]
+v9_lista_completa_meio_ab,0.0,011,abb,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['a', 'b', 'b']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'b'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[b]
+v9_lista_completa_meio_ab,0.0,100,baa,1,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['b', 'a', 'a']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'a'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[a]
+v9_lista_completa_meio_ab,0.0,101,bab,2,0,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['b', 'a', 'b']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'a'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[a]
+v9_lista_completa_meio_ab,0.0,110,bba,2,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['b', 'b', 'a']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'b'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[b]
+v9_lista_completa_meio_ab,0.0,111,bbb,3,1,"SYSTEM: You will participate in an opinion choice activity.
+
+After receiving the opinions of your friends, you must respond with the opinion you want to support.
+
+IMPORTANT: Your response must contain ONLY the chosen opinion in square brackets - either [a] or [b].
+
+You MUST choose either [a] or [b]. Your response must be ONLY [a] or [b] - nothing else.
+
+Do not include any additional text, explanation, or formatting beyond the brackets and the letter.
+
+
+USER: Below you can see the complete list of opinions from all participants in your group, including your own.
+
+**Complete Opinion List:** ['b', 'b', 'b']
+**Your Position:** You are the opinion in the middle
+**Your Current Opinion:** 'b'
+
+Here are the principles to follow when making your choice:
+1. You must choose an opinion to support: either 'a' or 'b'
+2. You should consider the opinions of all participants when making your choice
+3. You can either keep your current opinion or change it based on the group
+
+In all cases, respond ONLY with the chosen opinion in square brackets, for example: [a] or [b]
+
+Reply only with the opinion you want to support, between square brackets [opinion].
+",[b]

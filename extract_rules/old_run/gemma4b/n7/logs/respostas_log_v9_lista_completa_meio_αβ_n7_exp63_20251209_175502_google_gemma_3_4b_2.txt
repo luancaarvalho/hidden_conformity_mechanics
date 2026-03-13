@@ -1,0 +1,1430 @@
+=== LOG DE RESPOSTAS DO EXPERIMENTO DE VIZINHANÇA - 20251209_175502 ===
+Experimento ID: 63
+Modelo: google/gemma-3-4b:2
+Número de vizinhos: 7
+Data e hora: 2025-12-09 17:55:02
+
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1035.2
+STATS: Total tokens: 765670, Avg TPS: 90.7, Requests: 1954
+Timestamp: 2025-12-09 17:55:03
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1108.2
+STATS: Total tokens: 765951, Avg TPS: 90.7, Requests: 1955
+Timestamp: 2025-12-09 17:55:03
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1067.4
+STATS: Total tokens: 766232, Avg TPS: 90.8, Requests: 1956
+Timestamp: 2025-12-09 17:55:03
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.37s | TPS: 765.3
+STATS: Total tokens: 766513, Avg TPS: 90.8, Requests: 1957
+Timestamp: 2025-12-09 17:55:03
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.32s | TPS: 876.0
+STATS: Total tokens: 766794, Avg TPS: 90.8, Requests: 1958
+Timestamp: 2025-12-09 17:55:04
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1051.7
+STATS: Total tokens: 767075, Avg TPS: 90.9, Requests: 1959
+Timestamp: 2025-12-09 17:55:04
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 950.6
+STATS: Total tokens: 767848, Avg TPS: 90.8, Requests: 1961
+Timestamp: 2025-12-09 17:55:04
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1041.8
+STATS: Total tokens: 768129, Avg TPS: 90.9, Requests: 1962
+Timestamp: 2025-12-09 17:55:05
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 937.6
+STATS: Total tokens: 768410, Avg TPS: 90.9, Requests: 1963
+Timestamp: 2025-12-09 17:55:05
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1085.2
+STATS: Total tokens: 768691, Avg TPS: 90.9, Requests: 1964
+Timestamp: 2025-12-09 17:55:05
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1028.3
+STATS: Total tokens: 768972, Avg TPS: 91.0, Requests: 1965
+Timestamp: 2025-12-09 17:55:05
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1063.7
+STATS: Total tokens: 769253, Avg TPS: 91.0, Requests: 1966
+Timestamp: 2025-12-09 17:55:06
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1052.1
+STATS: Total tokens: 769534, Avg TPS: 91.0, Requests: 1967
+Timestamp: 2025-12-09 17:55:06
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 941.0
+STATS: Total tokens: 769815, Avg TPS: 91.1, Requests: 1968
+Timestamp: 2025-12-09 17:55:06
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1039.7
+STATS: Total tokens: 770096, Avg TPS: 91.1, Requests: 1969
+Timestamp: 2025-12-09 17:55:07
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1115.5
+STATS: Total tokens: 770377, Avg TPS: 91.1, Requests: 1970
+Timestamp: 2025-12-09 17:55:07
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1064.3
+STATS: Total tokens: 770658, Avg TPS: 91.1, Requests: 1971
+Timestamp: 2025-12-09 17:55:07
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1029.0
+STATS: Total tokens: 770939, Avg TPS: 91.2, Requests: 1972
+Timestamp: 2025-12-09 17:55:07
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1017.0
+STATS: Total tokens: 771771, Avg TPS: 91.1, Requests: 1974
+Timestamp: 2025-12-09 17:55:08
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 927.8
+STATS: Total tokens: 772542, Avg TPS: 91.2, Requests: 1976
+Timestamp: 2025-12-09 17:55:08
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1041.1
+STATS: Total tokens: 772823, Avg TPS: 91.2, Requests: 1977
+Timestamp: 2025-12-09 17:55:08
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.31s | TPS: 906.2
+STATS: Total tokens: 773104, Avg TPS: 91.2, Requests: 1978
+Timestamp: 2025-12-09 17:55:08
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 966.9
+STATS: Total tokens: 773385, Avg TPS: 91.3, Requests: 1979
+Timestamp: 2025-12-09 17:55:09
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 988.5
+STATS: Total tokens: 774178, Avg TPS: 91.3, Requests: 1981
+Timestamp: 2025-12-09 17:55:09
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 939.0
+STATS: Total tokens: 774459, Avg TPS: 91.3, Requests: 1982
+Timestamp: 2025-12-09 17:55:09
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 5 | Tempo: 0.32s | TPS: 870.9
+STATS: Total tokens: 774741, Avg TPS: 91.3, Requests: 1983
+Timestamp: 2025-12-09 17:55:10
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1000.5
+STATS: Total tokens: 775022, Avg TPS: 91.4, Requests: 1984
+Timestamp: 2025-12-09 17:55:10
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1009.5
+STATS: Total tokens: 775303, Avg TPS: 91.4, Requests: 1985
+Timestamp: 2025-12-09 17:55:10
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 994.5
+STATS: Total tokens: 775584, Avg TPS: 91.4, Requests: 1986
+Timestamp: 2025-12-09 17:55:11
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1089.1
+STATS: Total tokens: 775865, Avg TPS: 91.4, Requests: 1987
+Timestamp: 2025-12-09 17:55:11
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1060.6
+STATS: Total tokens: 776146, Avg TPS: 91.5, Requests: 1988
+Timestamp: 2025-12-09 17:55:11
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1070.0
+STATS: Total tokens: 776427, Avg TPS: 91.5, Requests: 1989
+Timestamp: 2025-12-09 17:55:11
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'α', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1088.7
+STATS: Total tokens: 776708, Avg TPS: 91.5, Requests: 1990
+Timestamp: 2025-12-09 17:55:12
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 951.1
+STATS: Total tokens: 776989, Avg TPS: 91.6, Requests: 1991
+Timestamp: 2025-12-09 17:55:12
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1045.4
+STATS: Total tokens: 777270, Avg TPS: 91.6, Requests: 1992
+Timestamp: 2025-12-09 17:55:12
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.32s | TPS: 887.2
+STATS: Total tokens: 778033, Avg TPS: 91.6, Requests: 1994
+Timestamp: 2025-12-09 17:55:12
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.34s | TPS: 826.8
+STATS: Total tokens: 778314, Avg TPS: 91.6, Requests: 1995
+Timestamp: 2025-12-09 17:55:13
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.33s | TPS: 845.3
+STATS: Total tokens: 778595, Avg TPS: 91.7, Requests: 1996
+Timestamp: 2025-12-09 17:55:13
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.34s | TPS: 816.2
+STATS: Total tokens: 778876, Avg TPS: 91.7, Requests: 1997
+Timestamp: 2025-12-09 17:55:13
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.33s | TPS: 848.1
+STATS: Total tokens: 779157, Avg TPS: 91.7, Requests: 1998
+Timestamp: 2025-12-09 17:55:14
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 993.4
+STATS: Total tokens: 780057, Avg TPS: 91.7, Requests: 2000
+Timestamp: 2025-12-09 17:55:14
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 5 | Tempo: 0.42s | TPS: 665.6
+STATS: Total tokens: 780837, Avg TPS: 91.7, Requests: 2002
+Timestamp: 2025-12-09 17:55:15
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1013.5
+STATS: Total tokens: 781118, Avg TPS: 91.7, Requests: 2003
+Timestamp: 2025-12-09 17:55:15
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1068.2
+STATS: Total tokens: 781399, Avg TPS: 91.8, Requests: 2004
+Timestamp: 2025-12-09 17:55:15
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 943.5
+STATS: Total tokens: 781680, Avg TPS: 91.8, Requests: 2005
+Timestamp: 2025-12-09 17:55:15
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1014.5
+STATS: Total tokens: 782429, Avg TPS: 91.8, Requests: 2007
+Timestamp: 2025-12-09 17:55:16
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1031.3
+STATS: Total tokens: 782710, Avg TPS: 91.8, Requests: 2008
+Timestamp: 2025-12-09 17:55:16
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.23s | TPS: 1216.8
+STATS: Total tokens: 782991, Avg TPS: 91.8, Requests: 2009
+Timestamp: 2025-12-09 17:55:16
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1099.3
+STATS: Total tokens: 783272, Avg TPS: 91.9, Requests: 2010
+Timestamp: 2025-12-09 17:55:16
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.31s | TPS: 903.0
+STATS: Total tokens: 784072, Avg TPS: 91.9, Requests: 2012
+Timestamp: 2025-12-09 17:55:17
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1039.0
+STATS: Total tokens: 784353, Avg TPS: 91.9, Requests: 2013
+Timestamp: 2025-12-09 17:55:17
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1029.4
+STATS: Total tokens: 784634, Avg TPS: 91.9, Requests: 2014
+Timestamp: 2025-12-09 17:55:17
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1017.0
+STATS: Total tokens: 784915, Avg TPS: 92.0, Requests: 2015
+Timestamp: 2025-12-09 17:55:18
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1137.3
+STATS: Total tokens: 785196, Avg TPS: 92.0, Requests: 2016
+Timestamp: 2025-12-09 17:55:18
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1035.7
+STATS: Total tokens: 785477, Avg TPS: 92.0, Requests: 2017
+Timestamp: 2025-12-09 17:55:18
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1047.0
+STATS: Total tokens: 785758, Avg TPS: 92.1, Requests: 2018
+Timestamp: 2025-12-09 17:55:18
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 998.8
+STATS: Total tokens: 786039, Avg TPS: 92.1, Requests: 2019
+Timestamp: 2025-12-09 17:55:19
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1079.2
+STATS: Total tokens: 786759, Avg TPS: 92.1, Requests: 2021
+Timestamp: 2025-12-09 17:55:19
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 939.6
+STATS: Total tokens: 787040, Avg TPS: 92.1, Requests: 2022
+Timestamp: 2025-12-09 17:55:19
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1047.5
+STATS: Total tokens: 787321, Avg TPS: 92.2, Requests: 2023
+Timestamp: 2025-12-09 17:55:19
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 972.3
+STATS: Total tokens: 787602, Avg TPS: 92.2, Requests: 2024
+Timestamp: 2025-12-09 17:55:20
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1036.4
+STATS: Total tokens: 787883, Avg TPS: 92.2, Requests: 2025
+Timestamp: 2025-12-09 17:55:20
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1049.4
+STATS: Total tokens: 788641, Avg TPS: 92.3, Requests: 2027
+Timestamp: 2025-12-09 17:55:20
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1057.9
+STATS: Total tokens: 788922, Avg TPS: 92.3, Requests: 2028
+Timestamp: 2025-12-09 17:55:21
+Temperatura: 0.0
+Vizinhos: Left: ['α', 'β', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1048.6
+STATS: Total tokens: 789203, Avg TPS: 92.3, Requests: 2029
+Timestamp: 2025-12-09 17:55:21
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1099.8
+STATS: Total tokens: 789484, Avg TPS: 92.3, Requests: 2030
+Timestamp: 2025-12-09 17:55:21
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1047.1
+STATS: Total tokens: 789765, Avg TPS: 92.4, Requests: 2031
+Timestamp: 2025-12-09 17:55:21
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1019.6
+STATS: Total tokens: 790046, Avg TPS: 92.4, Requests: 2032
+Timestamp: 2025-12-09 17:55:22
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1037.0
+STATS: Total tokens: 790327, Avg TPS: 92.4, Requests: 2033
+Timestamp: 2025-12-09 17:55:22
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1092.9
+STATS: Total tokens: 790608, Avg TPS: 92.5, Requests: 2034
+Timestamp: 2025-12-09 17:55:22
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 932.0
+STATS: Total tokens: 791431, Avg TPS: 92.5, Requests: 2036
+Timestamp: 2025-12-09 17:55:22
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.35s | TPS: 806.0
+STATS: Total tokens: 791712, Avg TPS: 92.5, Requests: 2037
+Timestamp: 2025-12-09 17:55:23
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.43s | TPS: 652.1
+STATS: Total tokens: 791993, Avg TPS: 92.5, Requests: 2038
+Timestamp: 2025-12-09 17:55:23
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.40s | TPS: 704.3
+STATS: Total tokens: 792771, Avg TPS: 92.5, Requests: 2040
+Timestamp: 2025-12-09 17:55:24
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.33s | TPS: 860.2
+STATS: Total tokens: 793052, Avg TPS: 92.6, Requests: 2041
+Timestamp: 2025-12-09 17:55:24
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.31s | TPS: 913.3
+STATS: Total tokens: 793333, Avg TPS: 92.6, Requests: 2042
+Timestamp: 2025-12-09 17:55:24
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1015.1
+STATS: Total tokens: 793614, Avg TPS: 92.6, Requests: 2043
+Timestamp: 2025-12-09 17:55:25
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1001.5
+STATS: Total tokens: 793895, Avg TPS: 92.7, Requests: 2044
+Timestamp: 2025-12-09 17:55:25
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1107.4
+STATS: Total tokens: 794176, Avg TPS: 92.7, Requests: 2045
+Timestamp: 2025-12-09 17:55:25
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1045.9
+STATS: Total tokens: 794457, Avg TPS: 92.7, Requests: 2046
+Timestamp: 2025-12-09 17:55:25
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 964.7
+STATS: Total tokens: 794738, Avg TPS: 92.7, Requests: 2047
+Timestamp: 2025-12-09 17:55:26
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 972.7
+STATS: Total tokens: 795019, Avg TPS: 92.8, Requests: 2048
+Timestamp: 2025-12-09 17:55:26
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 992.4
+STATS: Total tokens: 795300, Avg TPS: 92.8, Requests: 2049
+Timestamp: 2025-12-09 17:55:26
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1021.7
+STATS: Total tokens: 795581, Avg TPS: 92.8, Requests: 2050
+Timestamp: 2025-12-09 17:55:27
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1019.3
+STATS: Total tokens: 795862, Avg TPS: 92.9, Requests: 2051
+Timestamp: 2025-12-09 17:55:27
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1101.4
+STATS: Total tokens: 796143, Avg TPS: 92.9, Requests: 2052
+Timestamp: 2025-12-09 17:55:27
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1025.6
+STATS: Total tokens: 796424, Avg TPS: 92.9, Requests: 2053
+Timestamp: 2025-12-09 17:55:27
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 971.3
+STATS: Total tokens: 797246, Avg TPS: 92.9, Requests: 2055
+Timestamp: 2025-12-09 17:55:28
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 990.0
+STATS: Total tokens: 797527, Avg TPS: 92.9, Requests: 2056
+Timestamp: 2025-12-09 17:55:28
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1021.8
+STATS: Total tokens: 797808, Avg TPS: 92.9, Requests: 2057
+Timestamp: 2025-12-09 17:55:28
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.24s | TPS: 1167.7
+STATS: Total tokens: 798089, Avg TPS: 93.0, Requests: 2058
+Timestamp: 2025-12-09 17:55:28
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1078.2
+STATS: Total tokens: 798370, Avg TPS: 93.0, Requests: 2059
+Timestamp: 2025-12-09 17:55:29
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1016.4
+STATS: Total tokens: 798651, Avg TPS: 93.0, Requests: 2060
+Timestamp: 2025-12-09 17:55:29
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 998.2
+STATS: Total tokens: 798932, Avg TPS: 93.1, Requests: 2061
+Timestamp: 2025-12-09 17:55:29
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1037.8
+STATS: Total tokens: 799213, Avg TPS: 93.1, Requests: 2062
+Timestamp: 2025-12-09 17:55:30
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 980.5
+STATS: Total tokens: 800572, Avg TPS: 93.0, Requests: 2065
+Timestamp: 2025-12-09 17:55:30
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'α', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1090.3
+STATS: Total tokens: 800853, Avg TPS: 93.1, Requests: 2066
+Timestamp: 2025-12-09 17:55:30
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1120.0
+STATS: Total tokens: 801134, Avg TPS: 93.1, Requests: 2067
+Timestamp: 2025-12-09 17:55:30
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [α]
+Escolha detectada: α
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1084.9
+STATS: Total tokens: 801415, Avg TPS: 93.1, Requests: 2068
+Timestamp: 2025-12-09 17:55:31
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1051.9
+STATS: Total tokens: 801696, Avg TPS: 93.1, Requests: 2069
+Timestamp: 2025-12-09 17:55:31
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1011.9
+STATS: Total tokens: 801977, Avg TPS: 93.2, Requests: 2070
+Timestamp: 2025-12-09 17:55:31
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1019.3
+STATS: Total tokens: 802258, Avg TPS: 93.2, Requests: 2071
+Timestamp: 2025-12-09 17:55:31
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1090.2
+STATS: Total tokens: 802539, Avg TPS: 93.2, Requests: 2072
+Timestamp: 2025-12-09 17:55:32
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1107.8
+STATS: Total tokens: 802820, Avg TPS: 93.3, Requests: 2073
+Timestamp: 2025-12-09 17:55:32
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1055.9
+STATS: Total tokens: 803644, Avg TPS: 93.3, Requests: 2075
+Timestamp: 2025-12-09 17:55:32
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1040.3
+STATS: Total tokens: 803925, Avg TPS: 93.3, Requests: 2076
+Timestamp: 2025-12-09 17:55:32
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1041.0
+STATS: Total tokens: 804206, Avg TPS: 93.3, Requests: 2077
+Timestamp: 2025-12-09 17:55:33
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1050.8
+STATS: Total tokens: 804487, Avg TPS: 93.4, Requests: 2078
+Timestamp: 2025-12-09 17:55:33
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.25s | TPS: 1112.0
+STATS: Total tokens: 804768, Avg TPS: 93.4, Requests: 2079
+Timestamp: 2025-12-09 17:55:33
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1061.1
+STATS: Total tokens: 805049, Avg TPS: 93.4, Requests: 2080
+Timestamp: 2025-12-09 17:55:34
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 946.6
+STATS: Total tokens: 805330, Avg TPS: 93.4, Requests: 2081
+Timestamp: 2025-12-09 17:55:34
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1013.7
+STATS: Total tokens: 805611, Avg TPS: 93.5, Requests: 2082
+Timestamp: 2025-12-09 17:55:34
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'α'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1005.2
+STATS: Total tokens: 805892, Avg TPS: 93.5, Requests: 2083
+Timestamp: 2025-12-09 17:55:34
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 942.5
+STATS: Total tokens: 806173, Avg TPS: 93.5, Requests: 2084
+Timestamp: 2025-12-09 17:55:35
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1017.5
+STATS: Total tokens: 807087, Avg TPS: 93.5, Requests: 2086
+Timestamp: 2025-12-09 17:55:35
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.30s | TPS: 931.3
+STATS: Total tokens: 807368, Avg TPS: 93.5, Requests: 2087
+Timestamp: 2025-12-09 17:55:35
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1021.3
+STATS: Total tokens: 807649, Avg TPS: 93.6, Requests: 2088
+Timestamp: 2025-12-09 17:55:36
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1064.7
+STATS: Total tokens: 807930, Avg TPS: 93.6, Requests: 2089
+Timestamp: 2025-12-09 17:55:36
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 964.9
+STATS: Total tokens: 808709, Avg TPS: 93.6, Requests: 2091
+Timestamp: 2025-12-09 17:55:36
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.29s | TPS: 981.9
+STATS: Total tokens: 808990, Avg TPS: 93.6, Requests: 2092
+Timestamp: 2025-12-09 17:55:36
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.26s | TPS: 1083.2
+STATS: Total tokens: 809271, Avg TPS: 93.7, Requests: 2093
+Timestamp: 2025-12-09 17:55:37
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.28s | TPS: 1012.6
+STATS: Total tokens: 809552, Avg TPS: 93.7, Requests: 2094
+Timestamp: 2025-12-09 17:55:37
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.27s | TPS: 1042.4
+STATS: Total tokens: 809833, Avg TPS: 93.7, Requests: 2095
+Timestamp: 2025-12-09 17:55:37
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.32s | TPS: 885.7
+STATS: Total tokens: 810114, Avg TPS: 93.8, Requests: 2096
+Timestamp: 2025-12-09 17:55:37
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['α', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.41s | TPS: 682.5
+STATS: Total tokens: 810395, Avg TPS: 93.8, Requests: 2097
+Timestamp: 2025-12-09 17:55:38
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'α', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.39s | TPS: 727.2
+STATS: Total tokens: 810676, Avg TPS: 93.8, Requests: 2098
+Timestamp: 2025-12-09 17:55:38
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'α', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.39s | TPS: 720.8
+STATS: Total tokens: 810957, Avg TPS: 93.8, Requests: 2099
+Timestamp: 2025-12-09 17:55:39
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'β', 'α']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+[PERF] Input tokens: 277 | Output tokens: 4 | Tempo: 0.36s | TPS: 788.7
+STATS: Total tokens: 811238, Avg TPS: 93.9, Requests: 2100
+Timestamp: 2025-12-09 17:55:39
+Temperatura: 0.0
+Vizinhos: Left: ['β', 'β', 'β'], Right: ['β', 'β', 'β']
+Tentativa: 1
+Resposta completa: [β]
+Escolha detectada: β
+--------------------------------------------------
+RESPOSTA VÁLIDA após 1 tentativas
+--------------------------------------------------
+
+=== EXPERIMENTO ASSÍNCRONO CONCLUÍDO ===
+Total de configurações: 128
+Total de iterações: 1
+Total de chamadas: 128
+Tempo total: 36.77 segundos (0.6 minutos)
+Tempo médio por chamada: 0.29 segundos
+--------------------------------------------------
+
+[PERF] === ESTATÍSTICAS FINAIS ===
+Total tokens: 811,741
+Total requests: 2,101
+Tempo total: 8649.35s
+TPS médio: 93.8
+Tempo médio por request: 4.12s
+Tokens médios por request: 386.4
