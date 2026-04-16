@@ -165,7 +165,16 @@ def _run_one(
             return False
         if not (d / "result_meta.json").exists():
             return False
-        if not list(d.glob("heatmap_*.png")):
+        meta_path = d / "result_meta.json"
+        try:
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+        except Exception:
+            meta = {}
+        plot_filename = meta.get("plot_filename")
+        if plot_filename:
+            if not (d / str(plot_filename)).exists():
+                return False
+        elif not list(d.glob("sim*.png")):
             return False
         return True
 

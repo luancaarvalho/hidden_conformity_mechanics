@@ -11,7 +11,9 @@ from __future__ import annotations
 import json
 import os
 import sys
+import threading
 import time
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -211,6 +213,22 @@ class _PromptJob:
     user_prompt: str
 
 
+@dataclass(frozen=True)
+class _PromptJobResult:
+    agent_idx: int
+    selected_model: str
+    system_prompt: str
+    user_prompt: str
+    raw_response: str
+    parsed_token: Optional[str]
+    error: Optional[str]
+    usage: Optional[Dict[str, Any]]
+    http_status: Optional[int]
+    request_elapsed_s: Optional[float]
+    payload: Optional[Dict[str, Any]]
+    response_model: Optional[str]
+
+
 def check_consensus(states_round: np.ndarray) -> Tuple[bool, Optional[int]]:
     valid = states_round[~np.isnan(states_round)]
     if len(valid) == 0:
@@ -323,8 +341,11 @@ def run_simulation(
     )
     states[0, :] = init.astype(np.float32)
 
-    session = requests.Session()
     neighbor_map = _neighbor_index_map(sim_cfg.n_agents, sim_cfg.n_neighbors)
+    max_inflight = max(1, min(len(model_pool), sim_cfg.n_agents))
+    session_local = threading.local()
+    session_lock = threading.Lock()
+    sessions_to_close: List[requests.Session] = []
 
     requests_log_f = None
     requests_log_buffer: List[str] = []
@@ -340,6 +361,98 @@ def run_simulation(
         requests_log_f.write("".join(requests_log_buffer))
         requests_log_buffer.clear()
 
+    def append_request_log_record(round_idx: int, result: _PromptJobResult) -> None:
+        if requests_log_f is None:
+            return
+        rec = {
+            "round": round_idx,
+            "agent": result.agent_idx,
+            "seed_distribution": sim_cfg.seed_distribution,
+            "memory_window": sim_cfg.memory_window,
+            "attempts": req_cfg.max_attempts,
+            "payload": {k: v for k, v in (result.payload or {}).items() if k != "input"},
+            "system_prompt": result.system_prompt,
+            "user_prompt": result.user_prompt,
+            "raw_response": result.raw_response,
+            "parsed_token": result.parsed_token,
+            "error": result.error,
+            "request_elapsed_s": result.request_elapsed_s,
+            "response_model": result.response_model,
+            "http_status": result.http_status,
+            "usage": result.usage,
+            "selected_model": result.selected_model,
+            "model_pool": list(model_pool),
+        }
+        requests_log_buffer.append(json.dumps(rec, ensure_ascii=False) + "\n")
+
+    def get_thread_session() -> requests.Session:
+        session = getattr(session_local, "session", None)
+        if session is None:
+            session = requests.Session()
+            session_local.session = session
+            with session_lock:
+                sessions_to_close.append(session)
+        return session
+
+    def run_prompt_job(job: _PromptJob, selected_model: str) -> _PromptJobResult:
+        token: Optional[str] = None
+        raw_response = ""
+        last_err: Optional[str] = None
+        last_usage: Optional[Dict[str, Any]] = None
+        last_request_elapsed_s: Optional[float] = None
+        last_response_model: Optional[str] = None
+        last_http_status: Optional[int] = None
+        last_payload: Optional[Dict[str, Any]] = None
+        actual_user_prompt = append_no_think_if_needed(job.user_prompt, selected_model)
+
+        for attempt in range(1, req_cfg.max_attempts + 1):
+            req_t0 = time.time()
+            try:
+                result = call_llm_responses(
+                    base_url=req_cfg.base_url,
+                    model=selected_model,
+                    system_prompt=job.system_prompt,
+                    user_prompt=actual_user_prompt,
+                    temperature=req_cfg.temperature,
+                    seed=req_cfg.request_seed,
+                    max_output_tokens=req_cfg.max_tokens,
+                    timeout_s=req_cfg.timeout_s,
+                    top_k=req_cfg.top_k,
+                    top_p=req_cfg.top_p,
+                    min_p=req_cfg.min_p,
+                    repeat_penalty=req_cfg.repeat_penalty,
+                    session=get_thread_session(),
+                )
+                last_http_status = result.get("http_status")
+                last_request_elapsed_s = result.get("request_elapsed_s")
+                last_usage = result.get("usage")
+                last_response_model = result.get("response_model")
+                last_payload = result.get("payload")
+                raw_response = str(result.get("raw_response") or "").strip()
+                token = parse_llm_response_token(raw_response, token0, token1)
+                if token in (token0, token1):
+                    break
+                last_err = f"invalid_token attempt={attempt} raw={raw_response[:80]!r}"
+            except Exception as e:
+                last_request_elapsed_s = time.time() - req_t0
+                last_err = f"{type(e).__name__}: {e}"
+                time.sleep(0.2)
+
+        return _PromptJobResult(
+            agent_idx=job.agent_idx,
+            selected_model=selected_model,
+            system_prompt=job.system_prompt,
+            user_prompt=actual_user_prompt,
+            raw_response=raw_response,
+            parsed_token=token,
+            error=last_err if token not in (token0, token1) else None,
+            usage=last_usage,
+            http_status=last_http_status,
+            request_elapsed_s=last_request_elapsed_s,
+            payload=last_payload,
+            response_model=last_response_model,
+        )
+
     t0 = time.time()
     consensus_round: Optional[int] = None
     consensus_val: Optional[int] = None
@@ -350,188 +463,167 @@ def run_simulation(
     rounds_completed: int = 0
 
     try:
-        r = 1
-        while r < target_rounds:
-            prev = states[r - 1]
-            round_jobs: List[_PromptJob] = []
-            for i in range(sim_cfg.n_agents):
-                left_indices, right_indices = neighbor_map[i]
-                left = [state_to_token(prev[idx], token0, token1) for idx in left_indices if not np.isnan(prev[idx])]
-                right = [state_to_token(prev[idx], token0, token1) for idx in right_indices if not np.isnan(prev[idx])]
-                current_opinion = state_to_token(prev[i], token0, token1) if not np.isnan(prev[i]) else token0
+        with ThreadPoolExecutor(max_workers=max_inflight) as executor:
+            r = 1
+            while r < target_rounds:
+                prev = states[r - 1]
+                round_jobs: List[_PromptJob] = []
+                for i in range(sim_cfg.n_agents):
+                    left_indices, right_indices = neighbor_map[i]
+                    left = [state_to_token(prev[idx], token0, token1) for idx in left_indices if not np.isnan(prev[idx])]
+                    right = [state_to_token(prev[idx], token0, token1) for idx in right_indices if not np.isnan(prev[idx])]
+                    current_opinion = state_to_token(prev[i], token0, token1)
 
-                if sim_cfg.conformity_game:
-                    memory_enabled = sim_cfg.memory_window > 0
-                    neighborhood_list = left + [current_opinion] + right
-                    system_prompt = render_conformity_game_system_prompt(
-                        sim_cfg.conformity_game_mode,
-                        token0,
-                        token1,
-                        memory_enabled,
-                        sim_cfg.prompt_variant,
-                    )
-                    user_prompt = render_conformity_game_user_prompt(
-                        neighborhood_list,
-                        current_opinion,
-                        token0,
-                        token1,
-                        memory_enabled,
-                        sim_cfg.prompt_variant,
-                    )
-                else:
-                    assert strategy is not None
-                    system_prompt, user_prompt = strategy.build_prompt(
-                        left=left,
-                        right=right,
-                        current_opinion=current_opinion,
-                    )
-
-                mem_block = _format_memory_block_timeline_precomputed(
-                    states,
-                    left_indices=left_indices,
-                    right_indices=right_indices,
-                    agent_idx=i,
-                    current_round=r,
-                    memory_window=sim_cfg.memory_window,
-                    token0=token0,
-                    token1=token1,
-                )
-                if mem_block:
-                    user_prompt = mem_block + "\n\n" + user_prompt
-
-                selected_model = model_pool[0]
-                round_jobs.append(
-                    _PromptJob(
-                        agent_idx=i,
-                        system_prompt=system_prompt,
-                        user_prompt=append_no_think_if_needed(user_prompt, selected_model),
-                    )
-                )
-
-            for job in round_jobs:
-                selected_model = model_pool[0]
-                token: Optional[str] = None
-                raw_response: str = ""
-                last_err: Optional[str] = None
-                last_usage: Optional[Dict[str, Any]] = None
-                last_request_elapsed_s: Optional[float] = None
-                last_response_model: Optional[str] = None
-                last_http_status: Optional[int] = None
-                last_payload: Optional[Dict[str, Any]] = None
-
-                for attempt in range(1, req_cfg.max_attempts + 1):
-                    req_t0 = time.time()
-                    try:
-                        result = call_llm_responses(
-                            base_url=req_cfg.base_url,
-                            model=selected_model,
-                            system_prompt=job.system_prompt,
-                            user_prompt=job.user_prompt,
-                            temperature=req_cfg.temperature,
-                            seed=req_cfg.request_seed,
-                            max_output_tokens=req_cfg.max_tokens,
-                            timeout_s=req_cfg.timeout_s,
-                            top_k=req_cfg.top_k,
-                            top_p=req_cfg.top_p,
-                            min_p=req_cfg.min_p,
-                            repeat_penalty=req_cfg.repeat_penalty,
-                            session=session,
+                    if sim_cfg.conformity_game:
+                        memory_enabled = sim_cfg.memory_window > 0
+                        neighborhood_list = left + [current_opinion] + right
+                        system_prompt = render_conformity_game_system_prompt(
+                            sim_cfg.conformity_game_mode,
+                            token0,
+                            token1,
+                            memory_enabled,
+                            sim_cfg.prompt_variant,
                         )
-                        last_http_status = result.get("http_status")
-                        last_request_elapsed_s = result.get("request_elapsed_s")
-                        last_usage = result.get("usage")
-                        last_response_model = result.get("response_model")
-                        last_payload = result.get("payload")
-                        raw_response = str(result.get("raw_response") or "").strip()
-                        token = parse_llm_response_token(raw_response, token0, token1)
-                        if token in (token0, token1):
-                            break
-                        last_err = f"invalid_token attempt={attempt} raw={raw_response[:80]!r}"
-                    except Exception as e:
-                        last_request_elapsed_s = time.time() - req_t0
-                        last_err = f"{type(e).__name__}: {e}"
-                        time.sleep(0.2)
+                        user_prompt = render_conformity_game_user_prompt(
+                            neighborhood_list,
+                            current_opinion,
+                            token0,
+                            token1,
+                            memory_enabled,
+                            sim_cfg.prompt_variant,
+                        )
+                    else:
+                        assert strategy is not None
+                        system_prompt, user_prompt = strategy.build_prompt(
+                            left=left,
+                            right=right,
+                            current_opinion=current_opinion,
+                        )
 
-                if token == token0:
-                    states[r, job.agent_idx] = 0.0
-                elif token == token1:
-                    states[r, job.agent_idx] = 1.0
-                else:
-                    # keep as NaN (same semantics as Streamlit runner on failure)
-                    states[r, job.agent_idx] = np.nan
+                    mem_block = _format_memory_block_timeline_precomputed(
+                        states,
+                        left_indices=left_indices,
+                        right_indices=right_indices,
+                        agent_idx=i,
+                        current_round=r,
+                        memory_window=sim_cfg.memory_window,
+                        token0=token0,
+                        token1=token1,
+                    )
+                    if mem_block:
+                        user_prompt = mem_block + "\n\n" + user_prompt
 
-                if requests_log_f is not None:
-                    rec = {
-                        "round": r,
-                        "agent": job.agent_idx,
-                        "seed_distribution": sim_cfg.seed_distribution,
-                        "memory_window": sim_cfg.memory_window,
-                        "attempts": req_cfg.max_attempts,
-                        "payload": {k: v for k, v in (last_payload or {}).items() if k != "input"},
-                        "system_prompt": job.system_prompt,
-                        "user_prompt": job.user_prompt,
-                        "raw_response": raw_response,
-                        "parsed_token": token,
-                        "error": last_err if token not in (token0, token1) else None,
-                        "request_elapsed_s": last_request_elapsed_s,
-                        "response_model": last_response_model,
-                        "http_status": last_http_status,
-                        "usage": last_usage,
-                        "selected_model": selected_model,
-                        "model_pool": list(model_pool),
-                    }
-                    requests_log_buffer.append(json.dumps(rec, ensure_ascii=False) + "\n")
+                    round_jobs.append(
+                        _PromptJob(
+                            agent_idx=i,
+                            system_prompt=system_prompt,
+                            user_prompt=user_prompt,
+                        )
+                    )
+
+                round_results: Dict[int, _PromptJobResult] = {}
+                active_futures: Dict[Any, int] = {}
+                next_job_idx = 0
+                initial_lanes = min(max_inflight, len(round_jobs))
+
+                for lane_idx in range(initial_lanes):
+                    job = round_jobs[next_job_idx]
+                    next_job_idx += 1
+                    active_futures[executor.submit(run_prompt_job, job, model_pool[lane_idx])] = lane_idx
+
+                while active_futures:
+                    done, _ = wait(active_futures.keys(), return_when=FIRST_COMPLETED)
+                    for future in done:
+                        lane_idx = active_futures.pop(future)
+                        result = future.result()
+                        round_results[result.agent_idx] = result
+
+                        if result.parsed_token not in (token0, token1):
+                            append_request_log_record(r, result)
+                            flush_requests_log_buffer()
+                            for pending_future in active_futures:
+                                pending_future.cancel()
+                            raise RuntimeError(
+                                "LLM parsing failed after "
+                                f"{req_cfg.max_attempts} attempts: "
+                                f"round={r} agent={result.agent_idx} "
+                                f"model={result.selected_model} error={result.error}"
+                            )
+
+                        if next_job_idx < len(round_jobs):
+                            job = round_jobs[next_job_idx]
+                            next_job_idx += 1
+                            active_futures[executor.submit(run_prompt_job, job, model_pool[lane_idx])] = lane_idx
+
+                for job in round_jobs:
+                    result = round_results[job.agent_idx]
+                    token = result.parsed_token
+
+                    if token == token0:
+                        states[r, job.agent_idx] = 0.0
+                    elif token == token1:
+                        states[r, job.agent_idx] = 1.0
+                    else:
+                        # keep as NaN (same semantics as Streamlit runner on failure)
+                        states[r, job.agent_idx] = np.nan
+
+                    append_request_log_record(r, result)
                     if len(requests_log_buffer) >= requests_log_flush_every:
                         flush_requests_log_buffer()
 
-            ok, val = check_consensus(states[r])
-            if ok:
-                consensus_round = r
-                consensus_val = val
-                stop_reason = "consensus"
-                break
+                ok, val = check_consensus(states[r])
+                if ok:
+                    consensus_round = r
+                    consensus_val = val
+                    stop_reason = "consensus"
+                    break
 
-            # Stability check: if the last W rounds are identical, the next round would be fully redundant.
-            if stability_window >= 2:
-                check_now = True
-                if sim_cfg.stability_check_only_at_initial_horizon:
-                    check_now = (r == (initial_rounds - 1))
-                if check_now and r >= (stability_window - 1):
-                    stable = True
-                    start = r - (stability_window - 1)
-                    for rr in range(start, r):
-                        if not np.array_equal(states[rr], states[rr + 1], equal_nan=True):
-                            stable = False
+                # Stability check: if the last W rounds are identical, the next round would be fully redundant.
+                if stability_window >= 2:
+                    check_now = True
+                    if sim_cfg.stability_check_only_at_initial_horizon:
+                        check_now = (r == (initial_rounds - 1))
+                    if check_now and r >= (stability_window - 1):
+                        stable = True
+                        start = r - (stability_window - 1)
+                        for rr in range(start, r):
+                            if not np.array_equal(states[rr], states[rr + 1], equal_nan=True):
+                                stable = False
+                                break
+                        if stable:
+                            next_round = r + 1
+                            if next_round >= states.shape[0]:
+                                states = np.vstack(
+                                    [states, np.full((1, sim_cfg.n_agents), np.nan, dtype=np.float32)]
+                                )
+                                target_rounds = max(target_rounds, next_round + 1)
+                            states[next_round] = states[r]
+                            stop_reason = f"stabilized_{stability_window}"
+                            truncated = True
+                            truncation_window = int(stability_window)
+                            truncation_round = int(next_round)
                             break
-                    if stable:
-                        next_round = r + 1
-                        if next_round >= states.shape[0]:
-                            states = np.vstack(
-                                [states, np.full((1, sim_cfg.n_agents), np.nan, dtype=np.float32)]
-                            )
-                            target_rounds = max(target_rounds, next_round + 1)
-                        states[next_round] = states[r]
-                        stop_reason = f"stabilized_{stability_window}"
-                        truncated = True
-                        truncation_window = int(stability_window)
-                        truncation_round = int(next_round)
-                        break
 
-            # If we reached the current horizon and the system is still changing, extend by doubling.
-            if r == (target_rounds - 1) and target_rounds < max_rounds:
-                new_target = min(max_rounds, target_rounds * 2)
-                extra = new_target - target_rounds
-                if extra > 0:
-                    states = np.vstack(
-                        [states, np.full((extra, sim_cfg.n_agents), np.nan, dtype=np.float32)]
-                    )
-                    target_rounds = new_target
+                # If we reached the current horizon and the system is still changing, extend by doubling.
+                if r == (target_rounds - 1) and target_rounds < max_rounds:
+                    new_target = min(max_rounds, target_rounds * 2)
+                    extra = new_target - target_rounds
+                    if extra > 0:
+                        states = np.vstack(
+                            [states, np.full((extra, sim_cfg.n_agents), np.nan, dtype=np.float32)]
+                        )
+                        target_rounds = new_target
 
-            r += 1
+                r += 1
     finally:
         flush_requests_log_buffer()
         if requests_log_f is not None:
             requests_log_f.close()
+        for session in sessions_to_close:
+            try:
+                session.close()
+            except Exception:
+                pass
 
     elapsed_s = time.time() - t0
     # If we broke early, r is the last executed round; truncation may materialize one redundant round ahead.
