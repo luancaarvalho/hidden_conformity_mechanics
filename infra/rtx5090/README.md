@@ -7,10 +7,7 @@ The July 2026 memory runtime remains at `/home/liaan/Documentos/Luan/temp_vllm/g
 Create a dedicated Conda prefix and install packages with UV:
 
 ```bash
-/home/liaan/miniconda3/bin/conda create -y \
-  -p "$PWD/artifacts/conda/runtime" python=3.12
-uv pip install --python "$PWD/artifacts/conda/runtime/bin/python" \
-  -r infra/rtx5090/requirements-runtime.txt
+bash infra/rtx5090/create_runtime_env.sh
 ```
 
 Do not create a virtualenv and do not modify an environment used by an active experiment. Run `preflight.sh` before every GPU batch.
