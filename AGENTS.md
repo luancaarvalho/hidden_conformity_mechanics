@@ -1,5 +1,31 @@
 # AGENTS.md - Projeto Final (Conformidade LLM)
 
+## 0. Pipeline Cientifico Canonico (RTX 5090)
+
+O PDF `Hidden Conformity` define tres fases, que nao devem ser misturadas:
+
+1. `extract_rules/`: Fase 1, extracao exaustiva de uma tabela de regra por modelo, prompt, par de tokens e n em 7/9/11.
+2. `experimentos_automatos/`: Fase 2, validacao das regras congeladas no Density Classification Task.
+3. `streamlit_test/`: Fase 3, jogo de conformidade com memoria e novas consultas ao LLM a cada rodada.
+
+Regras obrigatorias para agentes:
+
+- Ler `docs/RESEARCH_ARCHITECTURE.md` e o `AGENTS.md` da fase antes de agir.
+- Nunca usar uma saida da Fase 1 na Fase 2 sem manifesto completo, tabela com `2^n` entradas e gate mecanico aprovado.
+- Nunca apresentar a Fase 3 como tabela de regra estatica: memoria torna o estado dependente da historia.
+- Codigo, contratos, manifests e summaries pequenos entram no Git; pesos, ambientes, logs, PNGs, CSVs extensos, `.npy` e bancos de execucao ficam em `artifacts/`.
+- Cada run recebe diretorio novo e imutavel. Nao sobrescrever resultados anteriores.
+- Na RTX 5090, nao matar nem alterar processos externos. Antes de usar GPU, verificar `nvidia-smi`, `tmux ls` e portas ativas.
+- Para vLLM paralelo deterministico, exigir `VLLM_BATCH_INVARIANT=1`, `VLLM_USE_FLASHINFER_SAMPLER=0`, `temperature=0`, seed `42` e dois replays exatamente iguais.
+- Usar Conda e instalar dependencias com `uv pip --python <conda-prefix>/bin/python`; nao criar `.venv`.
+- Branches de agentes usam prefixo `codex/`. Nao executar experimentos a partir de worktree suja.
+
+Checkout canonico na RTX 5090:
+
+- Git: `/home/liaan/Documentos/Luan/hidden_conformity_mechanics`
+- Artefatos: `/home/liaan/Documentos/Luan/hidden_conformity_mechanics/artifacts`
+- Runtime legado preservado: `/home/liaan/Documentos/Luan/temp_vllm/gradio_project`
+
 ## 0. Objetivo Atual (2026-02-26)
 
 - Rodar benchmark `single-load` no vLLM da A100 (`172.18.254.16`) para os modelos alvo, com **1 modelo por vez**.
@@ -13,6 +39,61 @@ Este documento consolida o estado operacional do `projeto_final`:
 - fluxo da `interface_v2`,
 - fluxo de benchmark (single-load e paralelo),
 - regras de determinismo e troubleshooting.
+
+## 0.0 Acesso SSH atual - maquinas via AnyDesk VPN
+
+### RTX 6000 Pro Liaan
+
+- Nome operacional: `rtx600`.
+- Comando SSH recomendado:
+  - `ssh rtx600`
+- Alias legado ainda valido:
+  - `ssh liaan-007-anydesk`
+- Config local em `~/.ssh/config`:
+  - `Host rtx600 liaan-007-anydesk`
+  - `HostName 172.18.0.1`
+  - `User liaan`
+- Root remoto usado nos experimentos recentes:
+  - `/home/liaan/Documentos/Luan`
+- Root local para resultados importados dessa maquina:
+  - `projeto_final/resultados_simulacoes_conformidade/RTX6000pro_liaan`
+- Antes de iniciar novos experimentos, verificar `nvidia-smi`, sessoes `tmux`, portas vLLM ativas e processos externos; nao matar processos que nao foram criados pelo experimento atual.
+
+### RTX 5090 Liaan 006
+
+- Nome operacional: `rtx5090`.
+- Comando SSH previsto:
+  - `ssh rtx5090`
+- Alias alternativo:
+  - `ssh liaan-006-anydesk`
+- Config local em `~/.ssh/config`:
+  - `Host rtx5090 liaan-006-anydesk`
+  - `HostName 172.19.0.1`
+  - `User liaan`
+  - `IdentityFile ~/.ssh/luan_006_ed25519`
+- Status testado em 2026-07-16:
+  - VPN AnyDesk estabelecida com IP local `172.19.0.2` e IP remoto `172.19.0.1`.
+  - Porta `22/tcp` aberta.
+  - O servidor SSH anuncia apenas `publickey`; login por senha nao foi oferecido.
+  - A sessao de desktop confirmou o prompt `liaan@liaan-006`.
+  - Login validado com `ssh rtx5090` usando `~/.ssh/luan_006_ed25519`.
+  - Fingerprint validado: `SHA256:fnHdpgmqQ6d9yMAVEyLCXWkg7+69gUSnVZNKmm08QFk`.
+  - Permissoes validadas: home `750`, `~/.ssh` `700`, `authorized_keys` `600`.
+  - `AllowUsers` preserva `luan` e autoriza `liaan` somente a partir de `172.19.0.2`.
+  - GPU confirmada: `NVIDIA GeForce RTX 5090`, `32607 MiB`, driver `580.159.03`.
+- Requisito operacional: manter a sessao VPN do AnyDesk ativa antes de executar `ssh rtx5090`.
+- Padrao de ambientes Python nesta maquina:
+  - criar ambientes com Conda, preferencialmente por prefixo dentro do root do experimento;
+  - instalar pacotes com `uv pip install --python <conda-prefix>/bin/python ...`;
+  - nao criar `.venv` nem usar Python gerenciado pelo `uv` neste fluxo;
+  - ambientes atuais do teste Gemma/Gradio: `/home/liaan/Documentos/Luan/temp_vllm/conda_envs/vllm` e `/home/liaan/Documentos/Luan/temp_vllm/conda_envs/gradio`.
+- Regra de determinismo vLLM validada na RTX 5090:
+  - iniciar o servidor com `VLLM_BATCH_INVARIANT=1` e `VLLM_USE_FLASHINFER_SAMPLER=0`;
+  - manter `--generation-config vllm`, `--seed 42` e `temperature=0` nas requisicoes;
+  - `temperature=0` e seed fixo, sem batch invariance, nao garantem trajetorias identicas sob concorrencia: o controle de 2026-07-16 teve somente `19/40` celulas exatamente iguais;
+  - todo batch cientifico paralelo deve ser executado duas vezes e passar `100%` de igualdade em `states.npy`, PNG e log normalizado antes de ser tratado como deterministico;
+  - o replay com batch invariance passou `40/40` celulas exatamente iguais nos quatro modos (`standard/conformity` x `only-token/CoT`), com menor throughput como tradeoff;
+  - evidencias locais: `resultados_simulacoes_conformidade/RTX5090_liaan/gemma4b_01_n30_neigh7_W3_batch_invariant_comparison_20260716T222142Z/`.
 
 ## 0.1 Atualização operacional (2026-03-04)
 
@@ -44,6 +125,38 @@ Este documento consolida o estado operacional do `projeto_final`:
   - log: `projeto_final/experimentos_automatos/logs/run_gemma27b_kz_v9_v21_55_70_noplots.log`
   - para cada maioria (`55/60/65/70`): `24` pastas de resultado e `0` PNG gerados
 
+## 0.2 Atualização operacional (2026-03-26)
+
+### RTX 6000 Pro - paralelismo por rodada com múltiplas instâncias do mesmo Llama
+- Host atual: `172.18.254.170`
+- Usuário: `ncdia`
+- Autenticacao: usar configuracao SSH local; credenciais nao pertencem ao Git.
+- LM Studio base URL: `http://172.18.254.170:1234/v1`
+- Branch de trabalho para esta mudança:
+  - `codex/parallel-round-lane-scheduler`
+- Script alterado:
+  - `streamlit_test/llm_sim_runner.py`
+- Semântica nova do runner batch:
+  - a rodada `r` monta todos os prompts apenas com `states[r-1]`
+  - existe uma lane por entrada em `model_pool`
+  - quando uma lane termina, ela pega imediatamente o próximo agente pendente da mesma rodada
+  - a próxima rodada só começa quando todos os agentes da rodada atual terminam
+- Smoke de referência já validado:
+  - `v21_zero_shot_cot`
+  - `agents=30`
+  - `seed_distribution=1`
+  - `memory_w=3,5`
+  - `model_pool=meta-llama-3.1-8b-instruct,meta-llama-3.1-8b-instruct:2,meta-llama-3.1-8b-instruct:3`
+- Regra de prompt:
+  - `"/no_think"` é somente para modelos `qwen`
+  - rodando `run_batch_png.py` diretamente com Llama, o sufixo não deve aparecer
+- Root de saída da RTX 6000:
+  - remoto: `~/luan/projeto_final/streamlit_test/batch_outputs/rtx6000`
+  - local: `/Users/luancarvalho/PycharmProjects/conformidade_experimento_resultados/projeto_final/streamlit_test/batch_outputs/rtx6000`
+- Regra de PNG:
+  - o artefato oficial do batch é um único `sim*.png`
+  - não depender mais de `heatmap_*.png` para considerar um run completo
+
 ## 1. Escopo e pastas importantes
 
 - Raiz desta documentação:
@@ -69,17 +182,17 @@ Este documento consolida o estado operacional do `projeto_final`:
 ## 2. Infraestrutura dos servidores
 
 ### 2.1 Linux Server 2 (RTX Pro 6000)
-- Host: `172.18.254.17`
+- Host: `172.18.254.170`
 - Usuário: `ncdia`
-- Login por senha: `ncdiam47`
-- LM Studio base URL: `http://172.18.254.17:1234/v1`
+- Autenticacao: usar configuracao SSH local; credenciais nao pertencem ao Git.
+- LM Studio base URL: `http://172.18.254.170:1234/v1`
 - Projeto remoto: `~/luan`
 - Ambiente: `conda activate luan_conformidade`
 
 ### 2.2 Mac Studio
 - Host: `172.18.254.18`
 - Usuário: `ncdia`
-- Login por senha: `NCDIAM47` (maiúsculas)
+- Autenticacao: usar configuracao SSH local; credenciais nao pertencem ao Git.
 - LM Studio base URL: `http://172.18.254.18:1234/v1`
 - Projeto remoto: `~/luan`
 - Ambiente: `conda activate luan_conformidade`
@@ -87,32 +200,27 @@ Este documento consolida o estado operacional do `projeto_final`:
 ### 2.3 Linux Server (A100) - suporte
 - Host: `172.18.254.16`
 - Usuário: `ncdia`
-- Senha: `ncdiam47`
+- Autenticacao: usar configuracao SSH local; credenciais nao pertencem ao Git.
 - Usado quando necessário para `llama-server`/execuções auxiliares.
 
-## 3. SSH (padrão: senha, sem chave)
+## 3. SSH
 
 Comandos mínimos de login:
 
 ```bash
-ssh ncdia@172.18.254.17
+ssh ncdia@172.18.254.170
 ssh ncdia@172.18.254.18
 ssh ncdia@172.18.254.16
 ```
 
-Validação forçando autenticação por senha:
+As credenciais devem permanecer no agente SSH, keychain ou configuracao local ignorada pelo Git. Nunca registrar senha ou token neste arquivo.
+
+Se houver erro de host key no `.170`:
 
 ```bash
-sshpass -p 'ncdiam47' ssh -o PubkeyAuthentication=no -o PreferredAuthentications=keyboard-interactive,password ncdia@172.18.254.17 "echo LOGIN_OK && hostname"
-sshpass -p 'NCDIAM47' ssh -o PubkeyAuthentication=no -o PreferredAuthentications=keyboard-interactive,password ncdia@172.18.254.18 "echo LOGIN_OK && hostname"
-```
-
-Se houver erro de host key no `.17`:
-
-```bash
-ssh-keygen -R 172.18.254.17
-ssh-keygen -R '[172.18.254.17]:22'
-ssh-keyscan -T 5 -t ed25519,ecdsa,rsa 172.18.254.17 >> ~/.ssh/known_hosts
+ssh-keygen -R 172.18.254.170
+ssh-keygen -R '[172.18.254.170]:22'
+ssh-keyscan -T 5 -t ed25519,ecdsa,rsa 172.18.254.170 >> ~/.ssh/known_hosts
 chmod 600 ~/.ssh/known_hosts
 ```
 
@@ -140,10 +248,16 @@ chmod 600 ~/.ssh/known_hosts
 ### 4.3 Seeds e parsing
 - Seed de request padrão: `42`
 - `qwen3`: adiciona `"/no_think"` automaticamente no prompt (`llm_sim_runner.py`) para evitar blocos de raciocínio atrapalhando parse.
+- Llama e Gemma não devem receber `"/no_think"` quando rodando `run_batch_png.py` diretamente.
 - Parse de resposta usa token entre colchetes, robusto a `<think>...</think>`.
 
 ### 4.4 Regras de rodada/tokens
 - `run_batch_png.py` agora permite `--max-rounds <= 2 * --agents` (não pode exceder esse teto).
+- No modo com `model_pool`, `llm_sim_runner.py` usa paralelismo por rodada com barreira obrigatória:
+  - cada rodada usa somente `states[r-1]`
+  - cada lane usa uma entrada fixa de `model_pool`
+  - quando uma lane termina, ela pega o próximo agente pendente da mesma rodada
+  - a rodada seguinte só começa após o fechamento completo da rodada atual
 - Benchmark CoT (`v21_*`) força `max_tokens >= 3000` em:
   - `/Users/luancarvalho/PycharmProjects/conformidade_experimento_resultados/projeto_final/streamlit_test/projecao_simulacao/benchmark_scenario_models.py`
 
@@ -155,7 +269,7 @@ Arquivo:
 Pontos relevantes:
 - Presets de servidor já incluem:
   - `http://172.18.254.18:1234/v1` (Mac Studio)
-  - `http://172.18.254.17:1234/v1` (Linux Server 2 RTX 6000)
+  - `http://172.18.254.170:1234/v1` (Linux Server 2 RTX 6000)
   - `http://172.18.254.16:8081/v1` (A100 llama-server)
 - Suporta variantes `v9_*` e `v21_*`.
 - Para `v21_*` (CoT): `max_output_tokens = 3000`.
@@ -163,7 +277,7 @@ Pontos relevantes:
 - Par `yes/no` exibido como `no(0)/yes(1)` e mapeado em ordem fixa (`no=0`, `yes=1`).
 - Distribuição inicial da simulação vem de `generate_initial_distribution_shared` (mesma base usada no benchmark).
 
-## 6. Benchmark - single-load (RTX 6000 `.17`)
+## 6. Benchmark - single-load (RTX 6000 `.170`)
 
 Script:
 - `/Users/luancarvalho/PycharmProjects/conformidade_experimento_resultados/projeto_final/streamlit_test/projecao_simulacao/run_singleload_benchmarks_rtx6000.sh`
@@ -226,6 +340,7 @@ bash ./run_macstudio_parallel_family_pairs_v9.sh
 4. Monitorar progresso por:
    - `tmux capture-pane -pt <sessao> | tail -n 80`
    - crescimento de `requests.jsonl`
+   - lembrar que `requests.jsonl` faz flush em bloco; janela curta sem crescimento não prova travamento
 5. Coletar resultados (`rsync` de volta) e consolidar CSVs.
 
 ## 9. Troubleshooting conhecido
@@ -236,7 +351,7 @@ Forçar:
 - `-o PubkeyAuthentication=no`
 - `-o PreferredAuthentications=keyboard-interactive,password`
 
-### 9.2 `.17` com erro de host key / `preauth`
+### 9.2 `.170` com erro de host key / `preauth`
 Aplicar limpeza/reseed de `known_hosts` (seção 3).
 
 ### 9.3 `run_batch_png_failed` por import incorreto no remoto

@@ -33,3 +33,19 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# Research runs stay outside Git and are identified by manifests/hashes.
+artifacts/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Local execution products inside canonical phase runtimes.
+extract_rules/runtime_vllm/results/
+extract_rules/runtime_vllm/logs/
+extract_rules/runtime_vllm/prompt_logs/
+experimentos_automatos/runtime/results/
+experimentos_automatos/runtime/resultados/
+experimentos_automatos/runtime/extracted_rules/
