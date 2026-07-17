@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(git rev-parse --show-toplevel)"
-PYTHON_BIN="${PYTHON_BIN:-/home/liaan/Documentos/Luan/temp_vllm/conda_envs/gradio/bin/python}"
+PYTHON_BIN="${PYTHON_BIN:-$REPO_ROOT/artifacts/conda/runtime/bin/python}"
 BASE_URL="${BASE_URL:-http://127.0.0.1:8127}"
 
 echo "host=$(hostname)"

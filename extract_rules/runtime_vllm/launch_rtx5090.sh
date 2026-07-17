@@ -3,7 +3,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(git -C "$SCRIPT_DIR" rev-parse --show-toplevel)"
-PYTHON_BIN="${PYTHON_BIN:-/home/liaan/Documentos/Luan/temp_vllm/conda_envs/gradio/bin/python}"
+PYTHON_BIN="${PYTHON_BIN:-$REPO_ROOT/artifacts/conda/runtime/bin/python}"
 BASE_URL="${BASE_URL:-http://127.0.0.1:8127}"
 MODEL_ALIAS="${MODEL_ALIAS:-gemma3-4b-temp0}"
 ARTIFACT_ROOT="${HC_ARTIFACT_ROOT:-$REPO_ROOT/artifacts}"
