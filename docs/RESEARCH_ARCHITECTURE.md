@@ -16,7 +16,7 @@ Primary output: per-simulation trajectories and aggregated success/failure metri
 
 ### Phase 3 - Memory-Enabled Conformity
 
-Each agent queries the LLM at every synchronous round using its current local neighborhood and up to `W` historical local snapshots. This is a dynamic LLM system, not a static `2^n` truth table. Existing RTX 5090 W=0..5 runs remain in the legacy runtime and are exposed to the canonical checkout through an ignored artifact link.
+Each agent queries the LLM at every synchronous round using its current local neighborhood and up to `W` historical local snapshots. This is a dynamic LLM system, not a static `2^n` truth table. The canonical code lives in `gradio_project/`; existing RTX 5090 W=0..5 artifacts remain in their immutable result store and are exposed through an ignored artifact link.
 
 ## Handoff Contract
 
@@ -37,7 +37,7 @@ Phase 3 does not consume Phase 1 rules. Comparisons across phases must join on m
 hidden_conformity_mechanics/
   extract_rules/                 # Phase 1 code and manifests
   experimentos_automatos/        # Phase 2 code
-  streamlit_test/                # Phase 3 code
+  gradio_project/                # Phase 3 code and Gradio interface
   docs/                          # scientific and operational contracts
   infra/rtx5090/                 # deployment and preflight scripts
   artifacts/                     # ignored run data, never committed

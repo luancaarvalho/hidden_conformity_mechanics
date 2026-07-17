@@ -2,15 +2,9 @@
 """
 Gradio App - Simulação de Conformidade com LLM
 
-Mudanças aplicadas nesta versão (v3):
-- Infra de UI migrada de Streamlit para Gradio Blocks.
-- Loop de polling/rerun removido; updates via generator `run_simulation_stream`.
-- Controle de parada via botão Stop com `cancels` do Gradio + stop event.
-
-Intencionalmente NÃO alterado:
-- Lógica de experimento (prompts, parsing, sementes, memória, critérios de parada).
-- Formato/chamada do LLM e gravação de logs de prompt/resposta.
-- Defaults centrais (modelos, base URL padrão, ranges e comportamento de tokens/COT).
+Mudanças aplicadas nesta versão (v4):
+- Mantém a base da v3 com suporte explícito a endpoints/modelos do vLLM.
+- Inclui presets para vLLM A100 (porta 8000) e nomes de modelo servidos pelo vLLM.
 """
 
 import os
@@ -21,6 +15,7 @@ import random
 import threading
 import json
 from io import BytesIO
+from pathlib import Path
 from typing import Optional, List, Tuple, Dict, Any
 
 import gradio as gr
@@ -28,53 +23,46 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')  # Backend não-interativo
+import requests
 import yaml
 from PIL import Image
 from openai import OpenAI
 
-def _find_repo_root() -> str:
-    """
-    Resolve repo root regardless of whether this file is executed from the project
-    root (`streamlit_test/`) or from a subfolder (`streamlit_test/interface/`).
-    """
-    d = os.path.dirname(os.path.abspath(__file__))
-    for _ in range(8):
-        if os.path.exists(os.path.join(d, "prompt_strategies.py")) and os.path.exists(os.path.join(d, "prompt_templates.yaml")):
-            return d
-        parent = os.path.dirname(d)
-        if parent == d:
-            break
-        d = parent
-    # Fallback: assume `streamlit_test/interface/<file>.py`
-    return os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 
+REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
-REPO_ROOT = _find_repo_root()
-
-# Adiciona o repo root ao path para importar prompt_strategies.py e outros módulos.
-sys.path.insert(0, REPO_ROOT)
-
-try:
-    from prompt_strategies import get_prompt_strategy, PromptStrategy
-except ImportError:
-    get_prompt_strategy = None
-    PromptStrategy = None
-
-from projeto_final.utils.utils import (
+from gradio_project.prompts.prompt_strategies import (  # noqa: E402
+    PromptStrategy,
+    get_prompt_strategy,
+)
+from gradio_project.utils.utils import (  # noqa: E402
+    append_no_think_if_needed,
     call_llm_responses,
     generate_initial_distribution_shared,
     parse_opinion_token,
+)
+from gradio_project.utils.conformity_game_prompts import (  # noqa: E402
+    CONFORMITY_GAME_MODE_A,
+    CONFORMITY_GAME_MODE_B,
+    render_conformity_game_system_prompt,
+    render_conformity_game_user_prompt,
 )
 
 # ==============================================================================
 # CONSTANTES E CONFIGURAÇÃO
 # ==============================================================================
 
-DEFAULT_BASE_URL = os.getenv("LMSTUDIO_BASE_URL", "http://172.18.254.18:1234/v1")
+DEFAULT_BASE_URL = os.getenv("VLLM_BASE_URL", os.getenv("LMSTUDIO_BASE_URL", "http://172.18.254.16:8000/v1"))
 DEFAULT_API_KEY = "lm-studio"
-DEFAULT_MODEL = "google/gemma-3-4b"
+DEFAULT_MODEL = os.getenv("VLLM_MODEL", "gemma-3-27b-it")
 
 SERVER_PRESETS = {
+    "⚡ vLLM (A100 - 8000)": "http://172.18.254.16:8000/v1",
+    "⚡ vLLM (Localhost - 8000)": "http://127.0.0.1:8000/v1",
+    "⚡ vLLM (RTX 5090 - 8127)": "http://127.0.0.1:8127/v1",
+    "LM Studio (A100)": "http://172.18.254.16:1234/v1",
     "LM Studio (Mac Studio)": "http://172.18.254.18:1234/v1",
     "LM Studio (Linux Server 2 RTX Pro 6000)": "http://172.18.254.17:1234/v1",
     "🚀 Llama Server (A100 - 8081)": "http://172.18.254.16:8081/v1",
@@ -82,6 +70,9 @@ SERVER_PRESETS = {
 }
 
 AVAILABLE_MODELS = [
+    "gemma3-4b-temp0",
+    "gemma3-27b",
+    "google/gemma-3-27b-it",
     "google/gemma-3-4b",
     "google/gemma-3-4b:2",
     "google/gemma-3-12b",
@@ -93,6 +84,82 @@ AVAILABLE_MODELS = [
     "qwen3-4b",
     "qwen/qwen3-32b",
 ]
+
+
+def _default_server_name() -> str:
+    configured = os.getenv("GRADIO_SERVER_PRESET", "").strip()
+    if configured in SERVER_PRESETS:
+        return configured
+    for name, url in SERVER_PRESETS.items():
+        if url == DEFAULT_BASE_URL:
+            return name
+    return "✏️ Customizado"
+
+
+DEFAULT_SERVER_NAME = _default_server_name()
+
+
+def _normalize_model_name(value: Optional[str]) -> str:
+    return str(value or "").strip().casefold()
+
+
+def _list_server_models(base_url: str, timeout_s: int = 10) -> List[Dict[str, Any]]:
+    base = str(base_url or "").rstrip("/")
+    if not base:
+        return []
+    url = base if base.endswith("/v1/models") else f"{base.rstrip('/')}/models"
+    if not url.endswith("/v1/models"):
+        if url.endswith("/v1"):
+            url = f"{url}/models"
+        else:
+            url = f"{url}/v1/models"
+    response = requests.get(url, timeout=timeout_s)
+    response.raise_for_status()
+    data = response.json()
+    items = data.get("data", []) if isinstance(data, dict) else []
+    return [item for item in items if isinstance(item, dict)]
+
+
+def resolve_model_for_endpoint(base_url: str, requested_model: str) -> str:
+    requested = str(requested_model or "").strip()
+    if not requested:
+        return requested
+
+    try:
+        models = _list_server_models(base_url)
+    except Exception:
+        return requested
+
+    if not models:
+        return requested
+
+    requested_norm = _normalize_model_name(requested)
+    for item in models:
+        model_id = str(item.get("id") or "").strip()
+        model_root = str(item.get("root") or "").strip()
+        aliases = {
+            _normalize_model_name(requested),
+            _normalize_model_name(model_id),
+            _normalize_model_name(model_root),
+        }
+        if requested_norm in aliases:
+            return model_id or requested
+
+    # Friendly fallback for common Gemma vLLM aliases.
+    if "gemma" in requested_norm and "27b" in requested_norm:
+        for item in models:
+            model_id = str(item.get("id") or "").strip()
+            model_root = str(item.get("root") or "").strip()
+            haystack = f"{_normalize_model_name(model_id)} {_normalize_model_name(model_root)}"
+            if "gemma" in haystack and "27b" in haystack:
+                return model_id or requested
+
+    if len(models) == 1:
+        only_model = str(models[0].get("id") or "").strip()
+        if only_model:
+            return only_model
+
+    return requested
 
 def _env_int(name: str, default: Optional[int] = None) -> Optional[int]:
     v = os.getenv(name)
@@ -118,6 +185,13 @@ def _env_float(name: str, default: Optional[float] = None) -> Optional[float]:
         return float(v)
     except Exception:
         return default
+
+
+def _request_timeout_s() -> int:
+    timeout_s = _env_int("LLM_REQUEST_TIMEOUT_S", 120)
+    if timeout_s is None or timeout_s < 1:
+        raise ValueError("LLM_REQUEST_TIMEOUT_S must be a positive integer")
+    return timeout_s
 
 
 def _apply_sampling_overrides(payload: Dict[str, Any]) -> Dict[str, Any]:
@@ -188,99 +262,7 @@ def load_yaml_variants(yaml_path: str) -> List[str]:
 
 def get_yaml_path() -> str:
     """Retorna o caminho para o arquivo prompt_templates.yaml."""
-    # Repo root (onde ficam prompt_strategies.py e prompt_templates.yaml)
-    yaml_path = os.path.join(REPO_ROOT, "prompt_templates.yaml")
-    if os.path.exists(yaml_path):
-        return yaml_path
-    # Tenta no diretório atual
-    local_yaml = os.path.join(os.path.dirname(os.path.abspath(__file__)), "prompt_templates.yaml")
-    if os.path.exists(local_yaml):
-        return local_yaml
-    return yaml_path  # Retorna o esperado mesmo se não existir
-
-
-CONFORMITY_GAME_MODE_A = "Normative DCT Convergence"
-CONFORMITY_GAME_MODE_B = "DCT Consensus Protocol"
-
-CONFORMITY_GAME_SYSTEM_PROMPT_MODE_A = (
-    "You are playing a Conformity Game inside a small social group.\n\n"
-    "The episode has a correct consensus target:\n"
-    "the symbol that was more prevalent in the population at the beginning.\n"
-    "Agreement on the correct target improves coordination and reduces friction.\n\n"
-    "You only see local snapshots and an optional rolling memory. Your objective is to infer the correct target\n"
-    "from repeated local evidence and align your public output to accelerate stable convergence.\n\n"
-    "IMPORTANT OUTPUT RULE:\n"
-    "Reply with ONLY one token in square brackets: [{T0}] or [{T1}]. No extra text."
-)
-
-CONFORMITY_GAME_SYSTEM_PROMPT_MODE_A_NO_MEMORY = (
-    "You are playing a Conformity Game inside a small social group.\n\n"
-    "The episode has a correct consensus target:\n"
-    "the symbol that was more prevalent in the population at the beginning.\n"
-    "Agreement on the correct target improves coordination and reduces friction.\n\n"
-    "You only see local snapshots. Your objective is to infer the correct target\n"
-    "from repeated local evidence and align your public output to accelerate stable convergence.\n\n"
-    "IMPORTANT OUTPUT RULE:\n"
-    "Reply with ONLY one token in square brackets: [{T0}] or [{T1}]. No extra text."
-)
-
-CONFORMITY_GAME_SYSTEM_PROMPT_MODE_B = (
-    "You are a node in a local-to-global density-based consensus protocol.\n\n"
-    "Each round you must output exactly one symbol: [{T0}] or [{T1}].\n"
-    "The correct final consensus is the symbol that was globally more frequent at the beginning of the episode.\n"
-    "However you do not see the full initial state. You only receive a local neighborhood snapshot and an optional rolling memory.\n\n"
-    "IMPORTANT OUTPUT RULE:\n"
-    "Reply with ONLY one token in square brackets: [{T0}] or [{T1}]. No extra text."
-)
-
-CONFORMITY_GAME_SYSTEM_PROMPT_MODE_B_NO_MEMORY = (
-    "You are a node in a local-to-global density-based consensus protocol.\n\n"
-    "Each round you must output exactly one symbol: [{T0}] or [{T1}].\n"
-    "The correct final consensus is the symbol that was globally more frequent at the beginning of the episode.\n"
-    "However you do not see the full initial state. You only receive a local neighborhood snapshot.\n\n"
-    "IMPORTANT OUTPUT RULE:\n"
-    "Reply with ONLY one token in square brackets: [{T0}] or [{T1}]. No extra text."
-)
-
-CONFORMITY_GAME_USER_TEMPLATE_WITH_MEMORY = (
-    "Below you can see the current complete list of opinions from your shown neighborhood (including your own).\n\n"
-    "**Complete Opinion List:** {NEIGHBORHOOD_LIST}\n"
-    "**Your Position:** You are the opinion in the middle\n"
-    "**Your Current Opinion:** '{CURRENT_OPINION}'\n\n"
-    "Reply ONLY with [{T0}] or [{T1}]."
-)
-
-CONFORMITY_GAME_USER_TEMPLATE_NO_MEMORY = (
-    "Below you can see the current complete list of opinions from your shown neighborhood (including your own).\n\n"
-    "**Complete Opinion List:** {NEIGHBORHOOD_LIST}\n"
-    "**Your Position:** You are the opinion in the middle\n"
-    "**Your Current Opinion:** '{CURRENT_OPINION}'\n\n"
-    "Reply ONLY with [{T0}] or [{T1}]."
-)
-
-
-def render_conformity_game_system_prompt(mode: str, token0: str, token1: str, memory_enabled: bool) -> str:
-    if mode == CONFORMITY_GAME_MODE_B:
-        tpl = CONFORMITY_GAME_SYSTEM_PROMPT_MODE_B if memory_enabled else CONFORMITY_GAME_SYSTEM_PROMPT_MODE_B_NO_MEMORY
-    else:
-        tpl = CONFORMITY_GAME_SYSTEM_PROMPT_MODE_A if memory_enabled else CONFORMITY_GAME_SYSTEM_PROMPT_MODE_A_NO_MEMORY
-    return tpl.format(T0=token0, T1=token1)
-
-
-def render_conformity_game_user_prompt(
-    neighborhood_list: List[str],
-    current_opinion: str,
-    token0: str,
-    token1: str,
-    memory_enabled: bool,
-) -> str:
-    tpl = CONFORMITY_GAME_USER_TEMPLATE_WITH_MEMORY if memory_enabled else CONFORMITY_GAME_USER_TEMPLATE_NO_MEMORY
-    return tpl.format(
-        NEIGHBORHOOD_LIST=repr(neighborhood_list),
-        CURRENT_OPINION=current_opinion,
-        T0=token0,
-        T1=token1,
-    )
+    return str(REPO_ROOT / "gradio_project" / "prompts" / "prompt_templates.yaml")
 
 
 def parse_llm_response(response_text: str) -> Optional[str]:
@@ -555,7 +537,7 @@ class SimulationRunner:
         self.temperature = temperature
         self.prompt_variant = prompt_variant
         self.base_url = base_url
-        self.model = model
+        self.model = resolve_model_for_endpoint(base_url, model)
         self.delay_ms = delay_ms
         self.initial_majority = initial_majority
         self.stop_event = stop_event
@@ -565,7 +547,14 @@ class SimulationRunner:
         self.memory_format = "timeline"
         self.jogo_conformidade = jogo_conformidade
         self.jogo_conformidade_modo = jogo_conformidade_modo
-        self.max_output_tokens = 3000 if is_cot_variant(self.prompt_variant) else 50
+        default_max_output_tokens = 3000 if is_cot_variant(self.prompt_variant) else 50
+        configured_max_output_tokens = _env_int(
+            "LLM_MAX_OUTPUT_TOKENS",
+            default_max_output_tokens,
+        )
+        if configured_max_output_tokens is None or configured_max_output_tokens < 1:
+            raise ValueError("LLM_MAX_OUTPUT_TOKENS must be a positive integer")
+        self.max_output_tokens = configured_max_output_tokens
 
         self.states = np.full((n_rounds, n_agents), np.nan)
         self.client = None
@@ -585,6 +574,7 @@ class SimulationRunner:
 
         self.log_messages: List[str] = []
         self.current_image: Optional[bytes] = None
+        self.request_failure_count = 0
 
     def _log(self, message: str):
         self.log_messages.append(message)
@@ -673,6 +663,7 @@ class SimulationRunner:
         return "\n".join(memory_lines) if memory_lines else ""
 
     def _query_llm_native(self, system_prompt: str, user_prompt: str) -> str:
+        user_prompt = append_no_think_if_needed(user_prompt, self.model)
         sampling_overrides = _apply_sampling_overrides({})
         result = call_llm_responses(
             base_url=self.base_url,
@@ -682,7 +673,7 @@ class SimulationRunner:
             temperature=self.temperature,
             seed=42,
             max_output_tokens=self.max_output_tokens,
-            timeout_s=120,
+            timeout_s=_request_timeout_s(),
             top_k=sampling_overrides.get("top_k"),
             top_p=sampling_overrides.get("top_p"),
             min_p=sampling_overrides.get("min_p"),
@@ -693,6 +684,7 @@ class SimulationRunner:
     def _query_llm(self, system_prompt: str, user_prompt: str, agent_idx: int, round_idx: int) -> Tuple[str, Optional[str]]:
         max_attempts = 5
         last_raw_response = ""
+        user_prompt = append_no_think_if_needed(user_prompt, self.model)
 
         for attempt in range(max_attempts):
             if self._should_stop():
@@ -709,7 +701,7 @@ class SimulationRunner:
                         temperature=self.temperature,
                         seed=42,
                         max_output_tokens=self.max_output_tokens,
-                        timeout_s=120,
+                        timeout_s=_request_timeout_s(),
                         top_k=sampling_overrides.get("top_k"),
                         top_p=sampling_overrides.get("top_p"),
                         min_p=sampling_overrides.get("min_p"),
@@ -718,6 +710,7 @@ class SimulationRunner:
                     raw_response = str(result["raw_response"]).strip()
                     last_raw_response = raw_response
                 except Exception as e:
+                    self.request_failure_count += 1
                     self._log(f"❌ Erro HTTP RAW: {e}")
                     raise e
 
@@ -763,12 +756,12 @@ class SimulationRunner:
             f"(round={round_idx}, agent={agent_idx}). Última resposta RAW: {last_raw_response!r}"
         )
 
-    def _build_yield_payload(self, status_text: str) -> Tuple[Optional['Image.Image'], str, str]:
-        pil_image = None
+    def _build_yield_payload(self, status_text: str) -> Tuple[List['Image.Image'], str, str]:
+        gallery_images: List['Image.Image'] = []
         if self.current_image is not None:
-            pil_image = Image.open(BytesIO(self.current_image)).copy()
+            gallery_images = [Image.open(BytesIO(self.current_image)).copy()]
         logs_text = "\n".join(self.log_messages[-20:]) if self.log_messages else "Nenhuma mensagem ainda..."
-        return pil_image, logs_text, status_text
+        return gallery_images, logs_text, status_text
 
     def run_stream(self):
         status_text = "Rodando"
@@ -876,6 +869,7 @@ class SimulationRunner:
                             self.opinion_pair[0],
                             self.opinion_pair[1],
                             memory_enabled,
+                            self.prompt_variant,
                         )
                         user_prompt = render_conformity_game_user_prompt(
                             neighborhood_list,
@@ -883,6 +877,7 @@ class SimulationRunner:
                             self.opinion_pair[0],
                             self.opinion_pair[1],
                             memory_enabled,
+                            self.prompt_variant,
                         )
                     else:
                         try:
@@ -967,16 +962,20 @@ class SimulationRunner:
 def test_model_connection(base_url: str, model: str) -> Dict[str, Any]:
     """Testa conexão com o modelo LLM."""
     try:
+        max_output_tokens = _env_int("LLM_MAX_OUTPUT_TOKENS", 50)
+        if max_output_tokens is None or max_output_tokens < 1:
+            raise ValueError("LLM_MAX_OUTPUT_TOKENS must be a positive integer")
         start_time = time.time()
+        resolved_model = resolve_model_for_endpoint(base_url, model)
         result = call_llm_responses(
             base_url=base_url,
-            model=model,
+            model=resolved_model,
             system_prompt="You are a helpful assistant.",
             user_prompt="Say only: [k]",
             temperature=0.0,
             seed=42,
-            max_output_tokens=50,
-            timeout_s=120,
+            max_output_tokens=max_output_tokens,
+            timeout_s=_request_timeout_s(),
         )
         latency = (time.time() - start_time) * 1000
 
@@ -985,6 +984,8 @@ def test_model_connection(base_url: str, model: str) -> Dict[str, Any]:
 
         return {
             'success': True,
+            'requested_model': model,
+            'resolved_model': resolved_model,
             'raw_response': raw_response,
             'token': token,
             'latency_ms': latency,
@@ -1172,6 +1173,7 @@ def _test_connection_ui(base_url: str, model: str):
         connection_text = "Conectado ✅"
         details = (
             f"Latência: {result['latency_ms']:.1f}ms\n"
+            f"Modelo resolvido: {result.get('resolved_model', model)}\n"
             f"Resposta: {result['raw_response'][:100]}\n"
             f"Token extraído: {result['token']}"
         )
@@ -1313,13 +1315,24 @@ def run_simulation_stream(
 def build_demo() -> gr.Blocks:
     display_options, _, default_display = _build_variant_options()
     initial_preview = _initial_distribution_preview(10, 50, False, "k/z")
+    default_server_url = SERVER_PRESETS.get(DEFAULT_SERVER_NAME, DEFAULT_BASE_URL)
+    default_server_is_custom = DEFAULT_SERVER_NAME == "✏️ Customizado"
 
     with gr.Blocks(title="LLM Conformidade Simulator") as demo:
         gr.Markdown("# 🧠 Simulador de Conformidade com LLM")
 
         with gr.Row():
             with gr.Column(scale=2):
-                heatmap_output = gr.Image(label="📊 Heatmap da Simulação", type="pil")
+                heatmap_output = gr.Gallery(
+                    label="📊 Heatmap da Simulação",
+                    preview=True,
+                    allow_preview=True,
+                    selected_index=0,
+                    columns=1,
+                    rows=1,
+                    object_fit="contain",
+                    height="auto",
+                )
                 logs_output = gr.Textbox(
                     label="📝 Log de Execução",
                     value="Nenhuma mensagem ainda...",
@@ -1446,10 +1459,14 @@ def build_demo() -> gr.Blocks:
                 selected_server = gr.Dropdown(
                     label="Servidor",
                     choices=list(SERVER_PRESETS.keys()),
-                    value="LM Studio (Mac Studio)",
+                    value=DEFAULT_SERVER_NAME,
                 )
-                base_url = gr.Textbox(label="Base URL (opcional)", value=SERVER_PRESETS["LM Studio (Mac Studio)"], interactive=False)
-                base_url_hint = gr.Markdown(SERVER_PRESETS["LM Studio (Mac Studio)"])
+                base_url = gr.Textbox(
+                    label="Base URL (opcional)",
+                    value=default_server_url,
+                    interactive=default_server_is_custom,
+                )
+                base_url_hint = gr.Markdown("" if default_server_is_custom else default_server_url)
 
                 model = gr.Dropdown(
                     label="Modelo",
@@ -1599,16 +1616,19 @@ except TypeError:
 
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(
+        server_name=os.getenv("GRADIO_SERVER_NAME", "127.0.0.1"),
+        server_port=_env_int("GRADIO_SERVER_PORT", 7860),
+    )
 
 
 # ==============================================================================
 # README (quick start)
 # ==============================================================================
 # Run:
-#   python projeto_final/streamlit_test/interface/interface_v3_gradio.py
+#   python -m gradio_project.interface.interface_v4_gradio
 # Optional:
-#   export LMSTUDIO_BASE_URL="http://172.18.254.18:1234/v1"
+#   export VLLM_BASE_URL="http://172.18.254.16:8000/v1"
 # Notes:
 #   - Uses Gradio streaming generator (`run_simulation_stream`) for per-agent updates.
 #   - Stop button sets stop event and cancels the running Gradio event.

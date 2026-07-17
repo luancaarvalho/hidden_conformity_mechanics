@@ -1,0 +1,23 @@
+{
+  "migration_date": "2026-07-17",
+  "source_machine": "liaan-006 (RTX 5090)",
+  "source_root": "/home/liaan/Documentos/Luan/temp_vllm/gradio_project",
+  "destination_root": "gradio_project",
+  "source_files_sha256_before_path_migration": {
+    "interface/interface_v4_gradio.py": "5dd083c2544446a6d76c1ea0072b96cc14207fa293a117a9ebbb8dbb1fbf665e",
+    "launchers/launch_gradio_gemma4b_batch_invariant_double.sh": "df25edd065e04cc85c331dd3c681cec2c73863dad169092670f6ca360c69047b",
+    "launchers/launch_gradio_gemma4b_standard_cot_w2_5_r60.sh": "64669acb8ee138fe87ba19df57a830c998f34ab35200edf86a5b72ce2cc25710",
+    "launchers/launch_gradio_gemma4b_w0_5_batch_invariant.sh": "0d6432794db9c7f24830add0c492f1898de0a61beba519a65602b61ba5c7fe7e",
+    "memory/compare_gradio_gemma4b_replays.py": "26a2761d2f7361c06e4adeb33a8f918b1559e64dfae7a7a502275eb3080fdf79",
+    "memory/compare_gradio_gemma4b_w_replays.py": "6a400e5d79c0936807dc972d2354637c842e15d64f25d91f88dd867cf15ee292",
+    "memory/finalize_gradio_gemma4b_w0_5.py": "036ae71cf9cfc4aaf9af2858106bc02757bc32f4fe18be17e07a279006e72b8e",
+    "memory/run_gradio_determinism_replay.py": "f9578895c2035f6a243778da774314939e54951257cfd14f07136ed25dfcbbe6",
+    "memory/run_gradio_gemma4b_01_matrix.py": "3c84e58e3310ad95d7e9c9b658d3cf4d1358ef29119b8f76f2a698bf33f0985f",
+    "prompts/prompt_strategies.py": "38dc410544ba4353b0ed5345b57d4473fbccc00e0746472eafffdac72351b945",
+    "prompts/prompt_templates.yaml": "b67535f8bebb3c5f786b8e8023247d3fe5e99263aa35c35c8493b4278226d9e7",
+    "utils/conformity_game_prompts.py": "83a7d8664ebed97d754c356fc436f08987e5cbc203492e295ee58eb88f174482",
+    "utils/initial_distribution.py": "1cc1ed7f7be8da54680132dbc01f9b5260642919453d540970a1cf54fa8cc03d",
+    "utils/utils.py": "2bd157f0efab8731c1dbc86a3b4f0c0886824201b0d8eb5d63783f2a591daac4"
+  },
+  "notes": "Hashes capture the live legacy files before package imports and canonical artifact paths were changed. Bulk results were not copied or rewritten."
+}

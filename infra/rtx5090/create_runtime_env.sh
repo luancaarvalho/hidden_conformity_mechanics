@@ -15,4 +15,4 @@ fi
 
 "$UV_BIN" pip install --python "$PREFIX/bin/python" \
   -r "$REPO_ROOT/infra/rtx5090/requirements-runtime.txt"
-"$PREFIX/bin/python" -c 'import httpx, matplotlib, numba, numpy, openai, pandas, psutil, yaml; print("runtime_imports=PASS")'
+"$PREFIX/bin/python" -c 'import gradio, httpx, matplotlib, numba, numpy, openai, pandas, psutil, yaml; assert gradio.__version__ == "6.6.0"; print("runtime_imports=PASS")'
