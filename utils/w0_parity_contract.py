@@ -37,6 +37,15 @@ def render_w0_prompt(
     variant: str,
     neighborhood: Sequence[int | str],
 ) -> tuple[str, str]:
+    return render_memory_prompt(variant, neighborhood, memory_snapshots=())
+
+
+def render_memory_prompt(
+    variant: str,
+    neighborhood: Sequence[int | str],
+    *,
+    memory_snapshots: Sequence[tuple[int, Sequence[int | str]]],
+) -> tuple[str, str]:
     if variant not in VARIANT_BASES:
         raise ValueError(f"unsupported parity variant: {variant}")
     if len(neighborhood) < 3 or len(neighborhood) % 2 == 0:
@@ -54,12 +63,29 @@ def render_w0_prompt(
         current_opinion=opinions[center],
     )
 
-    if variant == "v21_zero_shot_cot_parity_01":
+    if variant == "v21_zero_shot_cot_parity_01" and not memory_snapshots:
         if user_prompt.count(_V21_MEMORY_PREFIX) != 1:
             raise RuntimeError("historical v21 MEMORY prefix changed unexpectedly")
         user_prompt = user_prompt.replace(_V21_MEMORY_PREFIX, "", 1)
 
-    if "MEMORY" in user_prompt or "MEMORY" in system_prompt:
+    if memory_snapshots:
+        memory_lines = ["=== MEMORY (Previous Rounds) ==="]
+        for round_idx, snapshot in memory_snapshots:
+            snapshot_tokens = [str(item) for item in snapshot]
+            if len(snapshot_tokens) != len(opinions):
+                raise ValueError("memory snapshot length must match the current neighborhood")
+            if any(item not in TOKENS for item in snapshot_tokens):
+                raise ValueError(f"memory snapshot must contain only {TOKENS}")
+            memory_lines.extend(
+                [
+                    f"Round {round_idx}:",
+                    f"  You: [{snapshot_tokens[center]}]",
+                    f"  Left: {snapshot_tokens[:center]!r}",
+                    f"  Right: {snapshot_tokens[center + 1:]!r}",
+                ]
+            )
+        user_prompt = "\n".join(memory_lines) + "\n\n" + user_prompt
+    elif "MEMORY" in user_prompt or "MEMORY" in system_prompt:
         raise RuntimeError("W=0 parity prompt must not mention MEMORY")
     return system_prompt, user_prompt
 

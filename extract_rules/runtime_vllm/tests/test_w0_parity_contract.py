@@ -9,6 +9,7 @@ from utils.parity_artifacts import finalize_replays, write_json
 from utils.w0_parity_contract import (
     build_responses_payload,
     parse_final_choice,
+    render_memory_prompt,
     render_w0_prompt,
 )
 
@@ -40,6 +41,32 @@ class W0ParityContractTest(unittest.TestCase):
             ),
         )
         self.assertNotIn("MEMORY", system + user)
+
+    def test_w1_uses_historical_timeline_without_changing_current_input(self) -> None:
+        neighborhood = [0, 1, 0, 1, 0, 1, 0]
+        system, user = render_memory_prompt(
+            "v21_zero_shot_cot_parity_01",
+            neighborhood,
+            memory_snapshots=[(0, neighborhood)],
+        )
+        self.assertIn("=== MEMORY (Previous Rounds) ===", user)
+        self.assertIn("Round 0:\n  You: [1]", user)
+        self.assertIn("Left: ['0', '1', '0']", user)
+        self.assertIn("Right: ['0', '1', '0']", user)
+        self.assertIn("Use the MEMORY section above as prior-round context.", user)
+        self.assertIn("Complete Opinion List: ['0', '1', '0', '1', '0', '1', '0']", user)
+        self.assertNotIn("MEMORY", system)
+
+    def test_w0_wrapper_matches_generic_renderer_without_memory(self) -> None:
+        neighborhood = [1, 0, 1, 0, 1, 0, 1]
+        for variant in (
+            "v9_lista_completa_meio_parity_01",
+            "v21_zero_shot_cot_parity_01",
+        ):
+            self.assertEqual(
+                render_w0_prompt(variant, neighborhood),
+                render_memory_prompt(variant, neighborhood, memory_snapshots=[]),
+            )
 
     def test_sampling_payload_is_minimal_and_parser_prefers_last(self) -> None:
         payload = build_responses_payload(

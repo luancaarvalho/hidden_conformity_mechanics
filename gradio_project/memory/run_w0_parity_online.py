@@ -35,7 +35,7 @@ from utils.w0_parity_contract import (  # noqa: E402
     payload_hash,
     prompt_hash,
     query_responses_with_retries,
-    render_w0_prompt,
+    render_memory_prompt,
     source_paths,
 )
 from utils.parity_render import render_binary_trajectory_png  # noqa: E402
@@ -71,13 +71,18 @@ def query_agent(
     round_idx: int,
     agent_idx: int,
     neighborhood: list[int],
+    memory_snapshots: list[tuple[int, list[int]]],
     variant: str,
     base_url: str,
     model: str,
     timeout_s: int,
     max_attempts: int,
 ) -> dict[str, Any]:
-    system_prompt, user_prompt = render_w0_prompt(variant, neighborhood)
+    system_prompt, user_prompt = render_memory_prompt(
+        variant,
+        neighborhood,
+        memory_snapshots=memory_snapshots,
+    )
     payload = build_responses_payload(
         model=model,
         system_prompt=system_prompt,
@@ -94,6 +99,10 @@ def query_agent(
         "round": round_idx,
         "agent": agent_idx,
         "neighborhood": neighborhood,
+        "memory_snapshots": [
+            {"round": round_idx, "neighborhood": snapshot}
+            for round_idx, snapshot in memory_snapshots
+        ],
         "system_prompt": system_prompt,
         "user_prompt": user_prompt,
         "prompt_sha256": prompt_hash(system_prompt, user_prompt),
@@ -113,6 +122,7 @@ def run_cell(
     model: str,
     agents: int,
     majority_ratio: float,
+    memory_window: int,
     max_transitions: int,
     request_workers: int,
     timeout_s: int,
@@ -150,11 +160,24 @@ def run_cell(
                     int(previous[(agent + offset) % agents])
                     for offset in range(-half, half + 1)
                 ]
+                memory_snapshots = []
+                for memory_round in range(max(0, transition - memory_window), transition):
+                    memory_state = states[memory_round].astype(np.int8)
+                    memory_snapshots.append(
+                        (
+                            memory_round,
+                            [
+                                int(memory_state[(agent + offset) % agents])
+                                for offset in range(-half, half + 1)
+                            ],
+                        )
+                    )
                 future = pool.submit(
                     query_agent,
                     round_idx=transition,
                     agent_idx=agent,
                     neighborhood=neighborhood,
+                    memory_snapshots=memory_snapshots,
                     variant=variant,
                     base_url=base_url,
                     model=model,
@@ -183,6 +206,7 @@ def run_cell(
                     "round": record["round"],
                     "agent": record["agent"],
                     "neighborhood": record["neighborhood"],
+                    "memory_snapshots": record["memory_snapshots"],
                     "prompt_sha256": record["prompt_sha256"],
                     "payload_sha256": record["payload_sha256"],
                     "raw_response_sha256": record["raw_response_sha256"],
@@ -223,7 +247,7 @@ def run_cell(
         "served_model": model,
         "agents": agents,
         "n_neighbors_including_center": N_NEIGHBORS,
-        "memory_window": 0,
+        "memory_window": memory_window,
         "majority_ratio": majority_ratio,
         "initial_count_0": distribution.count_0,
         "initial_count_1": distribution.count_1,
@@ -261,6 +285,7 @@ def run_replay(
     model: str,
     agents: int,
     majority_ratio: float,
+    memory_window: int,
     max_transitions: int,
     request_workers: int,
     timeout_s: int,
@@ -280,6 +305,7 @@ def run_replay(
                 model=model,
                 agents=agents,
                 majority_ratio=majority_ratio,
+                memory_window=memory_window,
                 max_transitions=max_transitions,
                 request_workers=request_workers,
                 timeout_s=timeout_s,
@@ -303,7 +329,7 @@ def run_replay(
         "replay": replay,
         "created_at_utc": utc_now(),
         "git_commit": git_commit(),
-        "mechanism": "online_llm_w0",
+        "mechanism": "online_llm_memory",
         "model_family": MODEL_FAMILY,
         "served_model": model,
         "base_url": base_url,
@@ -311,7 +337,7 @@ def run_replay(
         "historical_base_variant": VARIANT_BASES[variant],
         "tokens": ["0", "1"],
         "n_neighbors_including_center": N_NEIGHBORS,
-        "memory_window": 0,
+        "memory_window": memory_window,
         "agents": agents,
         "seeds": seeds,
         "majority_ratio": majority_ratio,
@@ -437,6 +463,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--agents", type=int, default=30)
     parser.add_argument("--seeds", default="1-20")
     parser.add_argument("--majority-ratio", type=float, default=0.51)
+    parser.add_argument("--memory-window", type=int, default=0)
     parser.add_argument("--max-transitions", type=int, default=60)
     parser.add_argument("--request-workers", type=int, default=30)
     parser.add_argument("--timeout-s", type=int, default=300)
@@ -446,6 +473,8 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    if args.memory_window < 0:
+        raise ValueError("--memory-window must be non-negative")
     seeds = parse_seed_range(args.seeds)
     progress_path = cross_root(args.run_id) / "progress.jsonl"
     progress_path.parent.mkdir(parents=True, exist_ok=True)
@@ -456,6 +485,7 @@ def main() -> int:
             / "artifacts/work/rtx5090/n=7"
             / args.run_id
             / "phase3"
+            / f"W={args.memory_window}"
             / variant
         )
         final_root = (
@@ -463,7 +493,7 @@ def main() -> int:
             / "artifacts/phase3_memory/rtx5090/n=7"
             / MODEL_FAMILY
             / TOKEN_FOLDER
-            / "W=0"
+            / f"W={args.memory_window}"
             / variant
             / args.run_id
         )
@@ -483,6 +513,7 @@ def main() -> int:
                 model=args.model,
                 agents=args.agents,
                 majority_ratio=args.majority_ratio,
+                memory_window=args.memory_window,
                 max_transitions=args.max_transitions,
                 request_workers=args.request_workers,
                 timeout_s=args.timeout_s,
@@ -499,7 +530,7 @@ def main() -> int:
                 "run_id": args.run_id,
                 "variant": variant,
                 "n_neighbors": N_NEIGHBORS,
-                "memory_window": 0,
+                "memory_window": args.memory_window,
                 "completed_at_utc": utc_now(),
             },
         )
