@@ -30,19 +30,21 @@ from utils.parity_artifacts import (  # noqa: E402
 )
 from utils.w0_parity_contract import (  # noqa: E402
     MAX_OUTPUT_TOKENS,
+    TOKEN_PAIR_SPECS,
     VARIANT_BASES,
     build_responses_payload,
     payload_hash,
     prompt_hash,
     query_responses_with_retries,
     render_memory_prompt,
+    resolve_variants,
     source_paths,
+    token_pair_spec,
 )
 from utils.parity_render import render_binary_trajectory_png  # noqa: E402
 
 
 MODEL_FAMILY = "gemma-3-4b-it"
-TOKEN_FOLDER = "tokens=0-1"
 N_NEIGHBORS = 7
 
 
@@ -56,12 +58,12 @@ def git_commit() -> str:
     ).strip()
 
 
-def cross_root(run_id: str) -> Path:
+def cross_root(run_id: str, token_pair: str) -> Path:
     return (
         REPO_ROOT
         / "artifacts/cross_phase_validation/rtx5090/n=7"
         / MODEL_FAMILY
-        / TOKEN_FOLDER
+        / token_pair_spec(token_pair)["folder"]
         / run_id
     )
 
@@ -92,6 +94,7 @@ def query_agent(
     query = query_responses_with_retries(
         base_url=base_url,
         payload=payload,
+        variant=variant,
         timeout_s=timeout_s,
         max_attempts=max_attempts,
     )
@@ -117,6 +120,7 @@ def run_cell(
     output_dir: Path,
     progress_path: Path,
     variant: str,
+    token_pair: str,
     seed: int,
     base_url: str,
     model: str,
@@ -238,10 +242,15 @@ def run_cell(
     png_path.write_bytes(render_binary_trajectory_png(valid_states))
     final = valid_states[-1].astype(np.int8)
     consensus = bool(np.all(final == final[0]))
-    consensus_token = str(int(final[0])) if consensus else None
-    expected_token = str(distribution.initial_majority_opinion)
+    tokens = token_pair_spec(token_pair)["tokens"]
+    consensus_state = int(final[0]) if consensus else None
+    consensus_token = tokens[consensus_state] if consensus_state is not None else None
+    expected_state = int(distribution.initial_majority_opinion)
+    expected_token = tokens[expected_state]
     summary = {
         "variant": variant,
+        "token_pair": token_pair,
+        "tokens": list(tokens),
         "seed": seed,
         "model_family": MODEL_FAMILY,
         "served_model": model,
@@ -252,13 +261,15 @@ def run_cell(
         "initial_count_0": distribution.count_0,
         "initial_count_1": distribution.count_1,
         "expected_token": expected_token,
+        "expected_state": expected_state,
         "max_transitions": max_transitions,
         "completed_transitions": completed_transitions,
         "completed_rounds_including_initial": completed_transitions + 1,
         "stop_reason": stop_reason,
         "consensus": consensus,
         "consensus_token": consensus_token,
-        "correct_consensus": consensus_token == expected_token,
+        "consensus_state": consensus_state,
+        "correct_consensus": consensus_state == expected_state,
         "temperature": 0.0,
         "request_seed": 42,
         "max_output_tokens": MAX_OUTPUT_TOKENS[variant],
@@ -279,6 +290,7 @@ def run_replay(
     progress_path: Path,
     run_id: str,
     variant: str,
+    token_pair: str,
     replay: int,
     seeds: list[int],
     base_url: str,
@@ -300,6 +312,7 @@ def run_replay(
                 output_dir=output_dir,
                 progress_path=progress_path,
                 variant=variant,
+                token_pair=token_pair,
                 seed=seed,
                 base_url=base_url,
                 model=model,
@@ -334,8 +347,9 @@ def run_replay(
         "served_model": model,
         "base_url": base_url,
         "variant": variant,
+        "token_pair": token_pair,
         "historical_base_variant": VARIANT_BASES[variant],
-        "tokens": ["0", "1"],
+        "tokens": list(token_pair_spec(token_pair)["tokens"]),
         "n_neighbors_including_center": N_NEIGHBORS,
         "memory_window": memory_window,
         "agents": agents,
@@ -459,7 +473,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--base-url", default="http://127.0.0.1:8127/v1")
     parser.add_argument("--model", default="gemma3-4b-temp0")
-    parser.add_argument("--variants", nargs="+", choices=list(VARIANT_BASES), default=list(VARIANT_BASES))
+    parser.add_argument("--token-pair", choices=list(TOKEN_PAIR_SPECS), default="01")
+    parser.add_argument("--variants", nargs="+")
     parser.add_argument("--agents", type=int, default=30)
     parser.add_argument("--seeds", default="1-20")
     parser.add_argument("--majority-ratio", type=float, default=0.51)
@@ -476,23 +491,26 @@ def main() -> int:
     if args.memory_window < 0:
         raise ValueError("--memory-window must be non-negative")
     seeds = parse_seed_range(args.seeds)
-    progress_path = cross_root(args.run_id) / "progress.jsonl"
+    variants = resolve_variants(args.token_pair, args.variants)
+    spec = token_pair_spec(args.token_pair)
+    progress_path = cross_root(args.run_id, args.token_pair) / "progress.jsonl"
     progress_path.parent.mkdir(parents=True, exist_ok=True)
     results: list[dict[str, Any]] = []
-    for variant in args.variants:
+    for variant in variants:
         work_root = (
             REPO_ROOT
             / "artifacts/work/rtx5090/n=7"
             / args.run_id
             / "phase3"
             / f"W={args.memory_window}"
+            / args.token_pair
             / variant
         )
         final_root = (
             REPO_ROOT
             / "artifacts/phase3_memory/rtx5090/n=7"
             / MODEL_FAMILY
-            / TOKEN_FOLDER
+            / spec["folder"]
             / f"W={args.memory_window}"
             / variant
             / args.run_id
@@ -507,6 +525,7 @@ def main() -> int:
                 progress_path=progress_path,
                 run_id=args.run_id,
                 variant=variant,
+                token_pair=args.token_pair,
                 replay=replay,
                 seeds=seeds,
                 base_url=args.base_url,
@@ -529,6 +548,7 @@ def main() -> int:
             status_details={
                 "run_id": args.run_id,
                 "variant": variant,
+                "token_pair": args.token_pair,
                 "n_neighbors": N_NEIGHBORS,
                 "memory_window": args.memory_window,
                 "completed_at_utc": utc_now(),

@@ -13,16 +13,105 @@ from gradio_project.prompts.prompt_strategies import get_prompt_strategy
 from utils.utils import extract_output_text_from_responses, parse_opinion_token
 
 
-TOKENS = ("0", "1")
+TOKEN_PAIR_SPECS = {
+    "01": {
+        "tokens": ("0", "1"),
+        "folder": "tokens=0-1",
+        "variants": (
+            "v9_lista_completa_meio_parity_01",
+            "v21_zero_shot_cot_parity_01",
+        ),
+        "bases": (
+            "v9_lista_completa_meio_01",
+            "v21_zero_shot_cot_01",
+        ),
+    },
+    "kz": {
+        "tokens": ("k", "z"),
+        "folder": "tokens=k-z",
+        "variants": (
+            "v9_lista_completa_meio_parity_kz",
+            "v21_zero_shot_cot_parity_kz",
+        ),
+        "bases": (
+            "v9_lista_completa_meio_kz",
+            "v21_zero_shot_cot",
+        ),
+    },
+    "triangle_circle": {
+        "tokens": ("△", "○"),
+        "folder": "tokens=triangle-circle",
+        "variants": (
+            "v9_lista_completa_meio_parity_triangle_circle",
+            "v21_zero_shot_cot_parity_triangle_circle",
+        ),
+        "bases": (
+            "v9_lista_completa_meio_△○",
+            "v21_zero_shot_cot_△○",
+        ),
+    },
+}
 VARIANT_BASES = {
-    "v9_lista_completa_meio_parity_01": "v9_lista_completa_meio_01",
-    "v21_zero_shot_cot_parity_01": "v21_zero_shot_cot_01",
+    variant: base
+    for spec in TOKEN_PAIR_SPECS.values()
+    for variant, base in zip(spec["variants"], spec["bases"])
+}
+VARIANT_TOKEN_PAIRS = {
+    variant: pair_key
+    for pair_key, spec in TOKEN_PAIR_SPECS.items()
+    for variant in spec["variants"]
 }
 MAX_OUTPUT_TOKENS = {
-    "v9_lista_completa_meio_parity_01": 8,
-    "v21_zero_shot_cot_parity_01": 768,
+    variant: (8 if variant.startswith("v9_") else 768)
+    for variant in VARIANT_BASES
 }
+TOKENS = TOKEN_PAIR_SPECS["01"]["tokens"]
 _V21_MEMORY_PREFIX = "Use the MEMORY section above as prior-round context. "
+
+
+def token_pair_spec(token_pair: str) -> dict[str, Any]:
+    try:
+        return TOKEN_PAIR_SPECS[token_pair]
+    except KeyError as exc:
+        raise ValueError(f"unsupported token pair: {token_pair}") from exc
+
+
+def variants_for_pair(token_pair: str) -> tuple[str, str]:
+    return token_pair_spec(token_pair)["variants"]
+
+
+def resolve_variants(token_pair: str, variants: Sequence[str] | None) -> tuple[str, ...]:
+    expected = variants_for_pair(token_pair)
+    selected = tuple(variants) if variants else expected
+    invalid = [variant for variant in selected if variant not in expected]
+    if invalid:
+        raise ValueError(f"variants {invalid} do not belong to token pair {token_pair}")
+    return selected
+
+
+def token_pair_for_variant(variant: str) -> str:
+    try:
+        return VARIANT_TOKEN_PAIRS[variant]
+    except KeyError as exc:
+        raise ValueError(f"unsupported parity variant: {variant}") from exc
+
+
+def tokens_for_variant(variant: str) -> tuple[str, str]:
+    return token_pair_spec(token_pair_for_variant(variant))["tokens"]
+
+
+def visible_tokens(binary_values: Sequence[int | str], variant: str) -> list[str]:
+    tokens = tokens_for_variant(variant)
+    visible: list[str] = []
+    for value in binary_values:
+        text = str(value)
+        if text in tokens:
+            visible.append(text)
+        elif text in {"0", "1"}:
+            visible.append(tokens[int(text)])
+        else:
+            raise ValueError(f"value {value!r} is neither binary nor in {tokens}")
+    return visible
 
 
 def stable_json(value: Any) -> str:
@@ -51,10 +140,7 @@ def render_memory_prompt(
     if len(neighborhood) < 3 or len(neighborhood) % 2 == 0:
         raise ValueError("neighborhood must have an odd length >= 3")
 
-    opinions = [str(item) for item in neighborhood]
-    if any(item not in TOKENS for item in opinions):
-        raise ValueError(f"neighborhood must contain only {TOKENS}")
-
+    opinions = visible_tokens(neighborhood, variant)
     center = len(opinions) // 2
     strategy = get_prompt_strategy(VARIANT_BASES[variant])
     system_prompt, user_prompt = strategy.build_prompt(
@@ -63,7 +149,7 @@ def render_memory_prompt(
         current_opinion=opinions[center],
     )
 
-    if variant == "v21_zero_shot_cot_parity_01" and not memory_snapshots:
+    if variant.startswith("v21_") and not memory_snapshots:
         if user_prompt.count(_V21_MEMORY_PREFIX) != 1:
             raise RuntimeError("historical v21 MEMORY prefix changed unexpectedly")
         user_prompt = user_prompt.replace(_V21_MEMORY_PREFIX, "", 1)
@@ -71,11 +157,9 @@ def render_memory_prompt(
     if memory_snapshots:
         memory_lines = ["=== MEMORY (Previous Rounds) ==="]
         for round_idx, snapshot in memory_snapshots:
-            snapshot_tokens = [str(item) for item in snapshot]
+            snapshot_tokens = visible_tokens(snapshot, variant)
             if len(snapshot_tokens) != len(opinions):
                 raise ValueError("memory snapshot length must match the current neighborhood")
-            if any(item not in TOKENS for item in snapshot_tokens):
-                raise ValueError(f"memory snapshot must contain only {TOKENS}")
             memory_lines.extend(
                 [
                     f"Round {round_idx}:",
@@ -118,8 +202,12 @@ def payload_hash(payload: dict[str, Any]) -> str:
     return sha256_text(stable_json(payload))
 
 
-def parse_final_choice(raw_response: str) -> str | None:
-    return parse_opinion_token(raw_response, allowed_tokens=TOKENS, prefer_last=True)
+def parse_final_choice(raw_response: str, variant: str) -> str | None:
+    return parse_opinion_token(
+        raw_response,
+        allowed_tokens=tokens_for_variant(variant),
+        prefer_last=True,
+    )
 
 
 def responses_url(base_url: str) -> str:
@@ -133,6 +221,7 @@ def query_responses_with_retries(
     *,
     base_url: str,
     payload: dict[str, Any],
+    variant: str,
     timeout_s: int,
     max_attempts: int,
 ) -> dict[str, Any]:
@@ -150,7 +239,7 @@ def query_responses_with_retries(
             response.raise_for_status()
             data = response.json()
             raw_response = extract_output_text_from_responses(data)
-            choice = parse_final_choice(raw_response)
+            choice = parse_final_choice(raw_response, variant)
             attempts.append(
                 {
                     "attempt": attempt,
@@ -179,7 +268,11 @@ def query_responses_with_retries(
         "raw_response": final_response,
         "raw_response_sha256": sha256_text(final_response),
         "choice_token": final_choice,
-        "choice": int(final_choice) if final_choice is not None else None,
+        "choice": (
+            tokens_for_variant(variant).index(final_choice)
+            if final_choice is not None
+            else None
+        ),
         "attempt_count": len(attempts),
         "request_failures": sum(item["http_status"] is None for item in attempts),
         "parse_failures": sum(

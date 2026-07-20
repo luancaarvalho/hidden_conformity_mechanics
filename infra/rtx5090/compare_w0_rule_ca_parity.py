@@ -23,11 +23,15 @@ from utils.parity_artifacts import (  # noqa: E402
     write_csv,
     write_json,
 )
-from utils.w0_parity_contract import VARIANT_BASES, source_paths  # noqa: E402
+from utils.w0_parity_contract import (  # noqa: E402
+    TOKEN_PAIR_SPECS,
+    resolve_variants,
+    source_paths,
+    token_pair_spec,
+)
 
 
 MODEL_FAMILY = "gemma-3-4b-it"
-TOKEN_FOLDER = "tokens=0-1"
 
 
 def utc_now() -> str:
@@ -40,14 +44,17 @@ def git_commit() -> str:
     ).strip()
 
 
-def phase_root(phase: int, run_id: str, variant: str, n: int = 7) -> Path:
+def phase_root(
+    phase: int, run_id: str, variant: str, token_pair: str, n: int = 7
+) -> Path:
+    token_folder = token_pair_spec(token_pair)["folder"]
     if phase == 1:
         return (
             REPO_ROOT
             / "artifacts/phase1_rule_extraction/rtx5090"
             / f"n={n}"
             / MODEL_FAMILY
-            / TOKEN_FOLDER
+            / token_folder
             / variant
             / run_id
         )
@@ -56,7 +63,7 @@ def phase_root(phase: int, run_id: str, variant: str, n: int = 7) -> Path:
             REPO_ROOT
             / "artifacts/phase2_cellular_automata/rtx5090/n=7"
             / MODEL_FAMILY
-            / TOKEN_FOLDER
+            / token_folder
             / variant
             / run_id
         )
@@ -65,7 +72,7 @@ def phase_root(phase: int, run_id: str, variant: str, n: int = 7) -> Path:
             REPO_ROOT
             / "artifacts/phase3_memory/rtx5090/n=7"
             / MODEL_FAMILY
-            / TOKEN_FOLDER
+            / token_folder
             / "W=0"
             / variant
             / run_id
@@ -85,32 +92,44 @@ def parse_seed_range(value: str) -> list[int]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", required=True)
-    parser.add_argument("--variants", nargs="+", choices=list(VARIANT_BASES), default=list(VARIANT_BASES))
+    parser.add_argument("--token-pair", choices=list(TOKEN_PAIR_SPECS), default="01")
+    parser.add_argument("--variants", nargs="+")
     parser.add_argument("--seeds", default="1-20")
     parser.add_argument("--refresh-index-only", action="store_true")
     return parser.parse_args()
 
 
-def artifact_roots(run_id: str, variants: list[str], output_root: Path) -> list[Path]:
+def artifact_roots(
+    run_id: str, variants: list[str], token_pair: str, output_root: Path
+) -> list[Path]:
     roots = [output_root]
     for variant in variants:
-        roots.extend(phase_root(1, run_id, variant, n) for n in (3, 5, 7))
-        roots.extend((phase_root(2, run_id, variant), phase_root(3, run_id, variant)))
+        roots.extend(
+            phase_root(1, run_id, variant, token_pair, n) for n in (3, 5, 7)
+        )
+        roots.extend(
+            (
+                phase_root(2, run_id, variant, token_pair),
+                phase_root(3, run_id, variant, token_pair),
+            )
+        )
     return roots
 
 
 def main() -> int:
     args = parse_args()
     seeds = parse_seed_range(args.seeds)
+    variants = list(resolve_variants(args.token_pair, args.variants))
+    spec = token_pair_spec(args.token_pair)
     output_root = (
         REPO_ROOT
         / "artifacts/cross_phase_validation/rtx5090/n=7"
         / MODEL_FAMILY
-        / TOKEN_FOLDER
+        / spec["folder"]
         / args.run_id
     )
     output_root.mkdir(parents=True, exist_ok=True)
-    roots = artifact_roots(args.run_id, args.variants, output_root)
+    roots = artifact_roots(args.run_id, variants, args.token_pair, output_root)
     if args.refresh_index_only:
         count = build_artifact_index(roots, output_root / "artifact_index.jsonl")
         print(json.dumps({"indexed_artifacts": count, "run_id": args.run_id}))
@@ -118,9 +137,9 @@ def main() -> int:
     rows: list[dict[str, Any]] = []
     first_divergences: list[dict[str, Any]] = []
 
-    for variant in args.variants:
-        phase2 = phase_root(2, args.run_id, variant)
-        phase3 = phase_root(3, args.run_id, variant)
+    for variant in variants:
+        phase2 = phase_root(2, args.run_id, variant, args.token_pair)
+        phase3 = phase_root(3, args.run_id, variant, args.token_pair)
         if not (phase2 / "canonical").is_dir() or not (phase3 / "canonical").is_dir():
             raise RuntimeError(f"canonical deterministic phase output missing for {variant}")
         for seed in seeds:
@@ -169,12 +188,12 @@ def main() -> int:
         first_divergences,
         list(rows[0]) if rows else [],
     )
-    gate = len(rows) == len(args.variants) * len(seeds) and all(
+    gate = len(rows) == len(variants) * len(seeds) and all(
         row["exact_parity"] for row in rows
     )
     proofread = {
         "status": "PASS" if gate else "FAIL_PARITY",
-        "expected_cases": len(args.variants) * len(seeds),
+        "expected_cases": len(variants) * len(seeds),
         "compared_cases": len(rows),
         "exact_parity_cases": sum(row["exact_parity"] for row in rows),
         "png_equal_cases": sum(row["png_equal"] for row in rows),
@@ -194,19 +213,20 @@ def main() -> int:
         "git_commit": git_commit(),
         "machine": "rtx5090",
         "model_family": MODEL_FAMILY,
-        "tokens": ["0", "1"],
+        "token_pair": args.token_pair,
+        "tokens": list(spec["tokens"]),
         "n_neighbors_including_center": 7,
-        "variants": args.variants,
+        "variants": variants,
         "seeds": seeds,
         "phase_roots": {
             variant: {
-                "phase1_n3": str(phase_root(1, args.run_id, variant, 3)),
-                "phase1_n5": str(phase_root(1, args.run_id, variant, 5)),
-                "phase1_n7": str(phase_root(1, args.run_id, variant, 7)),
-                "phase2_n7": str(phase_root(2, args.run_id, variant)),
-                "phase3_n7_w0": str(phase_root(3, args.run_id, variant)),
+                "phase1_n3": str(phase_root(1, args.run_id, variant, args.token_pair, 3)),
+                "phase1_n5": str(phase_root(1, args.run_id, variant, args.token_pair, 5)),
+                "phase1_n7": str(phase_root(1, args.run_id, variant, args.token_pair, 7)),
+                "phase2_n7": str(phase_root(2, args.run_id, variant, args.token_pair)),
+                "phase3_n7_w0": str(phase_root(3, args.run_id, variant, args.token_pair)),
             }
-            for variant in args.variants
+            for variant in variants
         },
         "source_hashes": source_hashes(source_paths(REPO_ROOT) + [Path(__file__).resolve()]),
     }

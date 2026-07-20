@@ -24,19 +24,21 @@ from utils.parity_artifacts import (  # noqa: E402
 )
 from utils.w0_parity_contract import (  # noqa: E402
     MAX_OUTPUT_TOKENS,
+    TOKEN_PAIR_SPECS,
     VARIANT_BASES,
     build_responses_payload,
-    parse_final_choice,
     payload_hash,
     prompt_hash,
     query_responses_with_retries,
     render_w0_prompt,
+    resolve_variants,
     source_paths,
+    token_pair_spec,
+    visible_tokens,
 )
 
 
 MODEL_FAMILY = "gemma-3-4b-it"
-TOKEN_FOLDER = "tokens=0-1"
 
 
 def utc_now() -> str:
@@ -68,13 +70,14 @@ def query_configuration(
     query = query_responses_with_retries(
         base_url=base_url,
         payload=payload,
+        variant=variant,
         timeout_s=timeout_s,
         max_attempts=max_attempts,
     )
 
     return {
         "configuration": binary_config,
-        "configuration_letters": binary_config,
+        "configuration_letters": "".join(visible_tokens(binary_config, variant)),
         "num_ones": binary_config.count("1"),
         "system_prompt": system_prompt,
         "user_prompt": user_prompt,
@@ -89,6 +92,7 @@ def run_replay(
     *,
     output_dir: Path,
     variant: str,
+    token_pair: str,
     n_neighbors: int,
     base_url: str,
     model: str,
@@ -196,7 +200,12 @@ def run_replay(
         "base_url": base_url,
         "variant": variant,
         "historical_base_variant": VARIANT_BASES[variant],
-        "tokens": ["0", "1"],
+        "token_pair": token_pair,
+        "tokens": list(token_pair_spec(token_pair)["tokens"]),
+        "binary_mapping": {
+            "0": token_pair_spec(token_pair)["tokens"][0],
+            "1": token_pair_spec(token_pair)["tokens"][1],
+        },
         "n_neighbors_including_center": n_neighbors,
         "expected_configurations": len(configs),
         "sampling": {
@@ -288,8 +297,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--base-url", default="http://127.0.0.1:8127/v1")
     parser.add_argument("--model", default="gemma3-4b-temp0")
+    parser.add_argument("--token-pair", choices=list(TOKEN_PAIR_SPECS), default="01")
     parser.add_argument("--neighbors", nargs="+", type=int, default=[3, 5, 7])
-    parser.add_argument("--variants", nargs="+", choices=list(VARIANT_BASES), default=list(VARIANT_BASES))
+    parser.add_argument("--variants", nargs="+")
     parser.add_argument("--workers", type=int, default=32)
     parser.add_argument("--timeout-s", type=int, default=300)
     parser.add_argument("--max-attempts", type=int, default=5)
@@ -300,15 +310,18 @@ def main() -> int:
     args = parse_args()
     if any(n < 3 or n % 2 == 0 for n in args.neighbors):
         raise ValueError("all neighborhood sizes must be odd and >= 3")
+    variants = resolve_variants(args.token_pair, args.variants)
+    spec = token_pair_spec(args.token_pair)
     results: list[dict[str, Any]] = []
     for n_neighbors in args.neighbors:
-        for variant in args.variants:
+        for variant in variants:
             work_root = (
                 REPO_ROOT
                 / "artifacts/work/rtx5090"
                 / f"n={n_neighbors}"
                 / args.run_id
                 / "phase1"
+                / args.token_pair
                 / variant
             )
             final_root = (
@@ -316,7 +329,7 @@ def main() -> int:
                 / "artifacts/phase1_rule_extraction/rtx5090"
                 / f"n={n_neighbors}"
                 / MODEL_FAMILY
-                / TOKEN_FOLDER
+                / spec["folder"]
                 / variant
                 / args.run_id
             )
@@ -327,6 +340,7 @@ def main() -> int:
             run_replay(
                 output_dir=replay1,
                 variant=variant,
+                token_pair=args.token_pair,
                 n_neighbors=n_neighbors,
                 base_url=args.base_url,
                 model=args.model,
@@ -339,6 +353,7 @@ def main() -> int:
             run_replay(
                 output_dir=replay2,
                 variant=variant,
+                token_pair=args.token_pair,
                 n_neighbors=n_neighbors,
                 base_url=args.base_url,
                 model=args.model,
@@ -358,6 +373,7 @@ def main() -> int:
                 status_details={
                     "run_id": args.run_id,
                     "variant": variant,
+                    "token_pair": args.token_pair,
                     "n_neighbors": n_neighbors,
                     "completed_at_utc": utc_now(),
                 },

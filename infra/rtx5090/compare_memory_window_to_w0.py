@@ -23,19 +23,25 @@ from utils.parity_artifacts import (  # noqa: E402
     write_csv,
     write_json,
 )
-from utils.w0_parity_contract import VARIANT_BASES, source_paths  # noqa: E402
+from utils.w0_parity_contract import (  # noqa: E402
+    TOKEN_PAIR_SPECS,
+    resolve_variants,
+    source_paths,
+    token_pair_spec,
+)
 
 
 MODEL_FAMILY = "gemma-3-4b-it"
-TOKEN_FOLDER = "tokens=0-1"
 
 
-def phase3_root(run_id: str, variant: str, memory_window: int) -> Path:
+def phase3_root(
+    run_id: str, variant: str, memory_window: int, token_pair: str
+) -> Path:
     return (
         REPO_ROOT
         / "artifacts/phase3_memory/rtx5090/n=7"
         / MODEL_FAMILY
-        / TOKEN_FOLDER
+        / token_pair_spec(token_pair)["folder"]
         / f"W={memory_window}"
         / variant
         / run_id
@@ -57,15 +63,21 @@ def classification(summary: dict[str, Any]) -> str:
     return "correct" if summary["correct_consensus"] else "wrong"
 
 
-def summarize(rows: list[dict[str, Any]], prefix: str) -> dict[str, Any]:
+def summarize(
+    rows: list[dict[str, Any]], prefix: str, tokens: tuple[str, str]
+) -> dict[str, Any]:
     return {
         "correct": sum(row[f"{prefix}_classification"] == "correct" for row in rows),
         "wrong": sum(row[f"{prefix}_classification"] == "wrong" for row in rows),
         "no_consensus": sum(
             row[f"{prefix}_classification"] == "no_consensus" for row in rows
         ),
-        "consensus_0": sum(row[f"{prefix}_consensus_token"] == "0" for row in rows),
-        "consensus_1": sum(row[f"{prefix}_consensus_token"] == "1" for row in rows),
+        "consensus_token0": sum(
+            row[f"{prefix}_consensus_token"] == tokens[0] for row in rows
+        ),
+        "consensus_token1": sum(
+            row[f"{prefix}_consensus_token"] == tokens[1] for row in rows
+        ),
         "mean_completed_transitions": (
             sum(row[f"{prefix}_completed_transitions"] for row in rows) / len(rows)
             if rows
@@ -79,20 +91,23 @@ def main() -> int:
     parser.add_argument("--baseline-run-id", required=True)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--memory-window", type=int, required=True)
+    parser.add_argument("--token-pair", choices=list(TOKEN_PAIR_SPECS), default="01")
     parser.add_argument("--seeds", default="1-20")
     parser.add_argument(
-        "--variants", nargs="+", choices=list(VARIANT_BASES), default=list(VARIANT_BASES)
+        "--variants", nargs="+"
     )
     args = parser.parse_args()
     if args.memory_window < 1:
         raise ValueError("comparison memory window must be at least 1")
 
     seeds = parse_seed_range(args.seeds)
+    variants = list(resolve_variants(args.token_pair, args.variants))
+    spec = token_pair_spec(args.token_pair)
     output_root = (
         REPO_ROOT
         / "artifacts/cross_phase_validation/rtx5090/n=7"
         / MODEL_FAMILY
-        / TOKEN_FOLDER
+        / spec["folder"]
         / args.run_id
         / f"memory_impact_W{args.memory_window}_vs_W0"
     )
@@ -103,9 +118,11 @@ def main() -> int:
     all_rows: list[dict[str, Any]] = []
     summaries: dict[str, Any] = {}
     artifact_roots = [output_root]
-    for variant in args.variants:
-        baseline_root = phase3_root(args.baseline_run_id, variant, 0)
-        memory_root = phase3_root(args.run_id, variant, args.memory_window)
+    for variant in variants:
+        baseline_root = phase3_root(args.baseline_run_id, variant, 0, args.token_pair)
+        memory_root = phase3_root(
+            args.run_id, variant, args.memory_window, args.token_pair
+        )
         artifact_roots.extend((baseline_root, memory_root))
         if not (baseline_root / "canonical").is_dir():
             raise RuntimeError(f"canonical W=0 baseline missing: {baseline_root}")
@@ -164,8 +181,8 @@ def main() -> int:
 
         determinism = read_json(memory_root / "determinism/comparison_summary.json")
         summaries[variant] = {
-            "w0": summarize(variant_rows, "w0"),
-            "w1": summarize(variant_rows, "w1"),
+            "w0": summarize(variant_rows, "w0", spec["tokens"]),
+            "w1": summarize(variant_rows, "w1", spec["tokens"]),
             "initial_states_equal": sum(row["initial_state_equal"] for row in variant_rows),
             "trajectories_equal": sum(row["trajectory_equal"] for row in variant_rows),
             "classification_changes": sum(
@@ -184,7 +201,9 @@ def main() -> int:
         "baseline_run_id": args.baseline_run_id,
         "memory_run_id": args.run_id,
         "memory_window": args.memory_window,
-        "expected_cases": len(args.variants) * len(seeds),
+        "token_pair": args.token_pair,
+        "tokens": list(spec["tokens"]),
+        "expected_cases": len(variants) * len(seeds),
         "compared_cases": len(all_rows),
         "memory_semantics": (
             "W=1 repeats the immediately preceding local snapshot, which is also the "
@@ -225,7 +244,9 @@ def main() -> int:
         "baseline_run_id": args.baseline_run_id,
         "memory_run_id": args.run_id,
         "memory_window": args.memory_window,
-        "variants": args.variants,
+        "token_pair": args.token_pair,
+        "tokens": list(spec["tokens"]),
+        "variants": variants,
         "seeds": seeds,
         "source_hashes": source_hashes(
             source_paths(REPO_ROOT) + [Path(__file__).resolve()]

@@ -32,3 +32,17 @@ After the remote run reaches a terminal state, mirror and verify it from the loc
 ```bash
 bash infra/rtx5090/sync_w0_rule_ca_parity_to_local.sh <RUN_ID>
 ```
+
+Run the complete sequential `k/z` and `△/○` campaign, including rule extraction,
+automata, online W=0 parity, W=1 impact, and the cross-token proofread, with:
+
+```bash
+bash infra/rtx5090/launch_token_pair_batch_tmux.sh
+```
+
+The launcher prints a `BATCH_ID`. After terminal completion, mirror every promoted
+artifact and verify remote/local SHA-256 hashes from the local workspace with:
+
+```bash
+bash infra/rtx5090/sync_token_pair_batch_to_local.sh <BATCH_ID>
+```

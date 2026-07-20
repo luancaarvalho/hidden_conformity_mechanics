@@ -28,12 +28,16 @@ from utils.parity_artifacts import (  # noqa: E402
     write_json,
     write_jsonl,
 )
-from utils.w0_parity_contract import VARIANT_BASES, source_paths  # noqa: E402
+from utils.w0_parity_contract import (  # noqa: E402
+    TOKEN_PAIR_SPECS,
+    resolve_variants,
+    source_paths,
+    token_pair_spec,
+)
 from utils.parity_render import render_binary_trajectory_png  # noqa: E402
 
 
 MODEL_FAMILY = "gemma-3-4b-it"
-TOKEN_FOLDER = "tokens=0-1"
 N_NEIGHBORS = 7
 
 
@@ -47,13 +51,13 @@ def git_commit() -> str:
     ).strip()
 
 
-def canonical_rule_root(run_id: str, variant: str) -> Path:
+def canonical_rule_root(run_id: str, variant: str, token_pair: str) -> Path:
     return (
         REPO_ROOT
         / "artifacts/phase1_rule_extraction/rtx5090"
         / f"n={N_NEIGHBORS}"
         / MODEL_FAMILY
-        / TOKEN_FOLDER
+        / token_pair_spec(token_pair)["folder"]
         / variant
         / run_id
         / "canonical"
@@ -96,6 +100,7 @@ def run_cell(
     *,
     output_dir: Path,
     variant: str,
+    token_pair: str,
     seed: int,
     rules: dict[str, int],
     agents: int,
@@ -134,10 +139,15 @@ def run_cell(
 
     final = valid_states[-1].astype(np.int8)
     consensus = bool(np.all(final == final[0]))
-    consensus_token = str(int(final[0])) if consensus else None
-    expected_token = str(distribution.initial_majority_opinion)
+    tokens = token_pair_spec(token_pair)["tokens"]
+    consensus_state = int(final[0]) if consensus else None
+    consensus_token = tokens[consensus_state] if consensus_state is not None else None
+    expected_state = int(distribution.initial_majority_opinion)
+    expected_token = tokens[expected_state]
     summary = {
         "variant": variant,
+        "token_pair": token_pair,
+        "tokens": list(tokens),
         "seed": seed,
         "agents": agents,
         "n_neighbors_including_center": N_NEIGHBORS,
@@ -145,13 +155,15 @@ def run_cell(
         "initial_count_0": distribution.count_0,
         "initial_count_1": distribution.count_1,
         "expected_token": expected_token,
+        "expected_state": expected_state,
         "max_transitions": max_transitions,
         "completed_transitions": completed_transitions,
         "completed_rounds_including_initial": completed_transitions + 1,
         "stop_reason": stop_reason,
         "consensus": consensus,
         "consensus_token": consensus_token,
-        "correct_consensus": consensus_token == expected_token,
+        "consensus_state": consensus_state,
+        "correct_consensus": consensus_state == expected_state,
         "states_sha256": sha256_file(states_path),
         "png_sha256": sha256_file(png_path),
         "normalized_log_sha256": sha256_file(log_path),
@@ -165,6 +177,7 @@ def run_replay(
     output_dir: Path,
     run_id: str,
     variant: str,
+    token_pair: str,
     replay: int,
     agents: int,
     seeds: list[int],
@@ -172,7 +185,7 @@ def run_replay(
     max_transitions: int,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=False)
-    rule_root = canonical_rule_root(run_id, variant)
+    rule_root = canonical_rule_root(run_id, variant, token_pair)
     if not rule_root.is_dir():
         raise FileNotFoundError(f"canonical deterministic rule not found: {rule_root}")
     input_rule = output_dir / "input_rule"
@@ -182,6 +195,7 @@ def run_replay(
         run_cell(
             output_dir=output_dir,
             variant=variant,
+            token_pair=token_pair,
             seed=seed,
             rules=rules,
             agents=agents,
@@ -198,7 +212,8 @@ def run_replay(
         "git_commit": git_commit(),
         "mechanism": "frozen_cellular_automaton",
         "variant": variant,
-        "tokens": ["0", "1"],
+        "token_pair": token_pair,
+        "tokens": list(token_pair_spec(token_pair)["tokens"]),
         "n_neighbors_including_center": N_NEIGHBORS,
         "agents": agents,
         "seeds": seeds,
@@ -293,7 +308,8 @@ def parse_seed_range(value: str) -> list[int]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", required=True)
-    parser.add_argument("--variants", nargs="+", choices=list(VARIANT_BASES), default=list(VARIANT_BASES))
+    parser.add_argument("--token-pair", choices=list(TOKEN_PAIR_SPECS), default="01")
+    parser.add_argument("--variants", nargs="+")
     parser.add_argument("--agents", type=int, default=30)
     parser.add_argument("--seeds", default="1-20")
     parser.add_argument("--majority-ratio", type=float, default=0.51)
@@ -304,20 +320,23 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     seeds = parse_seed_range(args.seeds)
+    variants = resolve_variants(args.token_pair, args.variants)
+    spec = token_pair_spec(args.token_pair)
     results: list[dict[str, Any]] = []
-    for variant in args.variants:
+    for variant in variants:
         work_root = (
             REPO_ROOT
             / "artifacts/work/rtx5090/n=7"
             / args.run_id
             / "phase2"
+            / args.token_pair
             / variant
         )
         final_root = (
             REPO_ROOT
             / "artifacts/phase2_cellular_automata/rtx5090/n=7"
             / MODEL_FAMILY
-            / TOKEN_FOLDER
+            / spec["folder"]
             / variant
             / args.run_id
         )
@@ -330,6 +349,7 @@ def main() -> int:
                 output_dir=output,
                 run_id=args.run_id,
                 variant=variant,
+                token_pair=args.token_pair,
                 replay=replay,
                 agents=args.agents,
                 seeds=seeds,
@@ -346,6 +366,7 @@ def main() -> int:
             status_details={
                 "run_id": args.run_id,
                 "variant": variant,
+                "token_pair": args.token_pair,
                 "n_neighbors": N_NEIGHBORS,
                 "completed_at_utc": utc_now(),
             },

@@ -4,9 +4,16 @@ set -euo pipefail
 REPO_ROOT="$(git rev-parse --show-toplevel)"
 PYTHON="${PYTHON:-$REPO_ROOT/artifacts/conda/runtime/bin/python}"
 RUN_ID="${RUN_ID:?RUN_ID is required}"
+TOKEN_PAIR="${TOKEN_PAIR:-01}"
 BASE_URL="${BASE_URL:-http://127.0.0.1:8127/v1}"
 MODEL="${MODEL:-gemma3-4b-temp0}"
-CROSS_ROOT="$REPO_ROOT/artifacts/cross_phase_validation/rtx5090/n=7/gemma-3-4b-it/tokens=0-1/$RUN_ID"
+case "$TOKEN_PAIR" in
+  01) TOKEN_FOLDER="tokens=0-1" ;;
+  kz) TOKEN_FOLDER="tokens=k-z" ;;
+  triangle_circle) TOKEN_FOLDER="tokens=triangle-circle" ;;
+  *) echo "unsupported TOKEN_PAIR=$TOKEN_PAIR" >&2; exit 1 ;;
+esac
+CROSS_ROOT="$REPO_ROOT/artifacts/cross_phase_validation/rtx5090/n=7/gemma-3-4b-it/$TOKEN_FOLDER/$RUN_ID"
 ORCHESTRATOR="$CROSS_ROOT/orchestrator"
 PREFLIGHT="$CROSS_ROOT/preflight"
 STATE="$ORCHESTRATOR/stage_status.jsonl"
@@ -24,8 +31,8 @@ stage() {
 terminal_status() {
   local status="$1"
   local stage_name="$2"
-  printf '{"utc":"%s","status":"%s","complete":true,"run_id":"%s"}\n' \
-    "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$status" "$RUN_ID" > "$CROSS_ROOT/status.json"
+  printf '{"utc":"%s","status":"%s","complete":true,"run_id":"%s","token_pair":"%s"}\n' \
+    "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$status" "$RUN_ID" "$TOKEN_PAIR" > "$CROSS_ROOT/status.json"
   stage "$stage_name" "$status"
   stage pipeline COMPLETE
   trap - ERR
@@ -51,8 +58,8 @@ run_determinism_gate() {
 
 on_error() {
   local status=$?
-  printf '{"utc":"%s","status":"INCOMPLETE","exit_code":%s}\n' \
-    "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$status" > "$CROSS_ROOT/status.json"
+  printf '{"utc":"%s","status":"INCOMPLETE","complete":true,"exit_code":%s,"run_id":"%s","token_pair":"%s"}\n' \
+    "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$status" "$RUN_ID" "$TOKEN_PAIR" > "$CROSS_ROOT/status.json"
   stage pipeline FAIL
   exit "$status"
 }
@@ -98,7 +105,7 @@ grep -q -- '--max-num-seqs 32' "$PREFLIGHT/vllm_process.txt"
 "$PYTHON" -m unittest discover -s experimentos_automatos/runtime/tests -p 'test_*.py'
 bash gradio_project/tests/run_tests.sh
 
-"$PYTHON" - "$BASE_URL" "$MODEL" "$PREFLIGHT/canary.json" <<'PY'
+"$PYTHON" - "$BASE_URL" "$MODEL" "$TOKEN_PAIR" "$PREFLIGHT/canary.json" <<'PY'
 import json
 import sys
 from pathlib import Path
@@ -106,50 +113,79 @@ from pathlib import Path
 from utils.w0_parity_contract import (
     build_responses_payload,
     query_responses_with_retries,
-    render_w0_prompt,
+    render_memory_prompt,
+    variants_for_pair,
 )
 
-base_url, model, output = sys.argv[1:]
-system_prompt, user_prompt = render_w0_prompt(
-    "v9_lista_completa_meio_parity_01", [0, 1, 0, 1, 0, 1, 0]
+base_url, model, token_pair, output = sys.argv[1:]
+neighborhood = [0, 1, 0, 1, 0, 1, 0]
+canaries = []
+for variant in variants_for_pair(token_pair):
+    for memory_window in (0, 1):
+        snapshots = [] if memory_window == 0 else [(0, neighborhood)]
+        system_prompt, user_prompt = render_memory_prompt(
+            variant, neighborhood, memory_snapshots=snapshots
+        )
+        payload = build_responses_payload(
+            model=model,
+            system_prompt=system_prompt,
+            user_prompt=user_prompt,
+            variant=variant,
+        )
+        results = [
+            query_responses_with_retries(
+                base_url=base_url,
+                payload=payload,
+                variant=variant,
+                timeout_s=300,
+                max_attempts=2,
+            )
+            for _ in range(2)
+        ]
+        assert results[0]["raw_response"] == results[1]["raw_response"]
+        assert results[0]["choice"] == results[1]["choice"]
+        assert results[0]["choice"] in (0, 1)
+        assert results[0]["request_failures"] == 0
+        assert results[0]["parse_failures"] == 0
+        canaries.append(
+            {
+                "variant": variant,
+                "memory_window": memory_window,
+                "system_prompt": system_prompt,
+                "user_prompt": user_prompt,
+                "payload": payload,
+                "results": results,
+            }
+        )
+Path(output).write_text(
+    json.dumps({"token_pair": token_pair, "canaries": canaries}, indent=2, ensure_ascii=False)
+    + "\n",
+    encoding="utf-8",
 )
-payload = build_responses_payload(
-    model=model,
-    system_prompt=system_prompt,
-    user_prompt=user_prompt,
-    variant="v9_lista_completa_meio_parity_01",
-)
-results = [
-    query_responses_with_retries(
-        base_url=base_url, payload=payload, timeout_s=120, max_attempts=2
-    )
-    for _ in range(2)
-]
-assert results[0]["raw_response"] == results[1]["raw_response"]
-assert results[0]["choice"] == results[1]["choice"]
-Path(output).write_text(json.dumps({"payload": payload, "results": results}, indent=2) + "\n")
 PY
 stage preflight PASS
 
 run_determinism_gate phase1_rule_extraction \
   "$PYTHON" extract_rules/runtime_vllm/run_w0_parity_extraction.py \
   --run-id "$RUN_ID" --base-url "$BASE_URL" --model "$MODEL" \
-  --neighbors 3 5 7 --workers 32
+  --token-pair "$TOKEN_PAIR" --neighbors 3 5 7 --workers 32
 
 run_determinism_gate phase2_cellular_automata \
   "$PYTHON" experimentos_automatos/runtime/run_w0_parity_automata.py \
-  --run-id "$RUN_ID" --agents 30 --seeds 1-20 --majority-ratio 0.51 --max-transitions 60
+  --run-id "$RUN_ID" --token-pair "$TOKEN_PAIR" --agents 30 --seeds 1-20 \
+  --majority-ratio 0.51 --max-transitions 60
 
 run_determinism_gate phase3_online_w0 \
   "$PYTHON" gradio_project/memory/run_w0_parity_online.py \
   --run-id "$RUN_ID" --base-url "$BASE_URL" --model "$MODEL" \
-  --agents 30 --seeds 1-20 --majority-ratio 0.51 --max-transitions 60 \
+  --token-pair "$TOKEN_PAIR" --agents 30 --seeds 1-20 \
+  --majority-ratio 0.51 --max-transitions 60 \
   --request-workers 30
 
 stage cross_phase_proofread STARTED
 set +e
 "$PYTHON" infra/rtx5090/compare_w0_rule_ca_parity.py \
-  --run-id "$RUN_ID" --seeds 1-20
+  --run-id "$RUN_ID" --token-pair "$TOKEN_PAIR" --seeds 1-20
 comparison_status=$?
 set -e
 if [[ "$comparison_status" -eq 0 ]]; then
@@ -160,8 +196,8 @@ else
   false
 fi
 
-printf '{"utc":"%s","status":"PASS","run_id":"%s"}\n' \
-  "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$RUN_ID" > "$CROSS_ROOT/status.json"
+printf '{"utc":"%s","status":"PASS","complete":true,"run_id":"%s","token_pair":"%s"}\n' \
+  "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$RUN_ID" "$TOKEN_PAIR" > "$CROSS_ROOT/status.json"
 stage pipeline PASS
 trap - ERR
 echo "RUN_COMPLETE=$RUN_ID"
