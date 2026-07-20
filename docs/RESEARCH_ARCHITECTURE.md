@@ -45,6 +45,14 @@ hidden_conformity_mechanics/
 
 Every run directory must contain `run_manifest.json`, `source_hashes.json`, a machine-readable scoreboard, and a concise proofread summary. Existing run directories are immutable.
 
+New RTX 5090 artifacts are organized machine-first and neighborhood-second:
+
+```text
+artifacts/<phase>/rtx5090/n=<size>/<model>/<tokens>/<variant>/<run_id>/
+```
+
+Replay data is staged under `artifacts/work/rtx5090/n=<size>/<run_id>/`. After exact comparison, a deterministic run retains only `canonical/` and `determinism/`; a nondeterministic run retains `replay_01/`, `replay_02/`, and `determinism/`.
+
 ## Git Policy
 
 - `main` contains reviewed, reproducible code and contracts.

@@ -18,3 +18,17 @@ Start the canonical interface in tmux with:
 tmux new-session -d -s gradio_project_v4 \
   'cd /home/liaan/Documentos/Luan/hidden_conformity_mechanics && bash gradio_project/launchers/launch_gradio_service.sh'
 ```
+
+Launch the Gemma 3 4B W=0 rule/automaton parity campaign with:
+
+```bash
+bash infra/rtx5090/launch_w0_rule_ca_parity_tmux.sh
+```
+
+The launcher prints the tmux session, run ID, and cross-phase result root. New artifacts use `artifacts/<phase>/rtx5090/n=<size>/...`; exact replays are reduced to one `canonical/` copy plus `determinism/` evidence.
+
+After the remote run reaches a terminal state, mirror and verify it from the local workspace with:
+
+```bash
+bash infra/rtx5090/sync_w0_rule_ca_parity_to_local.sh <RUN_ID>
+```

@@ -26,6 +26,7 @@ Do not use `streamlit_test/` as an operational path. Historical Streamlit-era in
 - Check `nvidia-smi`, `tmux ls`, active ports, Git status, and endpoint model before a GPU run.
 - Do not overwrite an existing run directory. Every run must have source, prompt, payload, model, backend, sampling, hardware, and Git provenance.
 - Keep bulk outputs, weights, databases, Conda environments, logs, PNGs, and `.npy` files under ignored `artifacts/` paths.
+- New RTX 5090 runs use lowercase machine-first paths: `artifacts/<phase>/rtx5090/n=<size>/...`. Two replays live under `artifacts/work/` until finalized; deterministic runs retain one `canonical/` copy plus compact proof, while nondeterministic runs retain both replays.
 - Use Conda plus `uv pip --python <prefix>/bin/python`; do not create a virtualenv.
 - For deterministic parallel vLLM work, require `VLLM_BATCH_INVARIANT=1`, `VLLM_USE_FLASHINFER_SAMPLER=0`, `temperature=0`, server/request seed `42`, and two exact replays.
 - Never call a Phase 3 dynamic-memory run a static rule table. Phase 1 rules may enter Phase 2 only after the complete `2^n` mechanical gate passes.

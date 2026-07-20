@@ -13,6 +13,8 @@ This directory is the only canonical code root for memory-enabled conformity exp
 
 The Phase 3 result root is `artifacts/phase3_memory/RTX5090_liaan`. It currently resolves to the preserved July 2026 result store. Never write results into the Git-tracked package.
 
+New runs use `artifacts/phase3_memory/rtx5090/n=<size>/...`; the uppercase symlink remains read-only historical data.
+
 ## Runtime contract
 
 - Launch the UI with `bash gradio_project/launchers/launch_gradio_service.sh`.

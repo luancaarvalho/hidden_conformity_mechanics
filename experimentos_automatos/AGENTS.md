@@ -7,3 +7,4 @@
 - Evaluate both initial majority labels for every reported condition.
 - Separate convergence to the correct label, convergence to the wrong label, and no consensus.
 - Keep bulk results under `artifacts/phase2_cellular_automata/RTX5090_liaan/`; never commit them.
+- New runs use `artifacts/phase2_cellular_automata/rtx5090/n=<size>/...`; the uppercase legacy root remains read-only historical data.

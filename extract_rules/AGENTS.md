@@ -8,3 +8,4 @@
 - Do not infer or inject the correct majority label. The model must produce the rule output.
 - Do not promote partial tables, parser failures, retries with changed prompts, or mixed source revisions.
 - Keep run data under `artifacts/phase1_rule_extraction/RTX5090_liaan/`; never commit it.
+- New runs use `artifacts/phase1_rule_extraction/rtx5090/n=<size>/...`; the uppercase legacy root remains read-only historical data.

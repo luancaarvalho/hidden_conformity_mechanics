@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+from __future__ import annotations
+
+import hashlib
+import json
+import time
+from pathlib import Path
+from typing import Any, Sequence
+
+import requests
+
+from gradio_project.prompts.prompt_strategies import get_prompt_strategy
+from utils.utils import extract_output_text_from_responses, parse_opinion_token
+
+
+TOKENS = ("0", "1")
+VARIANT_BASES = {
+    "v9_lista_completa_meio_parity_01": "v9_lista_completa_meio_01",
+    "v21_zero_shot_cot_parity_01": "v21_zero_shot_cot_01",
+}
+MAX_OUTPUT_TOKENS = {
+    "v9_lista_completa_meio_parity_01": 8,
+    "v21_zero_shot_cot_parity_01": 768,
+}
+_V21_MEMORY_PREFIX = "Use the MEMORY section above as prior-round context. "
+
+
+def stable_json(value: Any) -> str:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def sha256_text(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+
+def render_w0_prompt(
+    variant: str,
+    neighborhood: Sequence[int | str],
+) -> tuple[str, str]:
+    if variant not in VARIANT_BASES:
+        raise ValueError(f"unsupported parity variant: {variant}")
+    if len(neighborhood) < 3 or len(neighborhood) % 2 == 0:
+        raise ValueError("neighborhood must have an odd length >= 3")
+
+    opinions = [str(item) for item in neighborhood]
+    if any(item not in TOKENS for item in opinions):
+        raise ValueError(f"neighborhood must contain only {TOKENS}")
+
+    center = len(opinions) // 2
+    strategy = get_prompt_strategy(VARIANT_BASES[variant])
+    system_prompt, user_prompt = strategy.build_prompt(
+        left=opinions[:center],
+        right=opinions[center + 1 :],
+        current_opinion=opinions[center],
+    )
+
+    if variant == "v21_zero_shot_cot_parity_01":
+        if user_prompt.count(_V21_MEMORY_PREFIX) != 1:
+            raise RuntimeError("historical v21 MEMORY prefix changed unexpectedly")
+        user_prompt = user_prompt.replace(_V21_MEMORY_PREFIX, "", 1)
+
+    if "MEMORY" in user_prompt or "MEMORY" in system_prompt:
+        raise RuntimeError("W=0 parity prompt must not mention MEMORY")
+    return system_prompt, user_prompt
+
+
+def build_responses_payload(
+    *,
+    model: str,
+    system_prompt: str,
+    user_prompt: str,
+    variant: str,
+) -> dict[str, Any]:
+    return {
+        "model": model,
+        "input": [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ],
+        "temperature": 0.0,
+        "seed": 42,
+        "max_output_tokens": MAX_OUTPUT_TOKENS[variant],
+        "stream": False,
+    }
+
+
+def prompt_hash(system_prompt: str, user_prompt: str) -> str:
+    return sha256_text(stable_json({"system": system_prompt, "user": user_prompt}))
+
+
+def payload_hash(payload: dict[str, Any]) -> str:
+    return sha256_text(stable_json(payload))
+
+
+def parse_final_choice(raw_response: str) -> str | None:
+    return parse_opinion_token(raw_response, allowed_tokens=TOKENS, prefer_last=True)
+
+
+def responses_url(base_url: str) -> str:
+    root = base_url.rstrip("/")
+    if root.endswith("/v1"):
+        root = root[:-3]
+    return f"{root}/v1/responses"
+
+
+def query_responses_with_retries(
+    *,
+    base_url: str,
+    payload: dict[str, Any],
+    timeout_s: int,
+    max_attempts: int,
+) -> dict[str, Any]:
+    attempts: list[dict[str, Any]] = []
+    final_response = ""
+    final_choice: str | None = None
+    for attempt in range(1, max_attempts + 1):
+        try:
+            response = requests.post(
+                responses_url(base_url),
+                json=payload,
+                headers={"Content-Type": "application/json"},
+                timeout=timeout_s,
+            )
+            response.raise_for_status()
+            data = response.json()
+            raw_response = extract_output_text_from_responses(data)
+            choice = parse_final_choice(raw_response)
+            attempts.append(
+                {
+                    "attempt": attempt,
+                    "http_status": int(response.status_code),
+                    "raw_response": raw_response,
+                    "choice": choice,
+                    "error": None,
+                }
+            )
+            if choice is not None:
+                final_response = raw_response
+                final_choice = choice
+                break
+        except Exception as exc:
+            attempts.append(
+                {
+                    "attempt": attempt,
+                    "http_status": None,
+                    "raw_response": "",
+                    "choice": None,
+                    "error": f"{type(exc).__name__}: {exc}",
+                }
+            )
+            time.sleep(0.5)
+    return {
+        "raw_response": final_response,
+        "raw_response_sha256": sha256_text(final_response),
+        "choice_token": final_choice,
+        "choice": int(final_choice) if final_choice is not None else None,
+        "attempt_count": len(attempts),
+        "request_failures": sum(item["http_status"] is None for item in attempts),
+        "parse_failures": sum(
+            item["http_status"] is not None and item["choice"] is None for item in attempts
+        ),
+        "attempts": attempts,
+    }
+
+
+def source_paths(repo_root: Path) -> list[Path]:
+    return [
+        Path(__file__).resolve(),
+        repo_root / "gradio_project/prompts/prompt_strategies.py",
+        repo_root / "gradio_project/prompts/prompt_templates.yaml",
+        repo_root / "utils/utils.py",
+        repo_root / "utils/initial_distribution.py",
+        repo_root / "utils/parity_render.py",
+    ]
