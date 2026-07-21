@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -214,15 +215,20 @@ def capture(command: list[str], path: Path, *, check: bool = True) -> subprocess
 
 
 def vllm_process() -> tuple[int, str]:
-    output = subprocess.check_output(["ps", "-eo", "pid,args"], text=True)
-    matches = []
-    for line in output.splitlines():
-        if "vllm" in line and "serve" in line and "--port 8127" in line:
-            pid_text, command = line.strip().split(maxsplit=1)
-            matches.append((int(pid_text), command))
-    if len(matches) != 1:
-        raise RuntimeError(f"expected one managed vLLM on 8127, found {len(matches)}")
-    return matches[0]
+    sockets = subprocess.check_output(["ss", "-ltnp"], text=True)
+    listeners = [line for line in sockets.splitlines() if re.search(r":8127\s", line)]
+    pids = {
+        int(match.group(1))
+        for line in listeners
+        if (match := re.search(r"pid=(\d+)", line)) is not None
+    }
+    if len(pids) != 1:
+        raise RuntimeError(f"expected one listener on 8127, found PIDs {sorted(pids)}")
+    pid = pids.pop()
+    command = Path(f"/proc/{pid}/cmdline").read_bytes().replace(b"\0", b" ").decode().strip()
+    if "vllm" not in command or "serve" not in command:
+        raise RuntimeError(f"port 8127 is not served by vLLM: {pid} {command}")
+    return pid, command
 
 
 def endpoint_ready() -> bool:
