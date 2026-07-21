@@ -176,6 +176,7 @@ def run_replay(
     *,
     output_dir: Path,
     run_id: str,
+    rule_run_id: str,
     variant: str,
     token_pair: str,
     replay: int,
@@ -185,7 +186,7 @@ def run_replay(
     max_transitions: int,
 ) -> None:
     output_dir.mkdir(parents=True, exist_ok=False)
-    rule_root = canonical_rule_root(run_id, variant, token_pair)
+    rule_root = canonical_rule_root(rule_run_id, variant, token_pair)
     if not rule_root.is_dir():
         raise FileNotFoundError(f"canonical deterministic rule not found: {rule_root}")
     input_rule = output_dir / "input_rule"
@@ -207,6 +208,7 @@ def run_replay(
     write_csv(output_dir / "scoreboard.csv", rows)
     manifest = {
         "run_id": run_id,
+        "rule_run_id": rule_run_id,
         "replay": replay,
         "created_at_utc": utc_now(),
         "git_commit": git_commit(),
@@ -308,6 +310,10 @@ def parse_seed_range(value: str) -> list[int]:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", required=True)
+    parser.add_argument(
+        "--rule-run-id",
+        help="Phase 1 run containing the canonical rule; defaults to --run-id.",
+    )
     parser.add_argument("--token-pair", choices=list(TOKEN_PAIR_SPECS), default="01")
     parser.add_argument("--variants", nargs="+")
     parser.add_argument("--agents", type=int, default=30)
@@ -319,6 +325,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    rule_run_id = args.rule_run_id or args.run_id
     seeds = parse_seed_range(args.seeds)
     variants = resolve_variants(args.token_pair, args.variants)
     spec = token_pair_spec(args.token_pair)
@@ -348,6 +355,7 @@ def main() -> int:
             run_replay(
                 output_dir=output,
                 run_id=args.run_id,
+                rule_run_id=rule_run_id,
                 variant=variant,
                 token_pair=args.token_pair,
                 replay=replay,

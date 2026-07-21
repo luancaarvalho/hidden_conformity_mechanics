@@ -16,6 +16,7 @@ class MigrationContractTest(unittest.TestCase):
         required = (
             "interface/interface_v4_gradio.py",
             "memory/run_gradio_gemma4b_01_matrix.py",
+            "memory/run_memory_online.py",
             "prompts/prompt_strategies.py",
             "prompts/prompt_templates.yaml",
             "utils/conformity_game_prompts.py",
@@ -51,6 +52,17 @@ class MigrationContractTest(unittest.TestCase):
 
     def test_legacy_phase_directory_is_absent(self) -> None:
         self.assertFalse((REPO_ROOT / "streamlit_test").exists())
+
+    def test_obsolete_memory_entrypoints_are_absent(self) -> None:
+        obsolete = (
+            "infra/rtx5090/run_memory_w1_pipeline.sh",
+            "infra/rtx5090/run_token_pair_batch.sh",
+            "infra/rtx5090/run_w0_rule_ca_parity_pipeline.sh",
+            "infra/rtx5090/analyze_n7_ici_token_bias.py",
+        )
+        for relative in obsolete:
+            self.assertFalse((REPO_ROOT / relative).exists(), relative)
+
 
 
 if __name__ == "__main__":

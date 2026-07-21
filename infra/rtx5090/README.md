@@ -19,30 +19,32 @@ tmux new-session -d -s gradio_project_v4 \
   'cd /home/liaan/Documentos/Luan/hidden_conformity_mechanics && bash gradio_project/launchers/launch_gradio_service.sh'
 ```
 
-Launch the Gemma 3 4B W=0 rule/automaton parity campaign with:
+Launch the complete Gemma 3 4B n=7 W=0..5, seeds 1..50 campaign with:
 
 ```bash
-bash infra/rtx5090/launch_w0_rule_ca_parity_tmux.sh
+bash infra/rtx5090/launch_n7_memory_campaign_tmux.sh
 ```
 
-The launcher prints the tmux session, run ID, and cross-phase result root. New artifacts use `artifacts/<phase>/rtx5090/n=<size>/...`; exact replays are reduced to one `canonical/` copy plus `determinism/` evidence.
+The launcher creates one persistent tmux session and runs one resumable Python
+orchestrator. Windows execute sequentially from W=0 through W=5. Within a replay,
+two cells can be active while one shared executor caps inference at 32 requests.
+New artifacts use `artifacts/<phase>/rtx5090/n=<size>/...`; exact replays are
+reduced to one `canonical/` copy plus `determinism/` evidence.
 
 After the remote run reaches a terminal state, mirror and verify it from the local workspace with:
 
 ```bash
-bash infra/rtx5090/sync_w0_rule_ca_parity_to_local.sh <RUN_ID>
+bash infra/rtx5090/sync_n7_memory_campaign_to_local.sh <CAMPAIGN_ID>
 ```
 
-Run the complete sequential `k/z` and `△/○` campaign, including rule extraction,
-automata, online W=0 parity, W=1 impact, and the cross-token proofread, with:
+Control files are written to:
 
-```bash
-bash infra/rtx5090/launch_token_pair_batch_tmux.sh
+```text
+artifacts/orchestration/rtx5090/<CAMPAIGN_ID>/
 ```
 
-The launcher prints a `BATCH_ID`. After terminal completion, mirror every promoted
-artifact and verify remote/local SHA-256 hashes from the local workspace with:
+The final aggregate is written to:
 
-```bash
-bash infra/rtx5090/sync_token_pair_batch_to_local.sh <BATCH_ID>
+```text
+artifacts/cross_window_validation/rtx5090/n=7/gemma-3-4b-it/W0-5_seed1-50_<timestamp>/
 ```
