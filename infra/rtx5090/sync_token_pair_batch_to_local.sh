@@ -7,6 +7,13 @@ REMOTE_REPO="${REMOTE_REPO:-/home/liaan/Documentos/Luan/hidden_conformity_mechan
 DEST_ROOT="$LOCAL_RESULTS_ROOT/rtx5090"
 PROOF_ROOT="$DEST_ROOT/n=7/sync_proof/$BATCH_ID"
 TIMESTAMP="${BATCH_ID##*_}"
+SSH_OPTS=(
+  -o BatchMode=yes
+  -o ConnectTimeout=10
+  -o ServerAliveInterval=10
+  -o ServerAliveCountMax=3
+)
+RSYNC_SSH="ssh -o BatchMode=yes -o ConnectTimeout=10 -o ServerAliveInterval=10 -o ServerAliveCountMax=3"
 
 mkdir -p "$PROOF_ROOT"
 : > "$PROOF_ROOT/sync_status.txt"
@@ -15,14 +22,14 @@ sync_tree() {
   local label="$1"
   local remote_path="$2"
   local local_path="$3"
-  if ! ssh rtx5090 "test -d '$remote_path'"; then
+  if ! ssh "${SSH_OPTS[@]}" rtx5090 "test -d '$remote_path'"; then
     printf 'SKIPPED missing %s\n' "$remote_path" | tee -a "$PROOF_ROOT/sync_status.txt"
     return
   fi
-  test ! -e "$local_path"
   mkdir -p "$local_path"
-  rsync -a "rtx5090:$remote_path/" "$local_path/"
-  ssh rtx5090 "cd '$remote_path' && find . -type f -print0 | sort -z | xargs -0 sha256sum" \
+  rsync -a -e "$RSYNC_SSH" "rtx5090:$remote_path/" "$local_path/"
+  ssh "${SSH_OPTS[@]}" rtx5090 \
+    "cd '$remote_path' && find . -type f -print0 | sort -z | xargs -0 sha256sum" \
     > "$PROOF_ROOT/${label}.remote.sha256"
   (cd "$local_path" && find . -type f -print0 | sort -z | xargs -0 shasum -a 256) \
     > "$PROOF_ROOT/${label}.local.sha256"
