@@ -6,6 +6,8 @@ import json
 import shutil
 import subprocess
 import sys
+import threading
+import time
 from concurrent.futures import Future, ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -13,6 +15,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import numpy as np
+import requests
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -129,6 +132,25 @@ def cell_root(work_root: Path, spec: CellSpec, replay: int) -> Path:
     return replay_root(work_root, spec, replay) / "cells" / f"seed_{spec.seed:02d}"
 
 
+def wait_for_endpoint(
+    base_url: str, fatal_endpoint: threading.Event, timeout_s: int = 1800
+) -> None:
+    if fatal_endpoint.is_set():
+        raise RuntimeError("FAIL_ENDPOINT: endpoint already marked unavailable")
+    deadline = time.monotonic() + timeout_s
+    delay = 5
+    while time.monotonic() < deadline:
+        try:
+            response = requests.get(f"{base_url.rstrip('/')}/models", timeout=10)
+            response.raise_for_status()
+            return
+        except Exception:
+            time.sleep(delay)
+            delay = min(delay * 2, 60)
+    fatal_endpoint.set()
+    raise RuntimeError("FAIL_ENDPOINT: endpoint unavailable for 30 minutes")
+
+
 def query_agent(
     *,
     transition: int,
@@ -228,6 +250,7 @@ def run_cell(
     output_dir: Path,
     progress_path: Path,
     request_pool: ThreadPoolExecutor,
+    fatal_endpoint: threading.Event,
     base_url: str,
     model: str,
     agents: int,
@@ -236,6 +259,7 @@ def run_cell(
     timeout_s: int,
     max_attempts: int,
 ) -> dict[str, Any]:
+    wait_for_endpoint(base_url, fatal_endpoint)
     output_dir.mkdir(parents=True, exist_ok=False)
     atomic_append_jsonl(
         progress_path,
@@ -264,6 +288,7 @@ def run_cell(
     half = N_NEIGHBORS // 2
 
     for transition in range(1, max_transitions + 1):
+        wait_for_endpoint(base_url, fatal_endpoint)
         previous = states[transition - 1].astype(np.int8)
         futures: list[Future[dict[str, Any]]] = []
         for agent in range(agents):
@@ -502,6 +527,7 @@ def run_manifest_replay(
         )
 
     errors: list[dict[str, Any]] = []
+    fatal_endpoint = threading.Event()
     with ThreadPoolExecutor(max_workers=request_workers) as request_pool:
         with ThreadPoolExecutor(max_workers=cell_workers) as cell_pool:
             futures = {
@@ -512,6 +538,7 @@ def run_manifest_replay(
                     output_dir=cell_root(work_root, spec, replay),
                     progress_path=progress_path,
                     request_pool=request_pool,
+                    fatal_endpoint=fatal_endpoint,
                     base_url=base_url,
                     model=model,
                     agents=agents,
@@ -570,6 +597,8 @@ def run_manifest_replay(
             request_workers=request_workers,
             cell_workers=cell_workers,
         )
+    if fatal_endpoint.is_set():
+        raise RuntimeError("FAIL_ENDPOINT: replay stopped after 30-minute backoff")
     return {
         "replay": replay,
         "expected_cells": len(specs),

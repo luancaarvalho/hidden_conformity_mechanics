@@ -15,30 +15,13 @@ TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
 REMOTE_STATUS="$REMOTE_REPO/artifacts/orchestration/rtx5090/$CAMPAIGN_ID/terminal_status.json"
-STATUS="$(ssh "$REMOTE" "python3 -c \"import json; print(json.load(open('$REMOTE_STATUS'))['status'])\"")"
-if [[ "$STATUS" != "PASS" && "$STATUS" != FAIL_* ]]; then
+STATUS_LINE="$(ssh "$REMOTE" "python3 -c \"import json; d=json.load(open('$REMOTE_STATUS')); print(d['status']+'|'+str(int(d.get('complete', False))))\"")"
+STATUS="${STATUS_LINE%%|*}"
+COMPLETE="${STATUS_LINE##*|}"
+if [[ "$COMPLETE" != "1" ]]; then
   echo "Campaign is not terminal: $STATUS" >&2
   exit 3
 fi
-
-mkdir -p "$LOCAL_ROOT"
-rsync -a --partial --info=progress2 \
-  "$REMOTE:$REMOTE_REPO/artifacts/orchestration/rtx5090/$CAMPAIGN_ID/" \
-  "$LOCAL_ROOT/orchestration/$CAMPAIGN_ID/"
-
-for phase in phase1_rule_extraction phase2_cellular_automata phase3_memory; do
-  mkdir -p "$LOCAL_ROOT/$phase"
-  rsync -a --partial --info=progress2 \
-    "$REMOTE:$REMOTE_REPO/artifacts/$phase/rtx5090/n=7/gemma-3-4b-it/" \
-    "$LOCAL_ROOT/$phase/gemma-3-4b-it/"
-done
-
-TIMESTAMP="${CAMPAIGN_ID##*_}"
-AGGREGATE="W0-5_seed1-50_$TIMESTAMP"
-mkdir -p "$LOCAL_ROOT/cross_window_validation/gemma-3-4b-it"
-rsync -a --partial --info=progress2 \
-  "$REMOTE:$REMOTE_REPO/artifacts/cross_window_validation/rtx5090/n=7/gemma-3-4b-it/$AGGREGATE/" \
-  "$LOCAL_ROOT/cross_window_validation/gemma-3-4b-it/$AGGREGATE/"
 
 hash_local() {
   local root="$1"
@@ -59,17 +42,34 @@ verify_tree() {
   diff -u "$TMP_DIR/$name.remote" "$TMP_DIR/$name.local"
 }
 
-verify_tree \
+sync_and_verify() {
+  local remote_root="$1"
+  local local_root="$2"
+  local name="$3"
+  if ! ssh "$REMOTE" "test -d '$remote_root'"; then
+    printf 'SKIP_MISSING_REMOTE=%s\n' "$remote_root"
+    return
+  fi
+  mkdir -p "$local_root"
+  rsync -a --partial --info=progress2 "$REMOTE:$remote_root/" "$local_root/"
+  verify_tree "$remote_root" "$local_root" "$name"
+}
+
+mkdir -p "$LOCAL_ROOT"
+sync_and_verify \
   "$REMOTE_REPO/artifacts/orchestration/rtx5090/$CAMPAIGN_ID" \
   "$LOCAL_ROOT/orchestration/$CAMPAIGN_ID" orchestration
+
 for phase in phase1_rule_extraction phase2_cellular_automata phase3_memory; do
-  verify_tree \
+  sync_and_verify \
     "$REMOTE_REPO/artifacts/$phase/rtx5090/n=7/gemma-3-4b-it" \
     "$LOCAL_ROOT/$phase/gemma-3-4b-it" "$phase"
 done
-verify_tree \
+
+TIMESTAMP="${CAMPAIGN_ID##*_}"
+AGGREGATE="W0-5_seed1-50_$TIMESTAMP"
+sync_and_verify \
   "$REMOTE_REPO/artifacts/cross_window_validation/rtx5090/n=7/gemma-3-4b-it/$AGGREGATE" \
   "$LOCAL_ROOT/cross_window_validation/gemma-3-4b-it/$AGGREGATE" aggregate
 
-printf 'SYNC_PASS=%s\n' "$LOCAL_ROOT"
-
+printf 'SYNC_TERMINAL_%s=%s\n' "$STATUS" "$LOCAL_ROOT"
