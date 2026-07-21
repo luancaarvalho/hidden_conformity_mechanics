@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 import unittest
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -33,6 +34,14 @@ class W0ParityAutomataTest(unittest.TestCase):
         first = MODULE.render_binary_trajectory_png(states)
         second = MODULE.render_binary_trajectory_png(states)
         self.assertEqual(first, second)
+
+    def test_shared_renderer_is_byte_deterministic_under_concurrency(self) -> None:
+        states = np.array([[0, 1, 0], [1, 1, 0]], dtype=float)
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            rendered = list(
+                pool.map(MODULE.render_binary_trajectory_png, [states] * 32)
+            )
+        self.assertEqual(len(set(rendered)), 1)
 
 
 if __name__ == "__main__":
